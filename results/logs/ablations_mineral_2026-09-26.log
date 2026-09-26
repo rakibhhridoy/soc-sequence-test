@@ -1,0 +1,26 @@
+loaded data/processed/panel_mineral.npz: 16200 observations
+device=mps | spatial block size=308,226 m | folds=4
+
+  full model (LSTM)                rmse=0.504  skill_vs_persistence=+0.272  (302s)
+  6. no previous observation       rmse=0.508  skill_vs_persistence=+0.268  (259s)
+  1. no recurrent decoder          rmse=0.502  skill_vs_persistence=+0.277  (324s)
+  2. no learned encoder            rmse=0.505  skill_vs_persistence=+0.272  (287s)
+  3. GRU in place of LSTM          rmse=0.504  skill_vs_persistence=+0.274  (1264s)
+  4. no static embedding           rmse=0.590  skill_vs_persistence=+0.149  (225s)
+  5. lambda = 0 (no penalty)       rmse=0.504  skill_vs_persistence=+0.272  (259s)
+
+                                         model  rmse_level  ccc_level  skill_vs_persistence  rmse_change_persistence  coverage_90     n  rmse_change  ccc_change
+                                   persistence       0.693      0.412                 0.000                    0.693          NaN 16200        0.693       0.000
+             gradient boosting (summary stats)       0.510      0.512                 0.265                    0.693          NaN 16200        0.510       0.664
+                             full model (LSTM)       0.504      0.514                 0.272                    0.693        0.909 16200        0.504       0.643
+                    6. no previous observation       0.508      0.503                 0.268                    0.693        0.910 16200        0.508       0.663
+                       1. no recurrent decoder       0.502      0.524                 0.277                    0.693        0.907 16200        0.502       0.652
+                         2. no learned encoder       0.505      0.521                 0.272                    0.693        0.908 16200        0.505       0.642
+                       3. GRU in place of LSTM       0.504      0.507                 0.274                    0.693        0.912 16200        0.504       0.645
+                        4. no static embedding       0.590      0.230                 0.149                    0.693        0.888 16200        0.590       0.599
+                    5. lambda = 0 (no penalty)       0.504      0.514                 0.272                    0.693        0.909 16200        0.504       0.643
+full model, RANDOM k-fold (optimism reference)       0.494      0.535                 0.287                    0.693        0.911 16200        0.494       0.660
+
+optimism from random splitting: rmse 0.494 vs 0.504 blocked (+2 %)
+note: RMSE on change equals RMSE on level by construction; skill_vs_persistence is the column that decides whether a model beats assuming no change.
+wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/ablations_mineral.csv

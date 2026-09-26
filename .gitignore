@@ -1,0 +1,29 @@
+# data: raw downloads and derived products stay out of version control
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+results/models/*
+!results/models/.gitkeep
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# latex
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+
+# macos
+.DS_Store
+._*
+
+# manuscript stays private until the preprint is posted
+manuscript/

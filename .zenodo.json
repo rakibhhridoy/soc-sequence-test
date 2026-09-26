@@ -1,0 +1,13 @@
+{
+  "title": "Code and derived data: a pre-registered test of a convolutional-recurrent network for forecasting soil organic carbon change",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Hasan, Md Rakib",
+     "affiliation": "Department of Soil, Water and Environment, University of Dhaka",
+     "orcid": "0009-0002-4007-7590"}
+  ],
+  "keywords": ["soil organic carbon", "deep learning", "LUCAS", "digital soil mapping",
+               "blocked cross-validation", "pre-registration"],
+  "description": "Analysis code and derived panel for a pre-registered test of a hybrid convolutional-recurrent architecture against gradient boosting, on repeatedly sampled LUCAS topsoil observations. The LUCAS source data are not redistributed here, since their licence does not permit it; the code rebuilds the panel from files obtained directly from the European Soil Data Centre."
+}

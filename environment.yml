@@ -1,0 +1,20 @@
+name: soc-article
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - xgboost
+  - matplotlib
+  - geopandas
+  - rasterio
+  - pyproj
+  - shapely
+  - scikit-gstat      # variograms, for the spatial block size
+  - jupyterlab
+  - pip
+  - pip:
+      - torch          # Apple GPU via the MPS backend
+      - earthengine-api

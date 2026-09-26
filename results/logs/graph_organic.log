@@ -1,0 +1,9 @@
+536 observations | block 1388 km | k=8 | mps
+  geographic       skill +0.324  (6s)
+  covariate-space  skill +0.377  (6s)
+
+                                 model  rmse    ccc  skill_vs_persistence  coverage_90   n
+     graph on hybrid (geographic k-NN) 1.158 -0.025                 0.324        0.724 536
+graph on hybrid (covariate-space k-NN) 1.068  0.056                 0.377        0.709 536
+
+wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/graph_organic.csv
