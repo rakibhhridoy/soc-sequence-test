@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-title: Code and derived data for a pre-registered test of a convolutional-recurrent
-  network for forecasting soil organic carbon change
+title: Code and results for a test of a convolutional-recurrent network for forecasting
+  soil organic carbon change, with the evaluation protocol fixed in advance
 message: If you use this software, please cite it and the accompanying article.
 type: software
 authors:

@@ -1,7 +1,7 @@
 # From framework to article
 
-The preprint in `../preprint/` is frozen. It states an architecture and a
-pre-registered evaluation protocol, and reports no results. This folder turns it into
+The preprint in `../preprint/` is frozen. It states an architecture and an
+evaluation protocol fixed in advance, and reports no results. This folder turns it into
 an empirical article by running that protocol.
 
 Because the protocol was published first, its terms are binding. A result that
@@ -89,13 +89,14 @@ article/
 - [x] Training loop (`src/train.py`): blocked cross-validation, early stopping on a
       blocked validation fold, deep ensembles, and standardisation fitted on the training
       fold alone so no test information leaks in.
-- [x] The five pre-registered ablations (`scripts/run_ablations.py`), with persistence and
+- [x] The five ablations fixed in the protocol (`scripts/run_ablations.py`), with persistence and
       gradient-boosting baselines and a labelled random-k-fold optimism reference.
 - [x] Verified end to end on synthetic data (`results/README.md`): six ablations,
       baselines, optimism reference, calibrated intervals. Machinery only.
-- [x] Run on the real LUCAS panel. See `results/FINDINGS.md`: the pre-registered
-      falsification condition is met, and gradient boosting on summary statistics beats
-      the hybrid architecture (0.265 against 0.154 skill vs persistence).
+- [x] Run on the real LUCAS panel. The first run (`results/FINDINGS.md`, now superseded)
+      was invalidated by a data bug; see `results/STATUS.md` for the corrected results,
+      in which the architecture narrowly leads (0.272 against 0.265) and the falsification
+      condition fixed in advance is not met.
 - [ ] Results and Discussion in `manuscript/`.
 
 ## Order of work
@@ -106,7 +107,7 @@ article/
    under random splitting by accident.
 3. Baselines before the network: persistence, gradient boosting on summary statistics,
    and a process-model run.
-4. The full architecture, then the five pre-registered ablations.
+4. The full architecture, then the five ablations fixed in the protocol.
 6. Write Results and Discussion into `manuscript/`.
 
 Skill on the change in SOC, not on the level, decides the outcome. A model that scores

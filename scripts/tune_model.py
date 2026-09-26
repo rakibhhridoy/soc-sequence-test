@@ -1,6 +1,6 @@
 """A modest, documented hyperparameter search for the hybrid model.
 
-The pre-registered protocol forbids tuning each ablation separately, because that would
+The protocol fixed in advance forbids tuning each ablation separately, because that would
 confound the component removed with its hyperparameters. It says nothing about whether
 the full model was given a fair chance against the gradient-boosting baseline, which ran
 with sensible library defaults while the network ran with one arbitrary configuration.

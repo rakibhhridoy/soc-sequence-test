@@ -29,8 +29,8 @@ Skill against persistence, blocked validation, mineral soils unless stated.
 | Forward in time | 0.202 | 0.160 | 0.000 |
 | Organic soils (268 points) | 0.446 | 0.434 | 0.000 |
 
-The architecture leads narrowly under every scheme, so **the pre-registered falsification
-condition is not met** and the paper can no longer be written as a refutation.
+The architecture leads narrowly under every scheme, so **the falsification condition
+fixed in advance is not met** and the paper can no longer be written as a refutation.
 
 The substantive finding is in `dynamic_diagnostic.csv`. Replacing the covariate series with
 zeros costs only 0.031 skill (0.271 to 0.240), noise costs 0.034, and gradient boosting on
@@ -138,3 +138,11 @@ dynamic-diagnostic runs are at lr 0.001 / dropout 0.2, disclosed in captions.
 Three-member ensembles, lr 0.003 / dropout 0.1: real 0.272 (reproduces Table 1), zeros 0.244,
 noise 0.241, GB static+previous 0.239. Series worth ~0.03 as before. Manuscript updated; every
 result table is now at the tuned configuration. Old table: `dynamic_diagnostic_lr001_do02_single.csv`.
+
+## GitHub (2026-09-26)
+
+Public repo https://github.com/rakibhhridoy/soc-sequence-test, commit author rakibhhridoy@yahoo.com. manuscript/ is gitignored until the preprint is posted. Manuscript URL placeholder filled. Next: Zenodo (RELEASE.md).
+
+## Zenodo (2026-09-26)
+
+Manual upload of soc-sequence-test.zip. Version DOI 10.5281/zenodo.22973028 (in manuscript), concept DOI 10.5281/zenodo.22973027 (all versions). Record title "SOC Sequence Test".

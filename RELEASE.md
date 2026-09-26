@@ -24,7 +24,7 @@ identifiers attached.
 ```
 git init
 git add -A
-git commit -m "Pre-registered test of a convolutional-recurrent model for SOC change"
+git commit -m "Test of a convolutional-recurrent model for SOC change"
 git branch -M main
 git remote add origin git@github.com:<user>/soc-sequence-test.git
 git push -u origin main

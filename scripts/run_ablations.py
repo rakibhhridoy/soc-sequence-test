@@ -1,4 +1,4 @@
-"""The five pre-registered ablations, plus baselines, under blocked validation.
+"""The five ablations fixed in the protocol, plus baselines, under blocked validation.
 
 Each ablation is a subtraction from the full model, not a separately tuned alternative,
 so a difference in skill is attributable to the component removed.

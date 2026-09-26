@@ -1,4 +1,4 @@
-"""Forward temporal validation, required by the pre-registered protocol.
+"""Forward temporal validation, required by the protocol fixed in advance.
 
 Spatial blocking asks whether a model generalises to new places. This asks whether it
 generalises to a later time, by training only on the 2015 targets and testing on the 2018

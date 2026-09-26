@@ -29,5 +29,5 @@ What it must not be read as:
 - Absolute skill is meaningless here. Persistence is near-unbeatable by construction
   because the synthetic change signal is small against the standing stock.
 
-The same table on the real LUCAS panel is the actual experiment, and the pre-registered
-falsification applies to that run alone.
+The same table on the real LUCAS panel is the actual experiment, and the falsification
+condition fixed in advance applies to that run alone.

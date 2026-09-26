@@ -1,4 +1,4 @@
-"""Graph extension, beyond the pre-registered protocol.
+"""Graph extension, beyond the protocol fixed in advance.
 
 Adds message passing between neighbouring points on top of the hybrid architecture, under
 the identical blocked folds used for the fixed-protocol comparison. Two neighbourhoods are

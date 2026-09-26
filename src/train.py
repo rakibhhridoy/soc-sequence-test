@@ -1,4 +1,4 @@
-"""Training and cross-validated evaluation under the pre-registered protocol.
+"""Training and cross-validated evaluation under the protocol fixed in advance.
 
 Two rules are enforced here rather than left to the caller:
 

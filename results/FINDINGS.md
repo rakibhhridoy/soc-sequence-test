@@ -1,6 +1,11 @@
-# Findings (2026-09-24)
+# Findings (2026-09-24) -- SUPERSEDED
 
-The pre-registered falsification condition is met. Gradient boosting on hand-engineered
+> **Superseded on 2026-09-25.** These results were produced before a data bug was found
+> (cation exchange capacity missing for half the panel, which gave NaN inputs and partly
+> untrained networks). They are kept as a record only. The corrected results are in
+> `STATUS.md`, and under them the falsification condition is **not** met.
+
+The falsification condition fixed in advance is met. Gradient boosting on hand-engineered
 temporal summary statistics outperforms the hybrid architecture on LUCAS mineral soils
 under spatially blocked validation, and no ablation or tuning reverses that.
 

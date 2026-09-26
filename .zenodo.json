@@ -1,5 +1,5 @@
 {
-  "title": "Code and derived data: a pre-registered test of a convolutional-recurrent network for forecasting soil organic carbon change",
+  "title": "Code and results: a test of a convolutional-recurrent network for forecasting soil organic carbon change, with the evaluation protocol fixed in advance",
   "upload_type": "software",
   "license": "MIT",
   "creators": [
@@ -24,7 +24,7 @@
     "LUCAS",
     "digital soil mapping",
     "blocked cross-validation",
-    "pre-registration"
+    "protocol fixed in advance"
   ],
-  "description": "Analysis code and derived panel for a pre-registered test of a hybrid convolutional-recurrent architecture against gradient boosting, on repeatedly sampled LUCAS topsoil observations. The LUCAS source data are not redistributed here, since their licence does not permit it; the code rebuilds the panel from files obtained directly from the European Soil Data Centre."
+  "description": "Analysis code, result tables and run logs for a test of a hybrid convolutional-recurrent architecture against gradient boosting on repeatedly sampled LUCAS topsoil observations, under an evaluation protocol fixed before the data were seen. The LUCAS source data and the panel derived from them are not redistributed, since their licence does not permit it; the code rebuilds the panel from files obtained directly from the European Soil Data Centre."
 }
