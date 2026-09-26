@@ -146,3 +146,40 @@ Public repo https://github.com/rakibhhridoy/soc-sequence-test, commit author rak
 ## Zenodo (2026-09-26)
 
 Manual upload of soc-sequence-test.zip. Version DOI 10.5281/zenodo.22973028 (in manuscript), concept DOI 10.5281/zenodo.22973027 (all versions). Record title "SOC Sequence Test".
+
+## Bootstrap (2026-09-26) -- changes the headline
+
+Block bootstrap over 79 spatial blocks, 2,000 replicates (`bootstrap_comparison.csv`).
+The main-table gradient boosting was run WITHOUT the previous carbon value, which the hybrid
+receives. Given it, boosting matches the hybrid exactly:
+
+| Spatial, mineral | Skill | 95 % CI |
+|---|---|---|
+| Hybrid, full | 0.272 | 0.247-0.296 |
+| GB with previous value | 0.272 | 0.249-0.294 |
+| Hybrid minus GB (with previous) | +0.001 | -0.009 to 0.009 |
+| Hybrid minus GB (no previous, as in Table 1) | +0.007 | -0.003 to 0.017 |
+| No decoder minus full | +0.004 | -0.004 to 0.012 |
+| Full minus zero series | +0.028 | 0.019 to 0.037 |
+
+Temporal: hybrid 0.178 vs GB with previous 0.160, difference +0.018 (-0.001 to 0.033, 97 %
+of replicates above zero). Under the protocol's wording ("refuted if gradient boosting ...
+matches the full architecture"), the fair baseline matches it under spatial blocking.
+Manuscript currently says the condition is NOT met and must be revised.
+
+## Climate check, ERA5-Land (2026-09-26)
+
+`climate_comparison.csv`, same folds, paired block bootstrap. Adding monthly temperature,
+precipitation and top-layer soil water: hybrid 0.272 -> 0.282 (+0.009, 0.002 to 0.018);
+GB with previous 0.272 -> 0.286 (+0.014, 0.006 to 0.023). With climate, hybrid minus GB =
+-0.004 (-0.015 to 0.006). Climate helps both a little, helps boosting slightly more, and the
+tie stands. Climate ablation table not run.
+
+## Manuscript revised to option 1 (2026-09-26)
+
+Protocol-faithful framing: under spatial blocking the protocol baseline (GB with previous
+value) matches the architecture (0.272 each, diff 0.001, CI -0.009 to 0.009), so the
+condition fixed in advance is MET. Temporal lead 0.018 reported as probable, not
+established. New Methods subsection "Comparing models" (fair baseline, block bootstrap,
+ERA5-Land), new bootstrap table, new climate subsection, organic GB-with-previous row
+(0.428 vs hybrid 0.426). Previous draft archived in manuscript/superseded/*_parity_2026-09-26.
