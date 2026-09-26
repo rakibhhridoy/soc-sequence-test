@@ -28,3 +28,4 @@ manuscript/*.fdb_latexmk
 # manuscript stays private until the preprint is posted
 manuscript/
 results/predictions/
+results/tables/superseded_*/

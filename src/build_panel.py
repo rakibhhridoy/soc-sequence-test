@@ -21,6 +21,10 @@ CHANNELS = ["blue", "green", "red", "nir", "swir1", "swir2", "ndvi", "ndwi", "mn
 # observation whose previous campaign is 2015. A column present for only half the panel
 # cannot be standardised across a mixed fold, so it is dropped rather than imputed.
 STATIC = ["clay", "sand", "silt", "ph_h2o", "n_total"]
+# LUCAS measures texture at a point only on its first visit, so revisited points carry no
+# clay, sand or silt in 2015 or 2018. Texture does not change on these timescales, so the
+# first measured value is carried forward rather than imputed from a panel mean.
+TEXTURE = ["clay", "sand", "silt"]
 ROUNDS = [2009, 2015, 2018]
 N_MONTHS = 60
 ORGANIC_THRESHOLD = 120.0      # g/kg; above this a soil is organic rather than mineral
@@ -78,6 +82,10 @@ def build(raw_cov: Path | None = None, panel_path: Path | None = None) -> dict:
     points = wide_soc.index
 
     statics = {y: soil[soil.year == y].set_index("point_id").reindex(points) for y in ROUNDS}
+    first_texture = (soil.sort_values("year").groupby("point_id")[TEXTURE].first()
+                     .reindex(points))
+    for y in ROUNDS:
+        statics[y][TEXTURE] = statics[y][TEXTURE].fillna(first_texture)
     coords = (soil.groupby("point_id")[["lat", "lon"]].first().reindex(points))
     xy = (__import__("geopandas")
           .GeoSeries(__import__("geopandas").points_from_xy(coords.lon, coords.lat), crs=4326)
@@ -108,6 +116,8 @@ def build(raw_cov: Path | None = None, panel_path: Path | None = None) -> dict:
         n_bad = int(np.isnan(out[key]).sum())
         if n_bad:
             raise ValueError(f"{key} still carries {n_bad} missing values after filling")
-    out["mineral"] = (wide_soc[ROUNDS].max(axis=1).to_numpy() < ORGANIC_THRESHOLD)
-    out["mineral"] = np.concatenate([out["mineral"], out["mineral"]])
+    # Classed on the previous value alone, which is known when the forecast is made.
+    # Classing on every round, the target included, would drop points whose carbon rose
+    # past the threshold, which is selection on the outcome.
+    out["mineral"] = out["soc_prev"] < ORGANIC_THRESHOLD
     return out

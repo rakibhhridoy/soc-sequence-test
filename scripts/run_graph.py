@@ -24,6 +24,8 @@ def main() -> int:
     ap.add_argument("--epochs", type=int, default=300)
     ap.add_argument("--folds", type=int, default=4)
     ap.add_argument("--k", type=int, default=8)
+    ap.add_argument("--block-size", type=float, default=None,
+                    help="metres; default fits the SOC variogram, which is unstable on small panels")
     args = ap.parse_args()
 
     data = load_npz(args.data)
@@ -32,7 +34,8 @@ def main() -> int:
         raise SystemExit("panel lacks point_id, so same-point edges cannot be removed")
     config.seed_everything()
     device = config.device()
-    folds, block = train.spatial_folds(data, n_folds=args.folds)
+    folds, block = train.spatial_folds(data, n_folds=args.folds,
+                                              block_size=args.block_size)
     print(f"{len(data.y):,} observations | block {block/1000:.0f} km | k={args.k} | {device.type}")
 
     feats = np.hstack([baselines.summary_features(data.x_dyn), data.x_static])

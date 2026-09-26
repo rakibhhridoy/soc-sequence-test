@@ -195,3 +195,36 @@ scripts/make_figures.py -> results/figures/fig_skill, fig_inputs, fig_map (pdf+p
 ## Pending (2026-09-26)
 
 - Author will upload a new Zenodo version later (repo now has bootstrap, climate and figure scripts that the v1 zip lacks). Manuscript DOI left as is by request.
+
+## Soil-science breakdown (2026-09-26)
+
+scripts/soil_breakdown.py (no retraining): skill by land use (cropland 0.280/0.276, grassland 0.254/0.258, ties), by previous-SOC tertile (0.31 / 0.12 / 0.31, U-shape), simple baselines (campaign shift 0.005, campaign x land use 0.027, linear on previous value 0.174, + campaign 0.185 = two thirds of 0.272: mostly regression to the mean). Observed change: cropland median +23% then -11%, grassland -19% both intervals. Map fig_change_map: cell r=0.70, point slope 0.48; overshoot on 82 high-C Irish/W British points (pred -0.52 vs obs -0.16). Manuscript: new Results subsection, Table and Fig; 20 pages.
+
+## Critique fixes in progress (2026-09-26 15:13)
+
+Verified flaws: (1) noise ceiling mixes g/kg and log scales; on the log scale it is 0.215
+(median) or negative (rms), below the achieved 0.272, so the construct is invalid and is to be
+removed. (2) Texture NaN for all revisited points in 2015/2018 and mean-filled: clay had 3
+distinct values in the 2018-target half. FIXED in build_panel (first measured texture carried
+forward). (3) Mineral class used max SOC over all rounds incl. the target (selection on the
+outcome). FIXED: classed on soc_prev < 120. New panel: 16,462 mineral obs / 8,339 points,
+274 organic obs. Also found: early stopping uses a random (not blocked) subset of the training
+fold, although the manuscript says blocked.
+New scripts/build_panels.py, scripts/robustness.py (5 seeds x fold assignments, linear
+mean-reversion baseline, TOST at 0.02 margin chosen post hoc, spatiotemporal validation).
+Full rerun queued: results/logs/queue_fixes.sh, per-step logs in results/logs/fixes/.
+Old tables in results/tables/superseded_prefix_2026-09-26/, old panels in
+data/processed/superseded/2026-09-26/.
+
+## Rerun on corrected panel complete (2026-09-26 18:20)
+
+Spatial (5 replicates pooled): hybrid 0.248, GB fair 0.254, linear mean reversion 0.169;
+hybrid - GB -0.006 (95 % -0.022 to 0.009; 90 % inside +/-0.02 -> equivalent at the post hoc
+margin); both beat linear by ~0.08; no decoder - hybrid +0.008 (equivalent at 0.02).
+Spatiotemporal (3 replicates): hybrid 0.156, GB 0.121, linear 0.140; hybrid - linear +0.016
+(-0.020 to 0.051): no method beats mean reversion at new places and later dates.
+Same-point temporal (old design): hybrid 0.179 vs GB 0.135, +0.044 (0.017-0.067) -- inflated.
+Climate: +0.020 hybrid, +0.015 GB, tie with climate (-0.004). Zeros cost 0.024.
+Organic (274 obs, block 276 km): hybrid 0.389, GB no prev 0.363, no decoder 0.396 --
+the earlier decoder "reversal" on organic soils is gone. Graph: mineral 0.252/0.251, organic
+0.368/0.375, nothing added. Manuscript NOT yet updated.

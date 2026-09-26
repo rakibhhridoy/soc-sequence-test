@@ -1,0 +1,26 @@
+loaded data/processed/panel_organic.npz: 274 observations
+device=mps | spatial block size=276,477 m | folds=3
+
+  full model (LSTM)                rmse=0.790  skill_vs_persistence=+0.389  (6s)
+  6. no previous observation       rmse=0.811  skill_vs_persistence=+0.372  (3s)
+  1. no recurrent decoder          rmse=0.781  skill_vs_persistence=+0.396  (3s)
+  2. no learned encoder            rmse=0.833  skill_vs_persistence=+0.356  (3s)
+  3. GRU in place of LSTM          rmse=0.808  skill_vs_persistence=+0.375  (20s)
+  4. no static embedding           rmse=0.829  skill_vs_persistence=+0.358  (3s)
+  5. lambda = 0 (no penalty)       rmse=0.790  skill_vs_persistence=+0.389  (4s)
+
+                                         model  rmse_level  ccc_level  skill_vs_persistence  rmse_change_persistence  coverage_90   n  rmse_change  ccc_change
+                                   persistence       1.292      0.131                 0.000                    1.292          NaN 274        1.292       0.000
+             gradient boosting (summary stats)       0.824      0.497                 0.363                    1.292          NaN 274        0.824       0.461
+                             full model (LSTM)       0.790      0.477                 0.389                    1.292        0.891 274        0.790       0.424
+                    6. no previous observation       0.811      0.425                 0.372                    1.292        0.883 274        0.811       0.426
+                       1. no recurrent decoder       0.781      0.487                 0.396                    1.292        0.880 274        0.781       0.428
+                         2. no learned encoder       0.833      0.449                 0.356                    1.292        0.861 274        0.833       0.414
+                       3. GRU in place of LSTM       0.808      0.454                 0.375                    1.292        0.876 274        0.808       0.409
+                        4. no static embedding       0.829      0.394                 0.358                    1.292        0.901 274        0.829       0.408
+                    5. lambda = 0 (no penalty)       0.790      0.477                 0.389                    1.292        0.891 274        0.790       0.424
+full model, RANDOM k-fold (optimism reference)       0.840      0.362                 0.350                    1.292        0.887 274        0.840       0.322
+
+optimism from random splitting: rmse 0.840 vs 0.790 blocked (-6 %)
+note: RMSE on change equals RMSE on level by construction; skill_vs_persistence is the column that decides whether a model beats assuming no change.
+wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/ablations_organic.csv

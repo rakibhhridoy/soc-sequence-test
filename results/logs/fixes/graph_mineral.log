@@ -1,0 +1,10 @@
+16,462 observations | block 276 km | k=8 | mps
+  geographic       skill +0.252  (642s)
+python(56405) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  covariate-space  skill +0.251  (664s)
+
+                                 model  rmse   ccc  skill_vs_persistence  coverage_90     n
+     graph on hybrid (geographic k-NN) 0.550 0.496                 0.252        0.906 16462
+graph on hybrid (covariate-space k-NN) 0.551 0.512                 0.251        0.910 16462
+
+wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/graph_mineral.csv

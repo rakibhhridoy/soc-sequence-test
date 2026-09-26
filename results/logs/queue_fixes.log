@@ -1,0 +1,25 @@
+[15:13] climate_panel start
+[15:13] ok
+[15:13] ablations_mineral start
+[16:07] ok
+[16:07] ablations_organic start
+[16:07] FAILED (0)
+[16:07] bootstrap start
+[16:30] ok
+[16:30] dynamic start
+[16:49] ok
+[16:49] climate start
+[16:57] ok
+[16:57] temporal start
+[16:58] ok
+[16:58] robustness start
+[17:43] ok
+[17:43] breakdown start
+[17:43] ok
+[17:43] figures start
+[17:43] ok
+[17:43] graph_mineral start
+[18:07] ok
+[18:07] graph_organic start
+[18:07] FAILED (0)
+[18:07] all done

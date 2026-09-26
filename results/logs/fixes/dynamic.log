@@ -1,0 +1,10 @@
+  real covariate series        skill +0.250
+  series replaced by zeros     skill +0.226
+  series replaced by noise     skill +0.215
+  GBM static + previous only   skill +0.220
+
+                                    model  rmse   ccc  skill     n
+            hybrid, real covariate series 0.552 0.488  0.250 16462
+         hybrid, series replaced by zeros 0.570 0.445  0.226 16462
+         hybrid, series replaced by noise 0.577 0.418  0.215 16462
+gradient boosting, static + previous only 0.573 0.447  0.220 16462

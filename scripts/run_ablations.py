@@ -122,6 +122,8 @@ def main() -> int:
     ap.add_argument("--rnn-hidden", type=int, default=32)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--dropout", type=float, default=0.1)
+    ap.add_argument("--block-size", type=float, default=None,
+                    help="metres; default fits the SOC variogram, which is unstable on small panels")
     args = ap.parse_args()
 
     if args.data:
@@ -135,7 +137,8 @@ def main() -> int:
 
     config.seed_everything()
     device = config.device()
-    folds, block_size = train.spatial_folds(data, n_folds=args.folds)
+    folds, block_size = train.spatial_folds(data, n_folds=args.folds,
+                                              block_size=args.block_size)
     print(f"device={device.type} | spatial block size={block_size:,.0f} m | folds={len(folds)}\n")
 
     data_prev = train.with_previous(data)          # previous observation as an input
