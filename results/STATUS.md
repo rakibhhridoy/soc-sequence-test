@@ -191,3 +191,7 @@ main.tex is now self-contained in EJSS order: Introduction, Materials and method
 ## Result figures (2026-09-26)
 
 scripts/make_figures.py -> results/figures/fig_skill, fig_inputs, fig_map (pdf+png), copied to manuscript/figures/. Palette slots 1-2 (blue hybrid, orange GB) validated for CVD. Main text now 18 pages: Fig 3 map of folds (methods), Fig 4 skill + paired differences, Fig 5 input contributions.
+
+## Pending (2026-09-26)
+
+- Author will upload a new Zenodo version later (repo now has bootstrap, climate and figure scripts that the v1 zip lacks). Manuscript DOI left as is by request.
