@@ -228,3 +228,19 @@ Climate: +0.020 hybrid, +0.015 GB, tie with climate (-0.004). Zeros cost 0.024.
 Organic (274 obs, block 276 km): hybrid 0.389, GB no prev 0.363, no decoder 0.396 --
 the earlier decoder "reversal" on organic soils is gone. Graph: mineral 0.252/0.251, organic
 0.368/0.375, nothing added. Manuscript NOT yet updated.
+
+## Manuscript rewritten on the corrected panel (2026-09-26 evening)
+
+main.tex now reports the rerun: pooled spatial 0.248 vs 0.254 (diff -0.006, -0.022 to 0.009,
+equivalent at the post hoc 0.02 margin), mean-reversion floor 0.169, same-point temporal lead
+0.044 (0.017-0.067) shown alongside the new-places design (0.035, -0.003 to 0.077; hybrid vs
+linear 0.016, -0.020 to 0.051). Noise ceiling removed; Sect. 2.2 now reports the log-scale
+correlation of consecutive changes, -0.41 on 8,123 points (old -0.268 was g/kg over all 8,368
+points incl. organic). Early stopping disclosed as random 20 % (listed under departures).
+Tuning disclosed as run on the earlier panel build. "Previous value decides the comparison"
+narrative dropped (GB no-prev now 0.250 = hybrid). Organic "reversal" and GRU claim dropped.
+New numbers computed for the text: variogram 276 km / 92 blocks / median 104 obs; TN vs log
+prev C r = 0.61; map cells r = 0.72 (357 cells); Atlantic west (lon < -5, lat > 51) 96 obs,
+pred -0.33 vs obs -0.05; all obs > 40 g/kg pred -0.76 vs obs -0.74. Organic GB with previous
+value computed ad hoc on the same folds: 0.378, results/tables/organic_boosting_with_previous.csv.
+Previous draft: manuscript/superseded/*_prefix_2026-09-26.

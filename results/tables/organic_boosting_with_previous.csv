@@ -1,0 +1,3 @@
+model,skill,rmse,n
+"gradient boosting, no previous value",0.3626,0.824,274
+"gradient boosting, with previous value",0.3781,0.804,274
