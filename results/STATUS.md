@@ -183,3 +183,11 @@ condition fixed in advance is MET. Temporal lead 0.018 reported as probable, not
 established. New Methods subsection "Comparing models" (fair baseline, block bootstrap,
 ERA5-Land), new bootstrap table, new climate subsection, organic GB-with-previous row
 (0.428 vs hybrid 0.426). Previous draft archived in manuscript/superseded/*_parity_2026-09-26.
+
+## EJSS restructure (2026-09-26)
+
+main.tex is now self-contained in EJSS order: Introduction, Materials and methods, Results, Discussion (incl. departures and limitations), Conclusions. Highlights (4, <=100 chars) and 8 alphabetical keywords with no title words. 16 pages, ~4,700 words of prose + ~500 of captions, abstract 1,557 chars. Cell equations and conv/RNN/LSTM/GRU diagrams moved to supplementary.tex (Figs S1-S4). figures_main.tex holds the architecture and validation figures. Old files in manuscript/superseded/. Next: result figures.
+
+## Result figures (2026-09-26)
+
+scripts/make_figures.py -> results/figures/fig_skill, fig_inputs, fig_map (pdf+png), copied to manuscript/figures/. Palette slots 1-2 (blue hybrid, orange GB) validated for CVD. Main text now 18 pages: Fig 3 map of folds (methods), Fig 4 skill + paired differences, Fig 5 input contributions.
