@@ -1,11 +1,11 @@
 quantity,estimate,ci_low,ci_high,share_above_zero
-"hybrid, Landsat only",0.2497838055151319,0.22893457490497818,0.27086635872591114,
+"hybrid, Landsat only",0.24131060725022924,0.2208815771271089,0.2632224713468142,
 "gradient boosting with previous value, Landsat only",0.2586439998494584,0.23818922096620618,0.2785530244200471,
 "gradient boosting no previous value, Landsat only",0.2502350684540292,0.22871828885376425,0.2722089119608542,
 "gradient boosting with previous value, with climate",0.2739162491744548,0.25128983736423866,0.29391278645960145,
 "gradient boosting no previous value, with climate",0.27011963670763883,0.2482253222464202,0.2905571411594903,
-"hybrid, with climate",0.2696310233354636,0.2492656809226176,0.28892762219841983,
-"hybrid, with climate minus hybrid, Landsat only",0.01984721782033172,0.012141013244072732,0.027768039682531588,1.0
+"hybrid, with climate",0.2639980552584307,0.2447485710803728,0.2835315126314987,
+"hybrid, with climate minus hybrid, Landsat only",0.02268744800820144,0.015033902882475882,0.030469069944593613,1.0
 "gradient boosting with previous value, with climate minus gradient boosting with previous value, Landsat only",0.015272249324996379,0.006954645824948752,0.022907429172998612,1.0
-"hybrid, with climate minus gradient boosting with previous value, with climate",-0.004285225838991158,-0.01733883441346009,0.009389524956089029,0.268
-"hybrid, with climate minus gradient boosting no previous value, with climate",-0.0004886133721752062,-0.013608561220325454,0.013235061721218295,0.4685
+"hybrid, with climate minus gradient boosting with previous value, with climate",-0.00991819391602411,-0.024889045385022436,0.0052131247577842385,0.093
+"hybrid, with climate minus gradient boosting no previous value, with climate",-0.006121581449208158,-0.02072817387098059,0.009612663209571925,0.215

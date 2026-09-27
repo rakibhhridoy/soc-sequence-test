@@ -32,8 +32,11 @@ def seed_everything(seed: int = SEED) -> None:
 
 
 def device():
-    """Apple GPU when available, otherwise CPU."""
+    """Apple GPU when available, otherwise CPU. SOC_DEVICE=cpu forces the CPU, for runs
+    whose full-batch graphs exceed the GPU's memory on an 8 GB machine."""
     import torch
+    if os.environ.get("SOC_DEVICE") == "cpu":
+        return torch.device("cpu")
     if torch.backends.mps.is_available():
         return torch.device("mps")
     return torch.device("cpu")

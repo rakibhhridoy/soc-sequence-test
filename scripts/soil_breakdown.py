@@ -135,12 +135,12 @@ def fig_change(d):
                    bins="log", linewidths=0)
     ax.plot([-1.5, 1.5], [-1.5, 1.5], color=INK2, linewidth=0.8)
     slope = np.polyfit(d.obs, d.pred, 1)[0]
-    ax.text(-1.4, 1.35, f"1:1 line\nfitted slope {slope:.2f}", va="top", fontsize=7, color=INK2)
     ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5); ax.set_aspect("equal")
     ax.set_xlabel("Observed change in log SOC")
     ax.set_ylabel("Predicted change")
     ax.grid(color=GRID, linewidth=0.6); ax.set_axisbelow(True)
-    ax.set_title("c  Point by point", loc="left", fontsize=8, color=INK, fontweight="bold")
+    ax.set_title(f"c  Point by point, slope {slope:.2f}", loc="left", fontsize=8, color=INK,
+                 fontweight="bold")
     return fig, slope, len(cells)
 
 

@@ -244,3 +244,65 @@ prev C r = 0.61; map cells r = 0.72 (357 cells); Atlantic west (lon < -5, lat > 
 pred -0.33 vs obs -0.05; all obs > 40 g/kg pred -0.76 vs obs -0.74. Organic GB with previous
 value computed ad hoc on the same folds: 0.378, results/tables/organic_boosting_with_previous.csv.
 Previous draft: manuscript/superseded/*_prefix_2026-09-26.
+
+## Tuning rerun on the corrected panel (2026-09-26, late)
+
+tuning.json regenerated (old: tuning_prefix.json; log results/logs/fixes/tuning.log). Range
+0.246-0.265. Best is 32/32, lr 0.001, dropout 0.2 (0.265); the configuration used for every
+reported network (32/32, lr 0.003, dropout 0.1) scores 0.262, third of twelve, 0.003 behind.
+FLAW FOUND: tune_model.py shuffles blocks with default_rng(0) and takes the first quarter,
+which is exactly the test set of evaluation fold 0 (spatial_block_folds seed 0 does the same
+shuffle then array_split). Verified identical. So the search split was NOT reserved: it is
+one quarter of the single-assignment test data (and replicate 0 of robustness.py). The
+manuscript's "reserved for the search and never used for reporting" is false. Replicates 1-4
+use other fold seeds and are not affected in this way. Decision pending with author.
+
+## Rock-solid rerun: nested tuning, blocked stopping, no penalty (2026-09-26 night)
+
+Author decisions: article is standalone (no preprint citation, no "fixed in advance", no
+refutation-condition language, no seminar, no Bangladesh); the hybrid is presented as a
+generic CNN-RNN design after Zhang et al. 2022; tuning fixed properly, not disclosed.
+
+FOUND: the mechanistic penalty never ran on LUCAS. train_model applies it only when the panel
+carries delta_max and x_dyn_next, which only the synthetic panel does. Ablation 5 (lambda = 0)
+was vacuous and the manuscript's "predictions never left the envelope" was wrong. Penalty
+removed from the tested model, ablation 5 dropped, "no previous observation" renumbered 5.
+FOUND: organic variogram has no sill (fit runs to the 7,160 km bound); organic runs use the
+mineral block size 276,477 m, now stated in Methods.
+
+Code: train.split_fit_val (blocked early stopping on whole training-fold blocks),
+train.cross_validate(groups=, fold_cfgs=), train.block_size_for (cached variogram range),
+spatial_folds now returns (folds, block, groups). New src/tuning.py: nested search of the
+12-config grid inside every training fold (inner quarter of blocks), cached by data+train-idx
+hash in results/tables/nested_tuning.json. Every network script uses it; spatiotemporal
+reuses the matching spatial fold's selection; climate reuses the Landsat selection; graph
+uses the hybrid's selection, blocked stopping and a 3-member ensemble. tune_model.py now only
+summarises the cache (nested_tuning_summary.csv).
+Queue: results/logs/queue_nested.sh, logs in results/logs/nested/. Pre-rerun tables in
+results/tables/superseded_prenested_2026-09-26/. Manuscript framing edits done in Methods,
+figures and Limitations; Results/Discussion/Conclusions await the new numbers.
+
+## SSD disconnect and resume (2026-09-27)
+
+The SSD dropped during robustness (around 00:24; queue exited 03:06). Steps 1-6 had finished
+and 27 nested searches were cached. Work moved to an internal copy, ~/soc_work/article, and
+results/logs/queue_nested_resume.sh reruns robustness onward there, then syncs results/ back
+to the SSD. Until that sync, ~/soc_work/article/results is the current copy.
+
+## Nested rerun complete; manuscript rewritten (2026-09-27)
+
+Pooled spatial (5 replicates, nested tuning, blocked stopping): hybrid 0.241, boosting 0.254,
+diff -0.014 (95 % -0.031 to 0.003; 90 % -0.028 to 0.001). NOT equivalent at 0.02; one-sided
+bound rules out a hybrid advantage > 0.003. Boosting leads in all 5 replicates. Linear floor
+0.169; hybrid - floor 0.072 (0.053-0.089). No decoder - hybrid +0.009 pooled (-0.003 to 0.019),
++0.013 single (0.007-0.020). Forward in time: same points +0.042 (0.016-0.065); new places
++0.049 (0.017-0.082), hybrid 0.170 / floor 0.140 / boosting 0.121, hybrid - floor 0.030
+(-0.006 to 0.061). The earlier claim that the same-point temporal lead was "inflated" does
+not survive: the lead holds at new places. Climate: hybrid +0.023, boosting +0.015, still
+behind (-0.010). Organic: hybrid 0.396, boosting 0.378; too small. Map cells r 0.70, slope
+0.44; Atlantic west pred -0.51 vs obs -0.05. Nested selection unstable (9 of 12 configs won,
+none > 4 of 20). Mineral graph OOM on MPS (full batch, 64/128 widths); rerunning with
+SOC_DEVICE=cpu (new override in config.device). Manuscript placeholders GRAPHGEO/GRAPHCOV
+await it. Decision rule rewritten as one-sided (hybrid must outperform); margin disclosed as
+post hoc and bearing only on equivalence. Figures: slope moved into change-map panel title,
+fig_skill labels shortened.

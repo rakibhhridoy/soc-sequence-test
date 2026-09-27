@@ -54,8 +54,7 @@ def fig_skill():
         ("No learned encoder", abl["2. no learned encoder"], "h", None),
         ("GRU in place of LSTM", abl["3. GRU in place of LSTM"], "h", None),
         ("No static embedding", abl["4. no static embedding"], "h", None),
-        ("λ = 0", abl["5. lambda = 0 (no penalty)"], "h", None),
-        ("No previous observation", abl["6. no previous observation"], "h", None),
+        ("No previous observation", abl["5. no previous observation"], "h", None),
         ("Series replaced by zeros", sp.loc["hybrid, series replaced by zeros", "estimate"], "h",
          "hybrid, series replaced by zeros"),
         ("Gradient boosting, with previous value",
@@ -64,7 +63,7 @@ def fig_skill():
         ("Gradient boosting, no previous value",
          sp.loc["gradient boosting, no previous value", "estimate"], "g",
          "gradient boosting, no previous value"),
-        ("Linear fit on previous value", lin.loc["estimate"], "l", "linear"),
+        ("Mean-reversion floor", lin.loc["estimate"], "l", "linear"),
     ]
     rows.sort(key=lambda r: r[1])
 
@@ -80,6 +79,7 @@ def fig_skill():
         a.scatter([s], [i], s=30, color=c, edgecolor="white", linewidth=0.8, zorder=3)
     a.set_yticks(range(len(rows)), [r[0] for r in rows])
     a.set_xlim(0.1, 0.3)
+    a.set_xticks([0.10, 0.15, 0.20, 0.25, 0.30])
     a.set_xlabel("Skill against persistence")
     _grid(a)
     a.scatter([], [], color=HYB, s=30, label="Hybrid architecture")
@@ -93,16 +93,16 @@ def fig_skill():
     clim = pd.read_csv(t / "climate_comparison.csv").set_index("quantity")
     items = [  # label, (estimate, low, high)
         ("Hybrid − boosting", rob.loc["hybrid minus boosting", ["estimate", "ci95_low", "ci95_high"]]),
-        ("Hybrid − mean reversion", rob.loc["hybrid minus linear", ["estimate", "ci95_low", "ci95_high"]]),
+        ("Hybrid − mean-reversion floor", rob.loc["hybrid minus linear", ["estimate", "ci95_low", "ci95_high"]]),
         ("No decoder − hybrid", rob.loc["no decoder minus hybrid", ["estimate", "ci95_low", "ci95_high"]]),
         ("Hybrid − zero series", sp.loc["hybrid, full minus hybrid, series replaced by zeros",
                                         ["estimate", "ci_low", "ci_high"]]),
         ("Hybrid − boosting, both with climate",
          clim.loc["hybrid, with climate minus gradient boosting with previous value, with climate",
                   ["estimate", "ci_low", "ci_high"]]),
-        ("New places and dates: hybrid − boosting",
+        ("Later date, new places: hybrid − boosting",
          rob.loc["spatiotemporal hybrid minus boosting", ["estimate", "ci95_low", "ci95_high"]]),
-        ("New places and dates: hybrid − mean reversion",
+        ("Later date, new places: hybrid − floor",
          rob.loc["spatiotemporal hybrid minus linear", ["estimate", "ci95_low", "ci95_high"]]),
     ]
     ys = list(range(len(items)))[::-1]

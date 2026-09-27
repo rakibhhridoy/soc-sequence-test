@@ -20,7 +20,7 @@ import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
-import config, baselines, blocking, evaluate, train  # noqa: E402
+import config, tuning, baselines, blocking, evaluate, train  # noqa: E402
 from run_ablations import load_npz  # noqa: E402
 
 N_BOOT = 2000
@@ -28,8 +28,8 @@ PRED_DIR = config.TABLES.parent / "predictions"      # gitignored: keyed to LUCA
 
 
 def cfg(**kw) -> train.TrainConfig:
-    # configuration selected by scripts/tune_model.py
-    return train.TrainConfig(epochs=200, hidden=32, rnn_hidden=32, lr=3e-3, dropout=0.1, **kw)
+    # width, learning rate and dropout come from the nested search of each fold
+    return train.TrainConfig(epochs=200, **kw)
 
 
 def gbm_oof(X, y, folds):
@@ -69,9 +69,9 @@ def block_bootstrap(groups, y_prev, y, preds: dict, pairs, n_boot=N_BOOT, seed=0
 def spatial(device):
     data = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
     config.seed_everything()
-    folds, block = train.spatial_folds(data, n_folds=4)
-    groups = blocking.spatial_blocks(data.coords, block)
+    folds, block, groups = train.spatial_folds(data, n_folds=4)
     d_prev = train.with_previous(data)
+    fc = tuning.fold_configs(d_prev, folds, groups, device, tag="mineral spatial")
     summ = baselines.summary_features(data.x_dyn)
     print(f"spatial: {len(data):,} observations, {len(np.unique(groups))} blocks")
 
@@ -84,12 +84,13 @@ def spatial(device):
         ("hybrid, no recurrent decoder", dict(use_recurrent=False), d_prev),
     ):
         t0 = time.time()
-        preds[name] = train.cross_validate(d, cfg(**kw), folds, device, n_ensemble=3)["mu"]
+        preds[name] = train.cross_validate(d, cfg(**kw), folds, device, n_ensemble=3,
+                                           groups=groups, fold_cfgs=fc)["mu"]
         print(f"  {name:30s} {time.time()-t0:.0f}s")
     zeros = train.with_previous(load_npz(config.DATA_PROCESSED / "panel_mineral.npz"))
     zeros.x_dyn = np.zeros_like(zeros.x_dyn)
     preds["hybrid, series replaced by zeros"] = train.cross_validate(
-        zeros, cfg(), folds, device, n_ensemble=3)["mu"]
+        zeros, cfg(), folds, device, n_ensemble=3, groups=groups, fold_cfgs=fc)["mu"]
 
     for k, p in preds.items():
         assert not np.isnan(p).any(), k
@@ -115,18 +116,19 @@ def temporal(device):
     data = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
     config.seed_everything()
     tr, te = np.where(data.times == 2015)[0], np.where(data.times == 2018)[0]
-    _, block = train.spatial_folds(data, n_folds=4)
-    groups = blocking.spatial_blocks(data.coords, block)
+    _, _, groups = train.spatial_folds(data, n_folds=4)
     summ = baselines.summary_features(data.x_dyn)
     print(f"temporal: train {len(tr):,}, test {len(te):,}")
+    d_prev = train.with_previous(data)
+    fc = tuning.fold_configs(d_prev, [(tr, te)], groups, device, tag="mineral temporal")
 
     preds = {}
     for name, X in (("gradient boosting, no previous value", np.hstack([summ, data.x_static])),
                     ("gradient boosting, with previous value",
                      np.hstack([summ, data.x_static, data.y_prev[:, None]]))):
         preds[name] = baselines.fit_gradient_boosting(X[tr], data.y[tr]).predict(X[te])
-    out = train.cross_validate(train.with_previous(data), cfg(patience=25), [(tr, te)], device,
-                               n_ensemble=3)
+    out = train.cross_validate(d_prev, cfg(), [(tr, te)], device, n_ensemble=3,
+                               groups=groups, fold_cfgs=fc)
     preds["hybrid, full"] = out["mu"][te]
     for k, p in preds.items():
         print(f"  {k:40s} skill {skill(data.y_prev[te], data.y[te], p):+.3f}")

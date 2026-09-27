@@ -1,0 +1,3040 @@
+{
+ "5833035178541efc9615c14238a333af": {
+  "tag": "mineral spatial fold 0",
+  "n_train": 12363,
+  "n_inner_val": 3285,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24805563599394254
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2514548265413725
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2379105769197144
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2452381940207654
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24722479233977235
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25061075612933925
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24673834334498013
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.26344323877106735
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24941101755284534
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24840635548612255
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.25382726464375116
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.25631480767556125
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.26344323877106735
+  }
+ },
+ "597664fac88b3aaef0ff9d6d6ad7ea9d": {
+  "tag": "mineral spatial fold 1",
+  "n_train": 13573,
+  "n_inner_val": 3547,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2469972769358474
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25269666306035454
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23649210576288382
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23389395424816228
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24331443703423505
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2389903606016749
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24308178204311182
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.224429482576192
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.23710362711883926
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.23220384675910644
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2315340489209029
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2216001488079865
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.25269666306035454
+  }
+ },
+ "ed8ca5201a32101aa1b76f2d51b46cce": {
+  "tag": "mineral spatial fold 2",
+  "n_train": 10889,
+  "n_inner_val": 2754,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.23002873107707966
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.23782863564146206
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.25145371282963946
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23633644188741199
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24462315178282246
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24415188607749128
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23232064010529485
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22102242529167715
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24394710909983952
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24278533199026564
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.22331905766656956
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22292337082624425
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.25145371282963946
+  }
+ },
+ "d72d1d7731bc9263ffd6f648a554305e": {
+  "tag": "mineral spatial fold 3",
+  "n_train": 12561,
+  "n_inner_val": 3187,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.23675587874448079
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.23451483842279153
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23731786045871472
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2418800437361398
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25263342444827086
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2317274752929237
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.21633433460971863
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2177239977598796
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.22659060004782938
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25159853344531447
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2409426987575466
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22066553807807254
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.25263342444827086
+  }
+ },
+ "e55c717712a5bfc3de0f92b9cbfcc4b7": {
+  "tag": "mineral random fold 0",
+  "n_train": 12346,
+  "n_inner_val": 3086,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24127205580733724
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24230359683328395
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23860761642932393
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2378435409959737
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.23693843649788482
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2444212381987012
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2396553863796438
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2369620565835635
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24172691982222427
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24295371887600825
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23693344508128578
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2373420996779747
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.2444212381987012
+  }
+ },
+ "c204fb13ed792cbe79abce100bb11f12": {
+  "tag": "mineral random fold 1",
+  "n_train": 12346,
+  "n_inner_val": 3086,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2558324075313284
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2575660528238862
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.26301403626116215
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.25348472054060667
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.26172058036463386
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2623347419864964
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.25456211961945074
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.26161364846084967
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2655087395852874
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25856202280456475
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2555609061790326
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2567468920736875
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.2655087395852874
+  }
+ },
+ "8b91e319f2d79b1a94bbfc15687deea8": {
+  "tag": "mineral random fold 2",
+  "n_train": 12347,
+  "n_inner_val": 3086,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2619660833470133
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2652378274076247
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2624317650689636
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2609325255468291
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25484428428906347
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2532591555659417
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2560993087006713
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.252205092078587
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.26022872612554615
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2567111353680296
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24781655581230788
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2516827160135351
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.2652378274076247
+  }
+ },
+ "c19a6b626a4151beac2d5c8b29a327f6": {
+  "tag": "mineral random fold 3",
+  "n_train": 12347,
+  "n_inner_val": 3086,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25816049489405923
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25220964560284975
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.25103932314551314
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2575844357863283
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24483804319340774
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24621305114114211
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24843133888459634
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.25388558556488217
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24756302179622336
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24730039107256974
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24629832196542112
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.24914406640869446
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.25816049489405923
+  }
+ },
+ "3e0d9d9e4fd559b31443ede95e4431d4": {
+  "tag": "organic spatial fold 0",
+  "n_train": 187,
+  "n_inner_val": 50,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.31923322389776787
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.31923806690287826
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3188914161976426
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.32878179339804336
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.31189788416715847
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3198766262758319
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3277850417589905
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.32958371813190057
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.34881161396863947
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3423783632165135
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3320814522850133
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.33128408727121317
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.34881161396863947
+  }
+ },
+ "9feb43d6eb7123b768d59084efe568fa": {
+  "tag": "organic spatial fold 1",
+  "n_train": 195,
+  "n_inner_val": 51,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1178914229682283
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.11794856300814316
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.11899678098628452
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.11919324295360023
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.36002803784918747
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3477215662858596
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3763033486239702
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.34607657275299286
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2104632744592495
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.20843424974550395
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.18663744327659082
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.185975463904256
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.3763033486239702
+  }
+ },
+ "55b04d66cda5c3b70b2eba3d64657944": {
+  "tag": "organic spatial fold 2",
+  "n_train": 166,
+  "n_inner_val": 42,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.23534844079589534
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3181158690481597
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3146198448074091
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.32874092631806817
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.3387168871541797
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3429929522787718
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3475144937571091
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.341310524096605
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.3640844037681529
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3643324144544129
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.37306661152524256
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.3645019572831868
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.37306661152524256
+  }
+ },
+ "27b42260978161d1dabeecc3198c9499": {
+  "tag": "organic random fold 0",
+  "n_train": 182,
+  "n_inner_val": 45,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.4070294701329732
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.40822934269671884
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.4118739941239514
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.40747582907503854
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.3882744023917991
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3970260104772293
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.38814378352355683
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.38515651819298935
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.40078511432371866
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.3986407996428939
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.39387533834967425
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.3834390768268029
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.4118739941239514
+  }
+ },
+ "6a552b121668ced2e9d1b5492ecaf30e": {
+  "tag": "organic random fold 1",
+  "n_train": 183,
+  "n_inner_val": 45,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.5005680064338704
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.5097700007595404
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.5208935730462291
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.5221347626236665
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.5158479037586652
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.5149220251338265
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.5121748514048858
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.518802270624043
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.5278966657673312
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.5166872031041334
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.5094167536509231
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.5138050662884708
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.5278966657673312
+  }
+ },
+ "d93b99da24ad3b8c651a0a11349d3b23": {
+  "tag": "organic random fold 2",
+  "n_train": 183,
+  "n_inner_val": 45,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.3551101704315698
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.36038952171581806
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.3664417442832619
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.43252821282685083
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.4107951029969753
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.4218516274856433
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.4378291002951076
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.4373964676060067
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.4260811190538666
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.42100416671600716
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.4210388809341814
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.4223740396396428
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.4378291002951076
+  }
+ },
+ "0c15b8f4e6ad8d74f281fcc6486c9dc0": {
+  "tag": "mineral temporal fold 0",
+  "n_train": 8266,
+  "n_inner_val": 2080,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.27009047119297414
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.26473190836939686
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.29028037615571123
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.28280617430762534
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2746797691293399
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.28363124227083514
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2890207195211062
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.29275965207732135
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.28620086410958157
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2697943813825868
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2684981005582112
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.29773801704504843
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.29773801704504843
+  }
+ },
+ "6eeb1ebf2e1f2494344319595c94d255": {
+  "tag": "mineral replicate 1 fold 0",
+  "n_train": 13170,
+  "n_inner_val": 3800,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.22243869978826258
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.21861823659758184
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.21127848511518177
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.21853711838114998
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.20849569593091
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.20629193372714372
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2128017655052452
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.21593476349766705
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2092715761653361
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2100387756288028
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.19937020389273163
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.20389267032915048
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.22243869978826258
+  }
+ },
+ "e8a3d91e828c3afe0a620109f4b64499": {
+  "tag": "mineral replicate 1 fold 1",
+  "n_train": 13134,
+  "n_inner_val": 3339,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2396958615508874
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24130928748543068
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2393602232679347
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2398636298112049
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24629747332503116
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24538605271388403
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24738180773258756
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.24411512490540999
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2368905614088621
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25065529026660427
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24699916868412652
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.24033183708217265
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.25065529026660427
+  }
+ },
+ "f0feef024a6657b478a69bba26f9ee1e": {
+  "tag": "mineral replicate 1 fold 2",
+  "n_train": 10720,
+  "n_inner_val": 2928,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.26699901104795665
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.27187495404044937
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.27788161668342903
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.27955132701018004
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.267135742093526
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.275929674802752
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2712660707969785
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2818428089628424
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.26319664829213485
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2693717512850442
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2616670824955093
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2579384262019785
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.2818428089628424
+  }
+ },
+ "62aad3f0c826b64fdbdc6e6aa8e4e264": {
+  "tag": "mineral replicate 1 fold 3",
+  "n_train": 12362,
+  "n_inner_val": 3310,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.19142190618621813
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.23796176090958232
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.21134137744669257
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22545355975395254
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24462552767568324
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24496731930438465
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23122301200026896
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.24573776075180176
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2265009446947902
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.23134140909798384
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.225584318734387
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22318391151838102
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.24573776075180176
+  }
+ },
+ "3f89c018d8de9ca514d503b761a14610": {
+  "tag": "mineral replicate 2 fold 0",
+  "n_train": 11710,
+  "n_inner_val": 3004,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2243009394043639
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.22167243975236228
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23712859308362422
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23183610834878632
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.22784792123201092
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.22588712211005024
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2250949228151018
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22924372942769333
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.19632727601638988
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.22665715677433307
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2047550716194807
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.20763428863166467
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.23712859308362422
+  }
+ },
+ "f4cb8a50b89eb40adcfdb715d14fa84f": {
+  "tag": "mineral replicate 2 fold 1",
+  "n_train": 12877,
+  "n_inner_val": 3232,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24473577062229313
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2457465258215663
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2209273928830634
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2401680769645027
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2236567857066042
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.23735766292630245
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2376617619083694
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23705569112029956
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.22767462905268654
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.22519982037556507
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.21768627388507522
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22310515669083675
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.2457465258215663
+  }
+ },
+ "d66598b9559a1f5268b3d1dd2312cea4": {
+  "tag": "mineral replicate 2 fold 2",
+  "n_train": 12766,
+  "n_inner_val": 3283,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24179334544205
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.246467551020919
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24663073701576566
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23950175507437843
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25206450417850623
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25317858179514774
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24036220806741393
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23604176737380578
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24383594167919442
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24766129030639195
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.22952161368802781
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.24540373900865098
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.25317858179514774
+  }
+ },
+ "e82702ab6e08af98aa493d72b59253fe": {
+  "tag": "mineral replicate 2 fold 3",
+  "n_train": 12033,
+  "n_inner_val": 3017,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2708532107130759
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2907924588882257
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.28940358310220704
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2879510150537431
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2868630253734401
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2850903441677216
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2869075495557908
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2774122034613178
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.29121198904896883
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2937289048920334
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2670151517462275
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.28039130470833207
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.2937289048920334
+  }
+ },
+ "3b49690a929b3fa2fe8e1ddeda90abc6": {
+  "tag": "mineral replicate 3 fold 0",
+  "n_train": 12778,
+  "n_inner_val": 3693,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.27963565104406884
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.27991241546468026
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.27583898872571255
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2794316298636227
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.27525053073786787
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2790647742319291
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2723346726619156
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.28216535880599436
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.27890976328504113
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.27253161944504745
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24191066763747227
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2676893399401542
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.28216535880599436
+  }
+ },
+ "9c2fe6c57205903d6d9d705c1cea0b55": {
+  "tag": "mineral replicate 3 fold 1",
+  "n_train": 12805,
+  "n_inner_val": 3964,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2681409781367956
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.27085809976155284
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24949453086412987
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.27537616313371394
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.26983995833186003
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.28002380887945855
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2617821266836228
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.26753234056510766
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2527818200825267
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2696982633753422
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2762500757409405
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.27390651409926536
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.28002380887945855
+  }
+ },
+ "9a902e0b3791a4843103426fa121f30b": {
+  "tag": "mineral replicate 3 fold 2",
+  "n_train": 11251,
+  "n_inner_val": 3263,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.23796281063455194
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2368575995280009
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23218161277184612
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2150151308670415
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2249415286907529
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2277476588380719
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.22440312078333846
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.22817953982461714
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2276335447041271
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.22789603710572504
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.22366948623109462
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2159427523120342
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.23796281063455194
+  }
+ },
+ "dfccce70f2b82deeebd29667d9e3c938": {
+  "tag": "mineral replicate 3 fold 3",
+  "n_train": 12552,
+  "n_inner_val": 3405,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.22885769731990502
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.22817137848111502
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.18613081388991515
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.17467634266613463
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1833783883413025
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.19748432419190243
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.19676487511538432
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.21941308732378384
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.18138073884736217
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.20431855627518658
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.22704687586923566
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.18010271537123823
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.1,
+   "skill": 0.22885769731990502
+  }
+ },
+ "e8f4b0082ee32c63e9138467869b2526": {
+  "tag": "mineral replicate 4 fold 0",
+  "n_train": 12505,
+  "n_inner_val": 3275,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2514256335643885
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24202720177242987
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.25543968388523985
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2436664647040807
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.21977408630006
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2659349199411154
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2563969004220835
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.26432168396056677
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2664084884232383
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.26798090233136374
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2677277085369745
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2565790843100859
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.26798090233136374
+  }
+ },
+ "f733fb6b814efc3a8b2cbcb182aed14b": {
+  "tag": "mineral replicate 4 fold 1",
+  "n_train": 11807,
+  "n_inner_val": 3351,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24846849679909222
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25649849159424454
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2505847075019959
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.25550627584356633
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25545836825982626
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25311172429315876
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2412819199524665
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2416268387592423
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25437125528113047
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2541510855213608
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2497104390520961
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2501035881458795
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.25649849159424454
+  }
+ },
+ "4a36d11045c222136b3daa09de89774d": {
+  "tag": "mineral replicate 4 fold 2",
+  "n_train": 12600,
+  "n_inner_val": 3176,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2711601850304547
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2728456944840659
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.27639736055665964
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.28428177202476634
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2640864442287385
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25693729472400473
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24361577132276702
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2399258226074944
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.25120923162775466
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2547186533315364
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.2536899131606495
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.24706834995709048
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.28428177202476634
+  }
+ },
+ "1ecd76d19cc23d35448bab01be7a1214": {
+  "tag": "mineral replicate 4 fold 3",
+  "n_train": 12474,
+  "n_inner_val": 3579,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2381121129680005
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.2311333678240547
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.24182564171848164
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.23983017313842636
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.24847264110268408
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.24743290326736478
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23956793014925015
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.25155287211375477
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.2512674433036217
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.25336615137125884
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.23930665052456634
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.2654080207733821
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.2654080207733821
+  }
+ }
+}

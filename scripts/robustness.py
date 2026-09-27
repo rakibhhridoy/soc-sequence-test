@@ -23,7 +23,7 @@ import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
-import config, baselines, blocking, train  # noqa: E402
+import config, tuning, baselines, blocking, train  # noqa: E402
 from run_ablations import load_npz  # noqa: E402
 from bootstrap_comparison import PRED_DIR, cfg, skill  # noqa: E402
 
@@ -54,8 +54,7 @@ def main() -> int:
     d_prev = train.with_previous(data)
     Xg = np.hstack([baselines.summary_features(data.x_dyn), data.x_static, data.y_prev[:, None]])
     year = data.times
-    _, block = train.spatial_folds(data, n_folds=4)
-    groups = blocking.spatial_blocks(data.coords, block)
+    _, _, groups = train.spatial_folds(data, n_folds=4)
     print(f"{len(data):,} observations, {len(np.unique(groups))} blocks")
 
     reps = []
@@ -64,19 +63,22 @@ def main() -> int:
         config.seed_everything(seed)
         folds = list(blocking.spatial_block_folds(groups, n_folds=4, seed=r))
         t0 = time.time()
-        p = {"hybrid": train.cross_validate(d_prev, cfg(seed=seed), folds, device, n_ensemble=3)["mu"],
+        fc = tuning.fold_configs(d_prev, folds, groups, device, tag=f"mineral replicate {r}")
+        cv = dict(groups=groups, fold_cfgs=fc, n_ensemble=3)
+        p = {"hybrid": train.cross_validate(d_prev, cfg(seed=seed), folds, device, **cv)["mu"],
              "boosting": gbm(Xg, data.y, folds),
              "linear": linear_prev(data.y_prev, data.y, year, folds)}
         if r < R_EXTRA:
             p["no decoder"] = train.cross_validate(
-                d_prev, cfg(seed=seed, use_recurrent=False), folds, device, n_ensemble=3)["mu"]
+                d_prev, cfg(seed=seed, use_recurrent=False), folds, device, **cv)["mu"]
             # forward in time and held out in space
             st = [(np.where((groups_in(folds, f, len(data)) == 0) & (year == 2015))[0],
                    np.where((groups_in(folds, f, len(data)) == 1) & (year == 2018))[0])
                   for f in range(len(folds))]
             te_all = np.concatenate([te for _, te in st])
-            p["st hybrid"] = train.cross_validate(d_prev, cfg(seed=seed, patience=25), st, device,
-                                                  n_ensemble=3)["mu"]
+            # each spatiotemporal fold trains on a subset of the matching spatial training
+            # fold, so that fold's selection was made without any of its test points
+            p["st hybrid"] = train.cross_validate(d_prev, cfg(seed=seed), st, device, **cv)["mu"]
             p["st boosting"] = gbm(Xg, data.y, st)
             p["st linear"] = linear_prev(data.y_prev, data.y, year, st)
             for k in ("st hybrid", "st boosting", "st linear"):

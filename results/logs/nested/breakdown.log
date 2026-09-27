@@ -1,0 +1,48 @@
+land_use
+cropland     11260
+grassland     4487
+other          715
+
+  land_use     n              quantity  estimate  ci_low  ci_high  share_above_zero
+ cropland 11260                hybrid     0.254   0.233    0.277               NaN
+ cropland 11260              boosting     0.265   0.241    0.289               NaN
+ cropland 11260 hybrid minus boosting    -0.011  -0.028    0.003             0.070
+grassland  4487                hybrid     0.216   0.193    0.237               NaN
+grassland  4487              boosting     0.239   0.217    0.260               NaN
+grassland  4487 hybrid minus boosting    -0.024  -0.041   -0.008             0.000
+
+SOC tertile edges (g/kg):
+                  min         max
+soc_level                       
+low         1.000000   12.900000
+middle     12.900000   21.100000
+high       21.200001  119.900002
+
+ soc_level    n              quantity  estimate  ci_low  ci_high  share_above_zero
+      low 5499                hybrid     0.291   0.236    0.337               NaN
+      low 5499              boosting     0.306   0.246    0.358               NaN
+      low 5499 hybrid minus boosting    -0.015  -0.039    0.009             0.130
+   middle 5475                hybrid     0.109   0.093    0.126               NaN
+   middle 5475              boosting     0.121   0.099    0.140               NaN
+   middle 5475 hybrid minus boosting    -0.012  -0.027    0.002             0.053
+     high 5488                hybrid     0.266   0.230    0.297               NaN
+     high 5488              boosting     0.289   0.258    0.315               NaN
+     high 5488 hybrid minus boosting    -0.023  -0.039   -0.007             0.004
+
+  land_use  year    n  mean_change  median_change  median_rel_pct  share_losing  mean_soc_prev
+ cropland  2015 5741        5.606          3.100          23.734         0.366         16.624
+ cropland  2018 5519       -2.484         -1.550         -10.457         0.594         19.898
+grassland  2015 2187        1.749         -2.790         -15.672         0.581         28.495
+grassland  2018 2300       -8.754         -2.775         -18.954         0.649         27.104
+    other  2015  338       19.566          6.065          57.484         0.269         13.590
+    other  2018  377       -0.317         -0.300          -2.531         0.520         18.969
+
+                              quantity  estimate  ci_low  ci_high
+                       campaign shift     0.014  -0.001    0.028
+          campaign and land-use shift     0.033   0.016    0.048
+             linear on previous value     0.155   0.139    0.172
+linear on previous value and campaign     0.170   0.148    0.191
+                               hybrid     0.241   0.221    0.263
+                             boosting     0.259   0.238    0.279
+
+fitted slope of predicted on observed change: 0.440; map cells: 357

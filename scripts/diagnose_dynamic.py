@@ -12,7 +12,7 @@ import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
-import config, baselines, evaluate, train  # noqa: E402
+import config, tuning, baselines, evaluate, train  # noqa: E402
 from run_ablations import load_npz  # noqa: E402
 
 
@@ -20,8 +20,10 @@ def main() -> int:
     base = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
     config.seed_everything()
     device = config.device()
-    folds, _ = train.spatial_folds(base, n_folds=4)
-    cfg = train.TrainConfig(epochs=200, hidden=32, rnn_hidden=32, lr=3e-3, dropout=0.1)   # selected by scripts/tune_model.py
+    folds, _, groups = train.spatial_folds(base, n_folds=4)
+    # configurations selected for the full model on the real series, held fixed here
+    fc = tuning.fold_configs(train.with_previous(base), folds, groups, device, tag="mineral spatial")
+    cfg = train.TrainConfig(epochs=200)
     rng = np.random.default_rng(0)
 
     rows = []
@@ -32,7 +34,8 @@ def main() -> int:
     ):
         d = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
         d.x_dyn = maker(d)
-        out = train.cross_validate(train.with_previous(d), cfg, folds, device, n_ensemble=3)
+        out = train.cross_validate(train.with_previous(d), cfg, folds, device, n_ensemble=3,
+                                   groups=groups, fold_cfgs=fc)
         rows.append(dict(model=f"hybrid, {name}", **_flat(out["metrics"])))
         print(f"  {name:28s} skill {rows[-1]['skill']:+.3f}")
 

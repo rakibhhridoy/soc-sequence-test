@@ -1,4 +1,4 @@
-"""Forward temporal validation, required by the protocol fixed in advance.
+"""Forward temporal validation.
 
 Spatial blocking asks whether a model generalises to new places. This asks whether it
 generalises to a later time, by training only on the 2015 targets and testing on the 2018
@@ -13,7 +13,7 @@ import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
-import config, baselines, evaluate, train  # noqa: E402
+import config, tuning, baselines, evaluate, train  # noqa: E402
 from run_ablations import load_npz  # noqa: E402
 
 
@@ -35,9 +35,11 @@ def main() -> int:
                      **_m(data.y_prev[te], data.y[te], gbm.predict(feats[te]))))
 
     d = train.with_previous(data)
-    cfg = train.TrainConfig(epochs=200, patience=25, hidden=32, rnn_hidden=32,
-                            lr=3e-3, dropout=0.1, lam=0.1)   # selected by scripts/tune_model.py
-    out = train.cross_validate(d, cfg, [(tr, te)], config.device(), n_ensemble=3)
+    device = config.device()
+    _, _, groups = train.spatial_folds(data, n_folds=4)
+    fc = tuning.fold_configs(d, [(tr, te)], groups, device, tag="mineral temporal")
+    out = train.cross_validate(d, train.TrainConfig(epochs=200), [(tr, te)], device,
+                               n_ensemble=3, groups=groups, fold_cfgs=fc)
     rows.append(dict(model="full model (LSTM, tuned)",
                      **_m(data.y_prev[te], data.y[te], out["mu"][te])))
 

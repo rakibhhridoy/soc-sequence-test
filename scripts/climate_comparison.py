@@ -16,7 +16,7 @@ import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
-import config, baselines, train  # noqa: E402
+import config, tuning, baselines, train  # noqa: E402
 from run_ablations import load_npz  # noqa: E402
 from bootstrap_comparison import PRED_DIR, cfg, gbm_oof, skill, block_bootstrap  # noqa: E402
 
@@ -25,12 +25,15 @@ def main() -> int:
     device = config.device()
     data = load_npz(config.DATA_PROCESSED / "panel_mineral_climate.npz")
     config.seed_everything()
-    folds, _ = train.spatial_folds(data, n_folds=4)
+    folds, _, groups = train.spatial_folds(data, n_folds=4)
+    # the Landsat-only selection is reused, so the climate channels are the only change
+    landsat = train.with_previous(load_npz(config.DATA_PROCESSED / "panel_mineral.npz"))
+    fc = tuning.fold_configs(landsat, folds, groups, device, tag="mineral spatial")
     ref = np.load(PRED_DIR / "spatial_mineral.npz")
     ref_folds = ref["fold"]
     for i, (_, te) in enumerate(folds):          # the pairing is only valid on identical folds
         assert (ref_folds[te] == i).all(), "folds differ from the reference run"
-    groups = ref["groups"]
+    assert (groups == ref["groups"]).all()
     print(f"{len(data):,} observations, {data.x_dyn.shape[1]} dynamic channels")
 
     summ = baselines.summary_features(data.x_dyn)
@@ -45,7 +48,8 @@ def main() -> int:
         "gradient boosting no previous value, with climate": gbm_oof(
             np.hstack([summ, data.x_static]), data.y, folds),
         "hybrid, with climate": train.cross_validate(
-            train.with_previous(data), cfg(), folds, device, n_ensemble=3)["mu"],
+            train.with_previous(data), cfg(), folds, device, n_ensemble=3,
+            groups=groups, fold_cfgs=fc)["mu"],
     }
     for k, p in preds.items():
         print(f"  {k:55s} skill {skill(data.y_prev, data.y, p):+.3f}")

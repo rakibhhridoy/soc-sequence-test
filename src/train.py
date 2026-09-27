@@ -1,4 +1,4 @@
-"""Training and cross-validated evaluation under the protocol fixed in advance.
+"""Training and cross-validated evaluation.
 
 Two rules are enforced here rather than left to the caller:
 
@@ -45,7 +45,7 @@ class TrainConfig:
     epochs: int = 200
     lr: float = 1e-3
     batch_size: int = 128
-    patience: int = 20           # early stopping on the blocked validation fold
+    patience: int = 20           # early stopping on held-out blocks of the training fold
     lam: float = 0.0             # weight on the mechanistic penalty
     dropout: float = 0.1
     hidden: int = 32
@@ -161,21 +161,63 @@ def predict(model, sc: Standardiser, data: Dataset, idx, device=None, use_static
     return mu, sigma
 
 
+def split_fit_val(tr_idx, groups=None, val_fraction: float = 0.2, seed: int = 0):
+    """Carve an early-stopping set out of a training fold.
+
+    With ``groups`` the split takes whole spatial blocks, so a stopping observation has no
+    neighbour, and no second observation of its own point, on the fitting side. Without
+    ``groups`` it is random, which is used only for the random k-fold optimism reference.
+    """
+    tr_idx = np.asarray(tr_idx)
+    rng = np.random.default_rng(seed)
+    if groups is None:
+        perm = rng.permutation(tr_idx)
+        cut = max(1, int(len(perm) * val_fraction))
+        return perm[cut:], perm[:cut]
+    g = groups[tr_idx]
+    blocks = rng.permutation(np.unique(g))
+    sizes = {b: int((g == b).sum()) for b in blocks}
+    target, taken, val_blocks = val_fraction * len(tr_idx), 0, []
+    for b in blocks:
+        if taken >= target:
+            break
+        val_blocks.append(b)
+        taken += sizes[b]
+    val = np.isin(g, val_blocks)
+    if val.all():                      # a training fold of one block cannot be split
+        raise ValueError("training fold too small to hold out a blocked stopping set")
+    return tr_idx[~val], tr_idx[val]
+
+
+TUNED = ("hidden", "rnn_hidden", "lr", "dropout")
+
+
 def cross_validate(data: Dataset, cfg: TrainConfig, folds: Iterable, device=None,
-                   n_ensemble: int = 1, val_fraction: float = 0.2):
-    """Run one configuration over pre-built folds and return out-of-fold predictions."""
+                   n_ensemble: int = 1, val_fraction: float = 0.2, groups=None,
+                   fold_cfgs: Sequence[dict] | None = None):
+    """Run one configuration over pre-built folds and return out-of-fold predictions.
+
+    ``groups`` gives the spatial block of every observation, so early stopping holds out
+    whole blocks of the training fold. ``fold_cfgs`` carries the hyperparameters selected
+    inside each training fold (see ``tuning.fold_configs``). They override the tuned fields
+    of ``cfg`` and leave its ablation switches alone, so every ablation of a fold runs at
+    the configuration selected for the full model on that fold.
+    """
     device = device or torch.device("cpu")
+    folds = list(folds)
+    if fold_cfgs is not None and len(fold_cfgs) != len(folds):
+        raise ValueError("one selected configuration is needed per fold")
     n = len(data)
     mu_oof = np.full(n, np.nan)
     sigma_oof = np.full(n, np.nan)
-    for tr_idx, te_idx in folds:
-        rng = np.random.default_rng(cfg.seed)
-        perm = rng.permutation(tr_idx)
-        cut = max(1, int(len(perm) * val_fraction))
-        va_idx, fit_idx = perm[:cut], perm[cut:]
+    for f, (tr_idx, te_idx) in enumerate(folds):
+        fit_idx, va_idx = split_fit_val(tr_idx, groups, val_fraction, seed=cfg.seed)
+        base = dict(cfg.__dict__)
+        if fold_cfgs is not None:
+            base.update({k: fold_cfgs[f][k] for k in TUNED})
         mus, sigmas = [], []
         for k in range(n_ensemble):
-            c = TrainConfig(**{**cfg.__dict__, "seed": cfg.seed + k})
+            c = TrainConfig(**{**base, "seed": cfg.seed + k})
             model, sc, _ = train_model(data, fit_idx, va_idx, c, device)
             m, s = predict(model, sc, data, te_idx, device, cfg.use_static)
             mus.append(m)
@@ -202,10 +244,26 @@ def with_previous(data: Dataset) -> Dataset:
     return d
 
 
+def block_size_for(data: Dataset) -> float:
+    """Variogram range of the panel, cached, since the full distance matrix is large."""
+    import hashlib, json, config
+    key = hashlib.md5(np.ascontiguousarray(data.coords).tobytes()
+                      + np.ascontiguousarray(data.y).tobytes()).hexdigest()
+    path = config.TABLES / "block_size_cache.json"
+    cache = json.loads(path.read_text()) if path.exists() else {}
+    if key not in cache:
+        cache[key] = blocking.variogram_range(data.coords, data.y)
+        path.write_text(json.dumps(cache, indent=1))
+    return float(cache[key])
+
+
 def spatial_folds(data: Dataset, block_size: float | None = None, n_folds: int = 5,
                   seed: int = 0):
-    """Blocked folds sized from the SOC variogram range unless overridden."""
+    """Blocked folds sized from the SOC variogram range unless overridden.
+
+    Returns the folds, the block size and the block of every observation.
+    """
     if block_size is None:
-        block_size = blocking.variogram_range(data.coords, data.y)
+        block_size = block_size_for(data)
     bid = blocking.spatial_blocks(data.coords, block_size)
-    return list(blocking.spatial_block_folds(bid, n_folds=n_folds, seed=seed)), block_size
+    return list(blocking.spatial_block_folds(bid, n_folds=n_folds, seed=seed)), block_size, bid

@@ -1,13 +1,14 @@
-"""The five ablations fixed in the protocol, plus baselines, under blocked validation.
+"""Five ablations of the hybrid, plus baselines, under blocked validation.
 
 Each ablation is a subtraction from the full model, not a separately tuned alternative,
-so a difference in skill is attributable to the component removed.
+so a difference in skill is attributable to the component removed. Every run uses the
+configuration selected for the full model inside each training fold (src/tuning.py).
 
     1  no recurrent decoder      does temporal state add anything?
     2  no learned encoder        does the CNN beat hand-engineered yearly summaries?
     3  GRU in place of LSTM      the controlled cell comparison
-    4  no static embedding       do soil and terrain add anything?
-    5  lambda = 0                does the mechanistic penalty help or merely restrict?
+    4  no static embedding       do soil properties and the previous value add anything?
+    5  no previous observation   how much rests on the last measured carbon value?
 
 Baselines: persistence, and gradient boosting on summary statistics.
 The random k-fold run is reported as the optimism reference, never as a result.
@@ -23,7 +24,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
-import config, blocking, evaluate, baselines, train  # noqa: E402
+import config, tuning, blocking, evaluate, baselines, train  # noqa: E402
 
 
 def make_synthetic(n_points=600, n_times=3, C=9, T=60, P=5, seed=0) -> train.Dataset:
@@ -99,14 +100,16 @@ def _flat(res: dict) -> dict:
             "coverage_90": res.get("coverage_90", np.nan), "n": res["level"]["n"]}
 
 
+# Each ablation subtracts one component from the full model. All run at the configuration
+# selected for the full model inside each training fold, never tuned separately, so a
+# difference reflects the component and not its hyperparameters.
 ABLATIONS = [
     ("full model (LSTM)",            dict()),
-    ("6. no previous observation",   dict(no_prev=True)),
+    ("5. no previous observation",   dict(no_prev=True)),
     ("1. no recurrent decoder",      dict(use_recurrent=False)),
     ("2. no learned encoder",        dict(use_encoder=False)),
     ("3. GRU in place of LSTM",      dict(cell="gru")),
     ("4. no static embedding",       dict(use_static=False)),
-    ("5. lambda = 0 (no penalty)",   dict(lam=0.0)),
 ]
 
 
@@ -117,11 +120,6 @@ def main() -> int:
     ap.add_argument("--epochs", type=int, default=60)
     ap.add_argument("--ensemble", type=int, default=1)
     ap.add_argument("--folds", type=int, default=4)
-    ap.add_argument("--lam", type=float, default=0.1, help="penalty weight for runs other than ablation 5")
-    ap.add_argument("--hidden", type=int, default=32)
-    ap.add_argument("--rnn-hidden", type=int, default=32)
-    ap.add_argument("--lr", type=float, default=1e-3)
-    ap.add_argument("--dropout", type=float, default=0.1)
     ap.add_argument("--block-size", type=float, default=None,
                     help="metres; default fits the SOC variogram, which is unstable on small panels")
     args = ap.parse_args()
@@ -137,31 +135,33 @@ def main() -> int:
 
     config.seed_everything()
     device = config.device()
-    folds, block_size = train.spatial_folds(data, n_folds=args.folds,
-                                              block_size=args.block_size)
+    folds, block_size, groups = train.spatial_folds(data, n_folds=args.folds,
+                                                    block_size=args.block_size)
     print(f"device={device.type} | spatial block size={block_size:,.0f} m | folds={len(folds)}\n")
 
+    stem = "synthetic" if args.synthetic else pathlib.Path(args.data).stem.replace("panel_", "")
     data_prev = train.with_previous(data)          # previous observation as an input
+    fold_cfgs = tuning.fold_configs(data_prev, folds, groups, device, tag=f"{stem} spatial")
     rows = run_baselines(data, folds)
     for name, kw in ABLATIONS:
-        lam = kw.pop("lam", args.lam)
+        kw = dict(kw)
         no_prev = kw.pop("no_prev", False)
-        cfg = train.TrainConfig(epochs=args.epochs, lam=lam, hidden=args.hidden,
-                                rnn_hidden=args.rnn_hidden, lr=args.lr,
-                                dropout=args.dropout, **kw)
+        cfg = train.TrainConfig(epochs=args.epochs, **kw)
         t0 = time.time()
         d = data if no_prev else data_prev
-        out = train.cross_validate(d, cfg, folds, device, n_ensemble=args.ensemble)
+        out = train.cross_validate(d, cfg, folds, device, n_ensemble=args.ensemble,
+                                   groups=groups, fold_cfgs=fold_cfgs)
         rows.append(dict(model=name, **_flat(out["metrics"])))
         print(f"  {name:32s} rmse={rows[-1]['rmse_level']:.3f}  "
               f"skill_vs_persistence={rows[-1]['skill_vs_persistence']:+.3f}  "
-              f"({time.time()-t0:.0f}s)")
+              f"({time.time()-t0:.0f}s)", flush=True)
 
-    # optimism reference: the same full model under random splitting
+    # optimism reference: the same full model under random splitting, with its own nested
+    # search and random early stopping, so nothing about it is blocked
     rnd = list(blocking.random_kfold(len(data), k=args.folds, seed=0))
-    out = train.cross_validate(data_prev, train.TrainConfig(
-        epochs=args.epochs, lam=args.lam, hidden=args.hidden, rnn_hidden=args.rnn_hidden,
-        lr=args.lr, dropout=args.dropout), rnd, device, n_ensemble=args.ensemble)
+    rnd_cfgs = tuning.fold_configs(data_prev, rnd, None, device, tag=f"{stem} random")
+    out = train.cross_validate(data_prev, train.TrainConfig(epochs=args.epochs), rnd, device,
+                               n_ensemble=args.ensemble, fold_cfgs=rnd_cfgs)
     rows.append(dict(model="full model, RANDOM k-fold (optimism reference)", **_flat(out["metrics"])))
 
     df = pd.DataFrame(rows)
@@ -169,8 +169,7 @@ def main() -> int:
             "rmse_change_persistence", "coverage_90", "n"]
     df = df[[c for c in cols if c in df.columns] + [c for c in df.columns if c not in cols]]
     config.TABLES.mkdir(parents=True, exist_ok=True)
-    # name the output after the input, so one run cannot overwrite another's results
-    stem = "synthetic" if args.synthetic else pathlib.Path(args.data).stem.replace("panel_", "")
+    # named after the input, so one run cannot overwrite another's results
     out_path = config.TABLES / f"ablations_{stem}.csv"
     df.to_csv(out_path, index=False)
 

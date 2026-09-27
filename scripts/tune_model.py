@@ -1,64 +1,38 @@
-"""A modest, documented hyperparameter search for the hybrid model.
+"""Summarise the nested hyperparameter selection.
 
-The protocol fixed in advance forbids tuning each ablation separately, because that would
-confound the component removed with its hyperparameters. It says nothing about whether
-the full model was given a fair chance against the gradient-boosting baseline, which ran
-with sensible library defaults while the network ran with one arbitrary configuration.
-
-This closes that gap. The search uses its own spatially blocked split, carved out of the
-data before the evaluation folds are built, so nothing learned here leaks into the
-reported skill. The winning configuration is then evaluated once, unchanged, under the
-same blocked cross-validation as everything else.
+The search itself runs inside every training fold (``src/tuning.py``), triggered by the
+analysis scripts and cached in ``results/tables/nested_tuning.json``. This writes one row
+per fold with the configuration chosen, its inner-split skill and the spread of the grid,
+which is what the manuscript reports.
 
     python scripts/tune_model.py
 """
 from __future__ import annotations
-import sys, pathlib, json, time
-import numpy as np
+import sys, pathlib, json
+import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
-import config, blocking, evaluate, train  # noqa: E402
-
-GRID = [dict(hidden=h, rnn_hidden=r, lr=lr, dropout=dr)
-        for h, r in ((32, 32), (64, 64), (64, 128))
-        for lr in (1e-3, 3e-3)
-        for dr in (0.1, 0.2)]
+import config, tuning  # noqa: E402
 
 
 def main() -> int:
-    from run_ablations import load_npz            # noqa: E402
-    data = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
-    device = config.device()
-    config.seed_everything()
-
-    # A blocked split reserved for the search alone.
-    block_size = blocking.variogram_range(data.coords, data.y)
-    bid = blocking.spatial_blocks(data.coords, block_size)
-    rng = np.random.default_rng(0)
-    blocks = np.unique(bid)
-    rng.shuffle(blocks)
-    val_blocks = set(blocks[: max(1, len(blocks) // 4)])
-    val = np.where(np.isin(bid, list(val_blocks)))[0]
-    fit = np.where(~np.isin(bid, list(val_blocks)))[0]
-    print(f"search split: {len(fit):,} fit / {len(val):,} val | block {block_size:,.0f} m")
-
-    data_prev = train.with_previous(data)
+    if not tuning.CACHE.exists():
+        print("no nested selections cached yet; run the analysis scripts first")
+        return 1
+    cache = json.loads(tuning.CACHE.read_text())
     rows = []
-    for i, g in enumerate(GRID, 1):
-        cfg = train.TrainConfig(epochs=200, patience=25, lam=0.1, **g)
-        t0 = time.time()
-        model, sc, _ = train.train_model(data_prev, fit, val, cfg, device)
-        mu, _ = train.predict(model, sc, data_prev, val, device)
-        sk = evaluate.skill_score(data.y_prev[val], data.y[val], mu)
-        rows.append(dict(**g, rmse=evaluate.rmse(data.y[val], mu), skill=sk))
-        print(f"  {i:2d}/{len(GRID)} {g} -> skill {sk:+.3f}  ({time.time()-t0:.0f}s)")
-
-    best = max(rows, key=lambda r: r["skill"])
-    print(f"\nbest: {best}")
-    config.TABLES.mkdir(parents=True, exist_ok=True)
-    (config.TABLES / "tuning.json").write_text(json.dumps(
-        {"grid": rows, "best": best, "block_size_m": block_size}, indent=1))
-    print(f"wrote {config.TABLES/'tuning.json'}")
+    for v in cache.values():
+        skills = [g["skill"] for g in v["grid"]]
+        b = v["best"]
+        rows.append(dict(tag=v["tag"], n_train=v["n_train"], n_inner_val=v["n_inner_val"],
+                         hidden=b["hidden"], rnn_hidden=b["rnn_hidden"], lr=b["lr"],
+                         dropout=b["dropout"], best_skill=b["skill"],
+                         grid_min=min(skills), grid_max=max(skills)))
+    df = pd.DataFrame(rows).sort_values("tag")
+    out = config.TABLES / "nested_tuning_summary.csv"
+    df.to_csv(out, index=False)
+    print(df.to_string(index=False, float_format=lambda x: f"{x:.3f}"))
+    print(f"\nwrote {out}")
     return 0
 
 

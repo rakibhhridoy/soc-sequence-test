@@ -1,0 +1,30 @@
+loaded data/processed/panel_organic.npz: 274 observations
+device=mps | spatial block size=276,477 m | folds=3
+
+    search organic spatial fold 0: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.34881161396863947} (8s)
+    search organic spatial fold 1: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.3763033486239702} (5s)
+    search organic spatial fold 2: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.37306661152524256} (8s)
+  full model (LSTM)                rmse=0.780  skill_vs_persistence=+0.396  (6s)
+  5. no previous observation       rmse=0.812  skill_vs_persistence=+0.372  (5s)
+  1. no recurrent decoder          rmse=0.795  skill_vs_persistence=+0.385  (5s)
+  2. no learned encoder            rmse=0.814  skill_vs_persistence=+0.370  (4s)
+  3. GRU in place of LSTM          rmse=0.785  skill_vs_persistence=+0.392  (21s)
+  4. no static embedding           rmse=0.886  skill_vs_persistence=+0.315  (4s)
+    search organic random fold 0: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.4118739941239514} (6s)
+    search organic random fold 1: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.5278966657673312} (6s)
+    search organic random fold 2: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.4378291002951076} (9s)
+
+                                         model  rmse_level  ccc_level  skill_vs_persistence  rmse_change_persistence  coverage_90   n  rmse_change  ccc_change
+                                   persistence       1.292      0.131                 0.000                    1.292          NaN 274        1.292       0.000
+             gradient boosting (summary stats)       0.824      0.497                 0.363                    1.292          NaN 274        0.824       0.461
+                             full model (LSTM)       0.780      0.504                 0.396                    1.292        0.858 274        0.780       0.441
+                    5. no previous observation       0.812      0.398                 0.372                    1.292        0.901 274        0.812       0.384
+                       1. no recurrent decoder       0.795      0.522                 0.385                    1.292        0.843 274        0.795       0.449
+                         2. no learned encoder       0.814      0.499                 0.370                    1.292        0.843 274        0.814       0.443
+                       3. GRU in place of LSTM       0.785      0.487                 0.392                    1.292        0.883 274        0.785       0.425
+                        4. no static embedding       0.886      0.213                 0.315                    1.292        0.912 274        0.886       0.241
+full model, RANDOM k-fold (optimism reference)       0.840      0.405                 0.350                    1.292        0.869 274        0.840       0.360
+
+optimism from random splitting: rmse 0.840 vs 0.780 blocked (-8 %)
+note: RMSE on change equals RMSE on level by construction; skill_vs_persistence is the column that decides whether a model beats assuming no change.
+wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/ablations_organic.csv
