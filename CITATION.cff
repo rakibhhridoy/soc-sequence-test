@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-title: Code and results for a test of a convolutional-recurrent network for forecasting
-  soil organic carbon change, with the evaluation protocol fixed in advance
+title: "Code and results: Deep sequence learning and gradient boosting for forecasting soil organic carbon change in Europe"
+version: 2.0.0
 message: If you use this software, please cite it and the accompanying article.
 type: software
 authors:

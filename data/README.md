@@ -1,27 +1,13 @@
 # Data
 
-Nothing here is version-controlled. This file records where each input comes from and
-how to rebuild it.
+Nothing here is version-controlled. This file records where each input comes from.
 
-## Required
+| Dataset | Use | Source |
+|---|---|---|
+| LUCAS topsoil 2009, 2015, 2018 | SOC target and soil properties, repeated at the same points | European Soil Data Centre (ESDAC), on request; see `LUCAS_HOWTO.md` |
+| Landsat 5, 7, 8, 9 Collection-2 surface reflectance | monthly dynamic covariates | Google Earth Engine, via `scripts/export_covariates.py` |
+| ERA5-Land monthly means | temperature, precipitation and soil water for the climate check | Copernicus Climate Data Store, via `scripts/extract_era5land.py` |
 
-| Dataset | Use | Source | Status |
-|---|---|---|---|
-| LUCAS topsoil 2009 / 2015 / 2018 | SOC target, repeated at the same points | ESDAC, European Commission (registration needed) | to download |
-| Sentinel-2 / Landsat composites | dynamic reflectance series | Google Earth Engine | to export |
-| ERA5-Land, CHIRPS | dynamic climate series | Copernicus CDS; Climate Hazards Center | to export |
-| SoilGrids 2.0 | static soil covariates where measured values are missing | ISRIC | to download |
-
-## Do not use as a training target
-
-`../../../SOC/data/SOC_Properties_40Years_1985_2025.csv` is a derived file, not a
-record of measurements. `Generate_40Year_Data.py` interpolates the soil properties
-between the 1985 and 2025 surveys, so consecutive years carry identical values, and its
-`SOC_Satellite_Derived` column is a ridge-regression fit on the same satellite indices
-that would serve as predictors. It is usable only as an illustration of that earlier
-method, and a model trained on it would be learning the interpolation.
-
-## Counts to establish first
-
-The number of LUCAS points that genuinely repeat across rounds sets the ceiling on what
-any model can be shown to do. Establish and record it before building anything.
+Raw downloads go in `raw/` and are never edited in place. Everything in `interim/` and
+`processed/` is rebuilt by the scripts. The LUCAS licence does not permit redistribution,
+so none of these files, and no table keyed to LUCAS point identifiers, is published.

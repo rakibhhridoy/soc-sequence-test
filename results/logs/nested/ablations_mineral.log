@@ -29,4 +29,4 @@ full model, RANDOM k-fold (optimism reference)       0.538      0.528           
 
 optimism from random splitting: rmse 0.538 vs 0.558 blocked (+4 %)
 note: RMSE on change equals RMSE on level by construction; skill_vs_persistence is the column that decides whether a model beats assuming no change.
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/ablations_mineral.csv
+wrote results/tables/ablations_mineral.csv

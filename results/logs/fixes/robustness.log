@@ -19,4 +19,4 @@ replicate 4: hybrid 0.256, boosting 0.260, linear 0.171  (262s)
 spatiotemporal hybrid minus boosting     0.035    -0.003      0.077     0.002      0.071           3              False             0.962
   spatiotemporal hybrid minus linear     0.016    -0.020      0.051    -0.015      0.047           3              False             0.799
 
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/robustness.csv
+wrote results/tables/robustness.csv

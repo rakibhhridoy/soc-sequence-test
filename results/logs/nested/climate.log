@@ -18,4 +18,4 @@ gradient boosting with previous value, with climate minus gradient boosting with
                                hybrid, with climate minus gradient boosting with previous value, with climate    -0.010  -0.025    0.005             0.093
                                  hybrid, with climate minus gradient boosting no previous value, with climate    -0.006  -0.021    0.010             0.215
 
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/climate_comparison.csv
+wrote results/tables/climate_comparison.csv

@@ -1,4 +1,4 @@
-"""The hybrid architecture of the frozen preprint (Fig. 5).
+"""The convolutional-recurrent hybrid (Fig. 1a of the article).
 
 Dynamic covariate series pass through a dilated 1-D convolutional encoder; static soil
 and terrain covariates enter through a dense embedding broadcast across every time step;

@@ -1,2 +1,2 @@
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/data/processed/panel_mineral_climate.npz: x_dyn (16462, 13, 60)
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/data/processed/panel_organic_climate.npz: x_dyn (274, 13, 60)
+wrote data/processed/panel_mineral_climate.npz: x_dyn (16462, 13, 60)
+wrote data/processed/panel_organic_climate.npz: x_dyn (274, 13, 60)

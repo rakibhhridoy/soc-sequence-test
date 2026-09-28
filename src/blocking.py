@@ -1,6 +1,6 @@
 """Validation design: spatial blocks and forward temporal splits.
 
-This module exists before any model, because the preprint's protocol makes blocked
+This module exists before any model, because the evaluation design makes blocked
 validation the condition under which a skill claim means anything. ``random_kfold`` is
 provided only as the labelled optimism reference.
 """

@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Full rerun after the texture and mineral-classing fixes (2026-09-26).
-cd "/Volumes/SSD Rx/Research/Others/Seminar/article"
+cd "$(dirname "$0")/../.."
 L=results/logs/fixes; mkdir -p $L
 run() { echo "[$(date +%H:%M)] $1 start"; shift; "$@" > $L/$STEP.log 2>&1 && echo "[$(date +%H:%M)] ok" || echo "[$(date +%H:%M)] FAILED ($?)"; }
 STEP=climate_panel; run $STEP python -u scripts/build_climate_panel.py

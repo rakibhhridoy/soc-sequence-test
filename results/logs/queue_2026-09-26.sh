@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Queue from STATUS.md "Unfinished" items 1 and 2, run 2026-09-26.
 set -e
-cd "/Volumes/SSD Rx/Research/Others/Seminar/article"
+cd "$(dirname "$0")/../.."
 L=results/logs
 echo "[$(date)] main table start" 
 python -u scripts/run_ablations.py --data data/processed/panel_mineral.npz \

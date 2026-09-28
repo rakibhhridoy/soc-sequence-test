@@ -1,33 +1,27 @@
 # Results
 
-## `tables/ablations_synthetic.csv`
+Every number in the article comes from a table here. Tables are written by the scripts
+named below and are rebuilt by rerunning them.
 
-Synthetic data only. This verifies the machinery; it says nothing about soil carbon.
+| Table | Script | Content |
+|---|---|---|
+| `ablations_mineral.csv`, `ablations_organic.csv` | `run_ablations.py` | full model, five ablations, boosting, persistence, random k-fold reference |
+| `bootstrap_comparison.csv`, `bootstrap_per_fold.csv` | `bootstrap_comparison.py` | paired block-bootstrap intervals, spatial and same-point temporal |
+| `robustness.csv`, `robustness_per_replicate.csv` | `robustness.py` | five replicates, mean-reversion floor, equivalence test, new-places temporal design |
+| `dynamic_diagnostic.csv` | `diagnose_dynamic.py` | covariate series replaced by zeros or noise |
+| `climate_comparison.csv` | `climate_comparison.py` | adding ERA5-Land climate |
+| `temporal_validation.csv` | `temporal_validation.py` | forward in time at the same points |
+| `breakdown_*.csv`, `change_by_land_use.csv` | `soil_breakdown.py` | simple baselines, land use, SOC tertiles, observed change |
+| `graph_mineral.csv`, `graph_organic.csv` | `run_graph.py` | graph extension and its edge-free control |
+| `organic_boosting_with_previous.csv` | computed on the organic folds | boosting with the previous value, organic soils |
+| `nested_tuning.json`, `nested_tuning_summary.csv` | `src/tuning.py`, `tune_model.py` | hyperparameters selected inside each training fold |
+| `lucas_repeat_counts.csv` | `lucas_repeat_count.py` | points measured in each campaign |
+| `ablations_synthetic.csv` | `run_ablations.py --synthetic` | machinery check on synthetic data only |
 
-The panel is generated so that change responds to a recent-window mean of one dynamic
-channel plus one static covariate, with strong persistence and spatially clustered
-points. Run: `python scripts/run_ablations.py --synthetic --epochs 200 --folds 3`.
+Superseded tables are kept for the record and are not cited in the article:
+`*_lr001_do02*` (a configuration used before hyperparameter selection),
+`ablations_organic_untracked_settings.csv`, `graph_*_LEAKY.csv` (a graph run in which each
+point's later observation could reach its earlier one), and `tuning.json` /
+`tuning_prefix.json` (a single search superseded by the nested selection).
 
-What it establishes:
-
-- The pipeline completes end to end on the Apple GPU: blocked folds, early stopping,
-  ensembles, six ablations, baselines and the optimism reference.
-- Withholding the previous observation (ablation 6) raises RMSE from 0.59 to 2.18, which
-  is why that value is an input. It is known when a forecast is made.
-- Prediction intervals are close to calibrated, with 90 % nominal coverage landing at
-  0.87 to 0.90 across variants.
-- Random splitting looks 3 % better than blocked splitting, so the optimism reference
-  works, though the gap is small because the generator's spatial clustering is mild.
-
-What it must not be read as:
-
-- The simpler variants score best here, with ablations 1 and 2 the only ones beating
-  persistence at all. That follows from how the data were generated: the driver is a
-  windowed mean, which hand-engineered summary statistics capture almost exactly, so
-  there is nothing for a learned encoder or a recurrent decoder to add. A generator
-  cannot tell anyone whether real soil carbon has structure worth learning.
-- Absolute skill is meaningless here. Persistence is near-unbeatable by construction
-  because the synthetic change signal is small against the standing stock.
-
-The same table on the real LUCAS panel is the actual experiment, and the falsification
-condition fixed in advance applies to that run alone.
+`predictions/` is not tracked, because it is keyed to LUCAS point identifiers.

@@ -17,7 +17,7 @@ anything that runs belongs in `../scripts/`.
 | `uncertainty.py` | Monte Carlo dropout (deep ensembles live in `train.cross_validate`) |
 | `aoa.py` | area-of-applicability mask |
 
-Two rules carried over from the preprint's protocol:
+Two rules enforced in code:
 
 - `blocking.py` exists before any model is trained. Random k-fold is available only as
   the labelled optimism reference, never as a headline result.

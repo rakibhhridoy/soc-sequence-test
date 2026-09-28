@@ -27,4 +27,4 @@ temporal                                              hybrid, full     0.178   0
 temporal   hybrid, full minus gradient boosting, no previous value     0.026   0.007    0.041             0.997
 temporal hybrid, full minus gradient boosting, with previous value     0.018  -0.001    0.033             0.972
 
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/bootstrap_comparison.csv
+wrote results/tables/bootstrap_comparison.csv

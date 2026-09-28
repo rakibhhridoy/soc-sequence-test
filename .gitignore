@@ -25,7 +25,13 @@ manuscript/*.fdb_latexmk
 .DS_Store
 ._*
 
-# manuscript stays private until the preprint is posted
+# manuscript stays private until publication
 manuscript/
 results/predictions/
 results/tables/superseded_*/
+
+# internal notes, kept locally
+results/STATUS.md
+results/FINDINGS.md
+results/PANEL_DIAGNOSTICS.md
+results/logs/queue_*.log

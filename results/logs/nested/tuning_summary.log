@@ -31,4 +31,4 @@ mineral replicate 4 fold 3    12474         3579      64         128 0.003    0.
     organic spatial fold 1      195           51      64          64 0.003    0.100       0.376     0.118     0.376
     organic spatial fold 2      166           42      64         128 0.003    0.100       0.373     0.235     0.373
 
-wrote /Users/rakibhhridoy/soc_work/article/results/tables/nested_tuning_summary.csv
+wrote results/tables/nested_tuning_summary.csv

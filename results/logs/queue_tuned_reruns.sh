@@ -1,6 +1,6 @@
 #!/bin/zsh
 set -e
-cd "/Volumes/SSD Rx/Research/Others/Seminar/article"
+cd "$(dirname "$0")/../.."
 L=results/logs
 echo "[$(date)] organic ablations start"
 python -u scripts/run_ablations.py --data data/processed/panel_organic.npz \

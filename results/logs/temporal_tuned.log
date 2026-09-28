@@ -5,4 +5,4 @@ train on 2015 targets: 8,100 | test on 2018 targets: 8,100
 gradient boosting (summary stats) 0.549 0.435                 0.160 8100
          full model (LSTM, tuned) 0.538 0.463                 0.178 8100
 
-wrote /Volumes/SSD Rx/Research/Others/Seminar/article/results/tables/temporal_validation.csv
+wrote results/tables/temporal_validation.csv

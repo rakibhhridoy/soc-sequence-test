@@ -6,4 +6,4 @@
 graph on hybrid (covariate-space k-NN) 0.557 0.483                 0.243        0.916 16462
        graph model, no edges (control) 0.558 0.477                 0.242        0.916 16462
 
-wrote /Users/rakibhhridoy/soc_work/article/results/tables/graph_mineral.csv
+wrote results/tables/graph_mineral.csv

@@ -1,0 +1,16 @@
+search split: 12,363 fit / 4,099 val | block 276,477 m
+   1/12 {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.1} -> skill +0.261  (44s)
+   2/12 {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2} -> skill +0.265  (42s)
+   3/12 {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.1} -> skill +0.262  (34s)
+   4/12 {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.2} -> skill +0.261  (33s)
+   5/12 {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.1} -> skill +0.257  (41s)
+   6/12 {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.2} -> skill +0.254  (46s)
+   7/12 {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.1} -> skill +0.259  (46s)
+   8/12 {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.2} -> skill +0.262  (41s)
+   9/12 {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.1} -> skill +0.256  (71s)
+  10/12 {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.2} -> skill +0.257  (88s)
+  11/12 {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.003, 'dropout': 0.1} -> skill +0.246  (59s)
+  12/12 {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.003, 'dropout': 0.2} -> skill +0.254  (61s)
+
+best: {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'rmse': 0.5787205084504304, 'skill': 0.26484767074076043}
+wrote results/tables/tuning.json

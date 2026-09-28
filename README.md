@@ -1,123 +1,77 @@
-# From framework to article
+# Deep sequence learning and gradient boosting for forecasting soil organic carbon change in Europe
 
-The preprint in `../preprint/` is frozen. It states an architecture and an
-evaluation protocol fixed in advance, and reports no results. This folder turns it into
-an empirical article by running that protocol.
+Code and result tables for a test of a convolutional-recurrent hybrid against gradient
+boosting for forecasting change in soil organic carbon (SOC), on LUCAS topsoil points
+sampled in 2009, 2015 and 2018.
 
-Because the protocol was published first, its terms are binding. A result that
-contradicts it is reportable, and changing the protocol to fit the data is not.
+Authors: Md Rakib Hasan, Mst Anika Khatun Rupa, A. S. M. Mohiuddin
+(Department of Soil, Water and Environment, University of Dhaka; Fermium Systems).
 
-## Decisions taken (2026-09-23)
+## What the study finds
 
-| | |
+Mineral soils, 16,462 observations from 8,339 points, spatially blocked validation with
+hyperparameters selected inside each training fold, pooled over five replicates:
+
+| | Skill against persistence |
 |---|---|
-| Development data | EU LUCAS topsoil survey, resampled points across 2009 / 2015 / 2018 |
-| Relation to preprint | Preprint supplies Introduction and Methods; this adds Data, Results, Discussion |
-| Bangladesh | Discussion only. No Bangladeshi data enters the study, and no transfer claim is made (decision 2026-09-24) |
-| Framework | PyTorch, on the Mac's Apple GPU (MPS backend) |
-| Manuscript | `manuscript/`, started as a copy of the frozen preprint source |
-| Dynamic sensor | Landsat 5/7/8/9 throughout, so every round is treated identically |
-| Target | log SOC concentration; stock reported separately where bulk density exists |
-| Covariate window | 60 months ending December of the year before each survey |
-| Observations | 2015 and 2018 rounds as targets, with the preceding round as `y_prev` |
+| Gradient boosting on summary statistics | 0.254 |
+| Convolutional-recurrent hybrid | 0.241 |
+| Linear fit on the previous value (mean-reversion floor) | 0.169 |
 
-## Why LUCAS rather than Bangladesh data alone
+- The hybrid does not outperform boosting: the 95 % interval on the difference is
+  -0.031 to 0.003.
+- Removing its recurrent decoder or learned encoder raises skill slightly.
+- About two thirds of either method's skill is regression towards the mean.
+- Forward in time, at points withheld in space, the hybrid leads boosting by 0.049
+  (0.017 to 0.082), but its margin over the mean-reversion floor (0.030) has an interval
+  reaching below zero.
 
-The architecture needs a target measured repeatedly at identifiable locations. The
-Bangladesh holdings give 9 sites at 2 time points, which cannot train a sequence model
-and would only confirm the preprint's own failure condition. LUCAS resamples thousands
-of points on a three-year cycle, so it can carry training, spatial blocking and forward
-temporal validation. Bangladesh then becomes the transfer test, which is the harder and
-more interesting question, and the one the preprint's limitations section flags.
+`results/tables/` holds every number reported in the article.
 
-Sentinel-2 begins only in 2015, so using it for the later rounds and Landsat for the
-earlier ones would change sensor partway through the series, and any apparent temporal
-signal could then be a sensor artefact. Landsat carries all rounds on one record
-instead, at coarser resolution.
+## Data
 
-The risk to state plainly in the paper: LUCAS is European cropland and grassland, so a
-model fitted there has no guaranteed validity on Bangladeshi floodplain paddy. That is
-the hypothesis under test, not a defect to hide.
+The LUCAS topsoil data are licensed to the recipient and are not redistributed here. Request
+the 2009, 2015 and 2018 topsoil campaigns from the European Soil Data Centre (ESDAC); see
+`data/LUCAS_HOWTO.md`. Landsat covariates are exported through Google Earth Engine and
+ERA5-Land climate from the Copernicus Climate Data Store. The scripts rebuild the analysis
+panel from those files, so anyone with ESDAC access can reproduce every table.
 
-## Data integrity rules
+## Reproducing the results
 
-1. `../../../SOC/data/SOC_Properties_40Years_1985_2025.csv` must never be a training
-   target. Its yearly soil properties are interpolated between the 1985 and 2025
-   surveys, so consecutive years repeat identical values, and its satellite-derived SOC
-   column is the output of a ridge regression on the same satellite indices used as
-   predictors. Training on it would learn the interpolation and score well for the wrong
-   reason.
-2. Raw downloads land in `data/raw/` and are never edited in place. Everything
-   downstream is rebuilt by a script from `data/raw/`.
-3. Every processed file records the script and date that produced it.
+```
+conda env create -f environment.yml
+python scripts/lucas_repeat_count.py        # match campaigns, count repeated points
+python scripts/export_covariates.py         # Landsat monthly series (Earth Engine)
+python scripts/extract_era5land.py          # ERA5-Land monthly climate
+python scripts/build_panels.py              # mineral and organic panels
+python scripts/build_climate_panel.py       # panels with climate channels
+python scripts/run_ablations.py --data data/processed/panel_mineral.npz --epochs 200 --folds 4 --ensemble 3
+python scripts/run_ablations.py --data data/processed/panel_organic.npz --epochs 200 --folds 3 --ensemble 3 --block-size 276477.3517754666
+python scripts/bootstrap_comparison.py      # paired block bootstrap, spatial and temporal
+python scripts/diagnose_dynamic.py          # covariate series replaced by zeros or noise
+python scripts/climate_comparison.py        # adds ERA5-Land climate
+python scripts/temporal_validation.py       # forward in time, same points
+python scripts/robustness.py                # five replicates, mean-reversion floor, new-places design
+python scripts/soil_breakdown.py            # land use, SOC tertiles, change map
+python scripts/run_graph.py --data data/processed/panel_mineral.npz --epochs 300 --folds 4 --graphs geographic,covariate-space,none
+python scripts/tune_model.py                # summary of the nested hyperparameter selection
+python scripts/make_figures.py
+```
+
+`python scripts/selftest.py` checks the machinery on synthetic data. Hyperparameters are
+selected inside every training fold (`src/tuning.py`) and cached in
+`results/tables/nested_tuning.json`. On an 8 GB machine the full-batch mineral graph runs
+exceed Apple GPU memory; set `SOC_DEVICE=cpu`.
 
 ## Layout
 
 ```
-article/
-  manuscript/   LaTeX, started from the frozen preprint
-  data/raw/     untouched downloads (LUCAS, exported covariates)
-  data/interim/ intermediate build products
-  data/processed/ model-ready tables
-  src/          importable modules (see src/README.md)
-  scripts/      entry points that produce something in results/
-  notebooks/    exploration only; nothing depends on a notebook
-  results/      figures, tables, trained models
+src/       importable modules: panel building, blocking, models, training, tuning, evaluation
+scripts/   entry points; each writes to results/
+results/   tables, figures and run logs
+data/      where the inputs come from (no data are tracked)
 ```
 
-## Status
+## Licence
 
-- [x] Protocol code written and self-tested (`scripts/selftest.py`, 24 checks).
-      Blocking, metrics, architecture, losses and baselines all run; the GRU holds
-      exactly 0.750 of the LSTM's recurrent parameters and the upstream parameter count
-      is identical either way, so the controlled comparison holds in code.
-- [x] LUCAS 2009, 2015 and 2018 loaded; 8,368 cropland and grassland points measured in
-      all three rounds (`results/tables/lucas_repeat_counts.csv`).
-- [x] Panel diagnostics (`results/PANEL_DIAGNOSTICS.md`): log target, mineral and organic
-      soils separated, and an attainable skill ceiling of about 0.48 set by the noise floor.
-- [ ] LUCAS 2022 is listed on ESDAC but has neither a download nor a request form, so the
-      soil module appears unreleased. Ask ec-esdac@ec.europa.eu whether it is coming.
-- [x] Covariate extraction (`src/covariates.py`): Landsat 5/7/8/9, cloud and shadow
-      masked, monthly medians, with NDVI, NDWI and MNDWI as channels, so the water regime
-      enters the model rather than being masked away.
-- [x] LUCAS ingestion (`src/data_lucas.py`) and the repeat-point count
-      (`scripts/lucas_repeat_count.py`), tested against a synthetic fixture with the
-      differing column spellings the real releases use. Runs as soon as files land.
-- [ ] LUCAS-scale extraction goes through `covariates.export_monthly_series`, an Earth
-      Engine batch export. Point-by-point sampling costs ~3 s per month, which is fine for
-      nine sites and impossible for thousands. That function is written but UNTESTED.
-- [x] Training loop (`src/train.py`): blocked cross-validation, early stopping on a
-      blocked validation fold, deep ensembles, and standardisation fitted on the training
-      fold alone so no test information leaks in.
-- [x] The five ablations fixed in the protocol (`scripts/run_ablations.py`), with persistence and
-      gradient-boosting baselines and a labelled random-k-fold optimism reference.
-- [x] Verified end to end on synthetic data (`results/README.md`): six ablations,
-      baselines, optimism reference, calibrated intervals. Machinery only.
-- [x] Run on the real LUCAS panel. The first run (`results/FINDINGS.md`, now superseded)
-      was invalidated by a data bug; see `results/STATUS.md` for the corrected results,
-      in which the architecture narrowly leads (0.272 against 0.265) and the falsification
-      condition fixed in advance is not met.
-- [ ] Results and Discussion in `manuscript/`.
-
-## Order of work
-
-1. Assemble LUCAS repeat points with their covariate series; confirm how many points
-   genuinely repeat, since that number caps everything.
-2. Build the blocking scheme first, before any model, so no result is ever produced
-   under random splitting by accident.
-3. Baselines before the network: persistence, gradient boosting on summary statistics,
-   and a process-model run.
-4. The full architecture, then the five ablations fixed in the protocol.
-6. Write Results and Discussion into `manuscript/`.
-
-Skill on the change in SOC, not on the level, decides the outcome. A model that scores
-well on absolute concentration while failing on change has learned persistence.
-
-## Resolved: flooded periods
-
-Flooded ground is invisible to optical sensors as soil, but submergence is itself a
-mechanism driving carbon accumulation, so NDWI and MNDWI enter as their own channels
-rather than being masked out. Masking would discard the variable that distinguishes a
-waterlogged soil from a drained one.
-
-
+MIT for the code. The LUCAS data remain under their own licence.

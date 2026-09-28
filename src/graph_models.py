@@ -1,9 +1,8 @@
 """The hybrid architecture with message passing added on top.
 
 The convolutional encoder, static embedding, fusion and recurrent decoder are unchanged,
-so the graph layers are the only difference from the model evaluated under the fixed
-protocol. Each point's representation is mixed with those of its neighbours before the
-head reads it.
+so the graph layers are the only difference from the hybrid. Each point's representation
+is mixed with those of its neighbours before the head reads it.
 """
 from __future__ import annotations
 import torch

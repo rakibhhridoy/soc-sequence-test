@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Graph extension (STATUS.md item 2). Organic first: 268 points, cheap. Mineral is full-batch over 16,200 nodes.
 set -e
-cd "/Volumes/SSD Rx/Research/Others/Seminar/article"
+cd "$(dirname "$0")/../.."
 L=results/logs
 echo "[$(date)] graph organic start"
 python -u scripts/run_graph.py --data data/processed/panel_organic.npz --epochs 300 --folds 3 > $L/graph_organic_causal.log 2>&1
