@@ -306,3 +306,20 @@ SOC_DEVICE=cpu (new override in config.device). Manuscript placeholders GRAPHGEO
 await it. Decision rule rewritten as one-sided (hybrid must outperform); margin disclosed as
 post hoc and bearing only on equivalence. Figures: slope moved into change-map panel title,
 fig_skill labels shortened.
+
+## Graph extension, mineral, and edge-free control (2026-09-27 evening)
+
+CPU run finished 22:40: geographic 0.257, covariate-space 0.243, vs hybrid 0.241 and boosting
+0.259. Graph variant differs from the hybrid in training (full batch, 300 epochs, patience 30),
+so run_graph.py gained --graphs none: the same GraphSOC and training with every edge removed.
+Organic control 0.387 (geographic 0.386, covariate 0.392, hybrid 0.396). Mineral control
+running on CPU under caffeinate, log results/logs/nested/graph_mineral_control.log. The
+graph subsection text (placeholders GRAPHGEO/GRAPHCOV, title "adds nothing") waits on it.
+
+## Graph control done; manuscript complete (2026-09-28)
+
+Mineral: control (no edges) 0.242, covariate-space 0.243, geographic 0.257, hybrid 0.241.
+Training regime adds nothing; geographic neighbours add 0.015 (single run, no CI; predictions
+not retained). Organic: control 0.387, geographic 0.386, covariate 0.392, hybrid 0.396.
+Graph subsection retitled "Geographic neighbours add a little"; Discussion sentence updated.
+No placeholders remain; main.pdf 19 pages, clean build.
