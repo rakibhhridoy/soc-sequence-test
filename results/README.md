@@ -13,6 +13,8 @@ named below and are rebuilt by rerunning them.
 | `temporal_validation.csv` | `temporal_validation.py` | forward in time at the same points |
 | `breakdown_*.csv`, `change_by_land_use.csv` | `soil_breakdown.py` | simple baselines, land use, SOC tertiles, observed change |
 | `graph_mineral.csv`, `graph_organic.csv` | `run_graph.py` | graph extension and its edge-free control |
+| `graph_mineral_bootstrap.csv` | `graph_bootstrap.py` | paired block-bootstrap intervals for the graph extension, mineral soils |
+| `campaign_proxy.csv` | `campaign_proxy.py` | whether the Landsat series carry the campaign: boosting with the campaign as an input, and the new-places design without the series |
 | `organic_boosting_with_previous.csv` | computed on the organic folds | boosting with the previous value, organic soils |
 | `nested_tuning.json`, `nested_tuning_summary.csv` | `src/tuning.py`, `tune_model.py` | hyperparameters selected inside each training fold |
 | `lucas_repeat_counts.csv` | `lucas_repeat_count.py` | points measured in each campaign |

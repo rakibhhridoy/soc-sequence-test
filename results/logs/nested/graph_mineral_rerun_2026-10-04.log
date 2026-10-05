@@ -1,0 +1,10 @@
+16,462 observations | block 276 km | k=8 | cpu
+  none             skill +0.242  (45846s)
+  geographic       skill +0.257  (15333s)
+
+                                 model  rmse   ccc  skill_vs_persistence  coverage_90     n
+graph on hybrid (covariate-space k-NN) 0.557 0.483                 0.243        0.916 16462
+       graph model, no edges (control) 0.558 0.477                 0.242        0.916 16462
+     graph on hybrid (geographic k-NN) 0.546 0.503                 0.257        0.914 16462
+
+wrote results/tables/graph_mineral.csv

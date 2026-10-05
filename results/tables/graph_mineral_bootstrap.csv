@@ -1,0 +1,9 @@
+comparison,difference,lo95,hi95,share_positive
+skill: hybrid,0.24131060725022924,,,
+skill: gradient boosting,0.2586439998494584,,,
+"skill: graph, no edges (control)",0.24186258805127914,,,
+"skill: graph, geographic neighbours",0.25746267213300866,,,
+"graph, geographic neighbours minus graph, no edges (control)",0.015600084081729526,0.006848892750939842,0.02558745829847147,1.0
+"graph, geographic neighbours minus hybrid",0.016152064882779427,0.006758962932883819,0.026887396462305115,1.0
+"graph, no edges (control) minus hybrid",0.0005519808010499005,-0.002275035352657187,0.0033154061733539656,0.659
+"graph, geographic neighbours minus gradient boosting",-0.0011813277164497427,-0.010271408123419257,0.009332117933348675,0.3815

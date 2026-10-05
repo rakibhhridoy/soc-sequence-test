@@ -74,6 +74,13 @@ def main() -> int:
             m = np.mean(ms, axis=0)
             var = np.mean(np.array(ss) ** 2 + np.array(ms) ** 2, axis=0) - m ** 2
             mu[te_idx], sig[te_idx] = m, np.sqrt(np.clip(var, 1e-12, None))
+        # Held-out predictions, saved per neighbourhood as soon as it finishes, so a paired
+        # block bootstrap against the hybrid (same folds) can be run afterwards.
+        fold = np.full(len(data.y), -1)
+        for f, (_, te_idx) in enumerate(folds):
+            fold[te_idx] = f
+        np.savez(config.RESULTS / "predictions" / f"graph_{stem}_{name}.npz",
+                 mu=mu, sigma=sig, fold=fold, groups=groups)
         ok = ~np.isnan(mu)
         rows.append(dict(
             model=("graph model, no edges (control)" if name == "none"

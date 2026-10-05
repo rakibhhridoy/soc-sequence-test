@@ -54,6 +54,8 @@ python scripts/temporal_validation.py       # forward in time, same points
 python scripts/robustness.py                # five replicates, mean-reversion floor, new-places design
 python scripts/soil_breakdown.py            # land use, SOC tertiles, change map
 python scripts/run_graph.py --data data/processed/panel_mineral.npz --epochs 300 --folds 4 --graphs geographic,covariate-space,none
+python scripts/graph_bootstrap.py           # paired intervals for the graph extension (needs the none and geographic runs)
+python scripts/campaign_proxy.py            # do the Landsat series act as a proxy for the campaign?
 python scripts/tune_model.py                # summary of the nested hyperparameter selection
 python scripts/make_figures.py
 ```
