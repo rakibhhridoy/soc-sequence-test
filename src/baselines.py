@@ -51,9 +51,12 @@ def temporal_features(x_dyn: np.ndarray) -> np.ndarray:
 
 BOOSTING_GRID = [dict(max_depth=d, min_child_weight=w, colsample_bytree=cs)
                  for d in (3, 5, 8) for w in (1, 20) for cs in (0.5, 0.9)]
+# the same grid extended to deeper trees, since depth 8 was often selected
+BOOSTING_GRID_DEEP = [dict(max_depth=d, min_child_weight=w, colsample_bytree=cs)
+                      for d in (3, 5, 8, 10, 12) for w in (1, 20) for cs in (0.5, 0.9)]
 
 
-def fit_tuned_boosting(X, y, tr_idx, groups, seed: int = 0):
+def fit_tuned_boosting(X, y, tr_idx, groups, seed: int = 0, grid=None):
     """Boosting with its own nested selection, mirroring tuning.select for the hybrid.
 
     The training fold is split by whole blocks; every configuration of BOOSTING_GRID is
@@ -75,8 +78,9 @@ def fit_tuned_boosting(X, y, tr_idx, groups, seed: int = 0):
     inner_fit, inner_val = train.split_fit_val(tr_idx, groups, 0.25, seed=1000 + seed)
     fit_idx, stop_idx = train.split_fit_val(inner_fit, groups, 0.2, seed=2000 + seed)
     y_prev = X[:, -1]                    # the previous value is the last column
+    grid = BOOSTING_GRID if grid is None else grid
     rows = []
-    for g in BOOSTING_GRID:
+    for g in grid:
         mu = fit(g, fit_idx, stop_idx).predict(X[inner_val])
         rows.append({**g, "skill": float(evaluate.skill_score(y_prev[inner_val], y[inner_val], mu))})
     best = max(rows, key=lambda r: r["skill"])

@@ -17,6 +17,7 @@ named below and are rebuilt by rerunning them.
 | `campaign_proxy.csv` | `campaign_proxy.py` | whether the Landsat series carry the campaign: boosting with the campaign as an input, and the new-places design without the series |
 | `boosting_features.csv` | `boosting_features.py` | boosting with timing features and nested selection, against the hybrid across space and at a later survey |
 | `boosting_features_tuning.json` | `boosting_features.py` | the configuration selected in every training fold |
+| `boosting_features_deep.csv`, `boosting_features_deep_tuning.json` | `boosting_features.py --deep` | the same with the tuning grid extended to depths 10 and 12 |
 | `breakdown_climate.csv` | `climate_breakdown.py` | skill of the hybrid, boosting and the mean-reversion floor by Köppen climate zone |
 | `organic_boosting_with_previous.csv` | computed on the organic folds | boosting with the previous value, organic soils |
 | `nested_tuning.json`, `nested_tuning_summary.csv` | `src/tuning.py`, `tune_model.py` | hyperparameters selected inside each training fold |

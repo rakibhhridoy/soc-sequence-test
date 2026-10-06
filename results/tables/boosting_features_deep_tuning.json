@@ -1,0 +1,650 @@
+{
+ "summary, fixed rep0": [],
+ "summary, tuned rep0": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2699448457390292
+   },
+   "n_trees": 223
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.27899751983062515
+   },
+   "n_trees": 258
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.26694565041054186
+   },
+   "n_trees": 135
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.2481800661461483
+   },
+   "n_trees": 424
+  }
+ ],
+ "timing, fixed rep0": [],
+ "timing, tuned rep0": [
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2709939143713418
+   },
+   "n_trees": 252
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2822382025705654
+   },
+   "n_trees": 274
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2674898599780796
+   },
+   "n_trees": 335
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.255916911433138
+   },
+   "n_trees": 165
+  }
+ ],
+ "st summary, fixed rep0": [],
+ "st summary, tuned rep0": [
+  {
+   "best": {
+    "max_depth": 12,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.28677783103175014
+   },
+   "n_trees": 199
+  },
+  {
+   "best": {
+    "max_depth": 12,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.3232808605546157
+   },
+   "n_trees": 252
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.3010878215010585
+   },
+   "n_trees": 207
+  },
+  {
+   "best": {
+    "max_depth": 12,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.28638773251628313
+   },
+   "n_trees": 246
+  }
+ ],
+ "st timing, fixed rep0": [],
+ "st timing, tuned rep0": [
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.29031280285991024
+   },
+   "n_trees": 745
+  },
+  {
+   "best": {
+    "max_depth": 12,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.3168294145244832
+   },
+   "n_trees": 358
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.29253552690214535
+   },
+   "n_trees": 376
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.29777708968082073
+   },
+   "n_trees": 322
+  }
+ ],
+ "summary, fixed rep1": [],
+ "summary, tuned rep1": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.29637931409098184
+   },
+   "n_trees": 243
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.26320927741350997
+   },
+   "n_trees": 381
+  },
+  {
+   "best": {
+    "max_depth": 12,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2461373468553978
+   },
+   "n_trees": 170
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.28985795379039503
+   },
+   "n_trees": 476
+  }
+ ],
+ "timing, fixed rep1": [],
+ "timing, tuned rep1": [
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.30333657873770836
+   },
+   "n_trees": 231
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.27080182275949805
+   },
+   "n_trees": 180
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2563583191850143
+   },
+   "n_trees": 277
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2958166400196962
+   },
+   "n_trees": 207
+  }
+ ],
+ "st summary, fixed rep1": [],
+ "st summary, tuned rep1": [
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.300174784435432
+   },
+   "n_trees": 107
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.2726099956181942
+   },
+   "n_trees": 143
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.1331361266300578
+   },
+   "n_trees": 61
+  },
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.24740146770229332
+   },
+   "n_trees": 202
+  }
+ ],
+ "st timing, fixed rep1": [],
+ "st timing, tuned rep1": [
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.30012390499595676
+   },
+   "n_trees": 187
+  },
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.27994320859465893
+   },
+   "n_trees": 141
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.1601990482515775
+   },
+   "n_trees": 95
+  },
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.24514818810836936
+   },
+   "n_trees": 123
+  }
+ ],
+ "summary, fixed rep2": [],
+ "summary, tuned rep2": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2538693107179384
+   },
+   "n_trees": 449
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.26550228902696393
+   },
+   "n_trees": 309
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2761843038219097
+   },
+   "n_trees": 222
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.2756644929472645
+   },
+   "n_trees": 222
+  }
+ ],
+ "timing, fixed rep2": [],
+ "timing, tuned rep2": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.25981863686651185
+   },
+   "n_trees": 520
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.2735051725906519
+   },
+   "n_trees": 639
+  },
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.28517655778036477
+   },
+   "n_trees": 139
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.27893232462672324
+   },
+   "n_trees": 332
+  }
+ ],
+ "st summary, fixed rep2": [],
+ "st summary, tuned rep2": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.20302664040625962
+   },
+   "n_trees": 326
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2575118047696813
+   },
+   "n_trees": 163
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.17294367011309186
+   },
+   "n_trees": 293
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.2654641195216717
+   },
+   "n_trees": 216
+  }
+ ],
+ "st timing, fixed rep2": [],
+ "st timing, tuned rep2": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2042061121156471
+   },
+   "n_trees": 275
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.25697355908154096
+   },
+   "n_trees": 256
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.1838045354908563
+   },
+   "n_trees": 200
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.2697741318302068
+   },
+   "n_trees": 372
+  }
+ ],
+ "summary, fixed rep3": [],
+ "summary, tuned rep3": [
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.254411579751314
+   },
+   "n_trees": 138
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.19101133679693605
+   },
+   "n_trees": 202
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.22655073201899745
+   },
+   "n_trees": 148
+  },
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.2361579091447117
+   },
+   "n_trees": 111
+  }
+ ],
+ "timing, fixed rep3": [],
+ "timing, tuned rep3": [
+  {
+   "best": {
+    "max_depth": 10,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.25152712025176804
+   },
+   "n_trees": 145
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.19798438540733654
+   },
+   "n_trees": 353
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.2369146744233388
+   },
+   "n_trees": 441
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.23229014611152432
+   },
+   "n_trees": 441
+  }
+ ],
+ "summary, fixed rep4": [],
+ "summary, tuned rep4": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2467948614691693
+   },
+   "n_trees": 232
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.21968596640108895
+   },
+   "n_trees": 563
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.22352039526822642
+   },
+   "n_trees": 380
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.22454795530984917
+   },
+   "n_trees": 475
+  }
+ ],
+ "timing, fixed rep4": [],
+ "timing, tuned rep4": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.2573363200793357
+   },
+   "n_trees": 228
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.22515488067286726
+   },
+   "n_trees": 675
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.2274897080092415
+   },
+   "n_trees": 365
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.23045273621591944
+   },
+   "n_trees": 977
+  }
+ ],
+ "same points summary, fixed": [],
+ "same points summary, tuned": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.2888213065734202
+   },
+   "n_trees": 1161
+  }
+ ],
+ "same points timing, fixed": [],
+ "same points timing, tuned": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.3027311410785324
+   },
+   "n_trees": 474
+  }
+ ]
+}

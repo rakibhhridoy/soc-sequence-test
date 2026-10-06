@@ -10,9 +10,10 @@ forward in time at new places) and of the same-point temporal design, and pairs 
 variant with the saved hybrid predictions for block-bootstrap intervals.
 
     python scripts/boosting_features.py
+    python scripts/boosting_features.py --deep    # grid extended to depths 10 and 12
 """
 from __future__ import annotations
-import sys, pathlib, time, json
+import argparse, sys, pathlib, time, json
 import numpy as np
 import pandas as pd
 
@@ -26,11 +27,14 @@ from robustness import R_SPATIAL, R_EXTRA, N_BOOT, groups_in, gbm  # noqa: E402
 VARIANTS = ["summary, fixed", "summary, tuned", "timing, fixed", "timing, tuned"]
 
 
+GRID = baselines.BOOSTING_GRID
+
+
 def predict(X, y, pairs, tuned, groups, seed, log):
     out = np.full(len(y), np.nan)
     for tr, te in pairs:
         if tuned:
-            m, rec = baselines.fit_tuned_boosting(X, y, tr, groups, seed=seed)
+            m, rec = baselines.fit_tuned_boosting(X, y, tr, groups, seed=seed, grid=GRID)
             log.append(rec)
         else:
             m = baselines.fit_gradient_boosting(X[tr], y[tr])
@@ -39,6 +43,13 @@ def predict(X, y, pairs, tuned, groups, seed, log):
 
 
 def main() -> int:
+    global GRID
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--deep", action="store_true", help="tune over BOOSTING_GRID_DEEP")
+    args = ap.parse_args()
+    suffix = "_deep" if args.deep else ""
+    if args.deep:
+        GRID = baselines.BOOSTING_GRID_DEEP
     data = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
     y, y0, year = data.y, data.y_prev, data.times
     _, _, groups = train.spatial_folds(data, n_folds=4)
@@ -74,7 +85,7 @@ def main() -> int:
             check = np.nanmax(np.abs(p["st summary, fixed"] - saved["st_boosting"]))
             assert check < 1e-9, f"replicate {r} st does not reproduce saved boosting ({check})"
         reps.append(p)
-        np.savez(PRED_DIR / f"boosting_features_rep{r}.npz",
+        np.savez(PRED_DIR / f"boosting_features{suffix}_rep{r}.npz",
                  **{k.replace(", ", "__").replace(" ", "_"): v for k, v in p.items()})
         print(f"replicate {r}: " + ", ".join(
             f"{k} {skill(y0[~np.isnan(v)], y[~np.isnan(v)], v[~np.isnan(v)]):.3f}"
@@ -142,9 +153,9 @@ def main() -> int:
 
     df = pd.DataFrame(rows)
     print("\n" + df.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
-    out = config.TABLES / "boosting_features.csv"
+    out = config.TABLES / f"boosting_features{suffix}.csv"
     df.to_csv(out, index=False)
-    (config.TABLES / "boosting_features_tuning.json").write_text(json.dumps(log, indent=1))
+    (config.TABLES / f"boosting_features{suffix}_tuning.json").write_text(json.dumps(log, indent=1))
     print(f"\nwrote {out}")
     return 0
 
