@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "Code and results: Deep sequence learning and gradient boosting for forecasting soil organic carbon change in Europe"
-version: 2.1.0
+version: 2.2.0
 message: If you use this software, please cite it and the accompanying article.
 type: software
 authors:

@@ -108,6 +108,12 @@ check("summary features give five statistics per channel", feats.shape == (50, C
 ramp = np.tile(np.arange(T, dtype=float), (3, 1)).reshape(3, 1, T)
 check("slope feature recovers a known trend",
       np.allclose(baselines.summary_features(ramp)[:, -1], 1.0))
+tf = baselines.temporal_features(xd)
+check("timing features give 27 per channel", tf.shape == (50, C * 27))
+season = np.tile(np.sin(np.arange(T) * 2 * np.pi / 12), (2, 1)).reshape(2, 1, T)
+tf = baselines.temporal_features(season)
+check("timing features find the seasonal peak and amplitude",
+      np.isclose(np.arctan2(tf[0, 23], tf[0, 24]) / (2 * np.pi / 12), 3.0) and np.isclose(tf[0, 22], 2.0))
 
 print("\n[7] training reduces the loss (Apple GPU if available)")
 dev = config.device()
