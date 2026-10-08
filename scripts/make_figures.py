@@ -234,7 +234,6 @@ def fig_inputs():
     ax.set_xlim(-0.5, len(steps) - 0.5)
     ax.set_ylim(0.14, 0.31)
     ax.set_ylabel("Skill against persistence")
-    _grid(ax, "y")
     ax.legend(frameon=False, fontsize=7, loc="upper left", handlelength=1.6)
     fig.tight_layout()
     return fig
