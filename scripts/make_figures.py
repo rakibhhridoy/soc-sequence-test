@@ -3,7 +3,8 @@
     Fig. 3  skill of every model against the noise ceiling, and paired differences with
             95 % block-bootstrap intervals
     Fig. 4  what each input adds: static inputs, then Landsat, then ERA5-Land climate,
-            for the hybrid and for gradient boosting
+            for the hybrid and for gradient boosting, with 95 % block-bootstrap intervals
+            and the mean-reversion floor
     Fig. 5  the 8,100 mineral points and the four spatially blocked folds
 
 Colours: categorical slots 1 and 2 of the reference palette (blue for the hybrid, orange
@@ -121,31 +122,70 @@ def fig_skill():
     return fig
 
 
+def _static_only_intervals():
+    """Skill of both methods on static inputs alone, with block-bootstrap intervals.
+
+    The hybrid with its series replaced by zeros is saved by bootstrap_comparison.py; boosting
+    on the static properties and previous value is refitted on the same folds (seconds).
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import baselines
+    from run_ablations import load_npz
+    from bootstrap_comparison import block_bootstrap
+    d = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
+    pr = np.load(config.RESULTS / "predictions" / "spatial_mineral.npz")
+    X = np.hstack([d.x_static, d.y_prev[:, None]])
+    gb = np.zeros(len(d.y))
+    for f in np.unique(pr["fold"]):
+        te = pr["fold"] == f
+        gb[te] = baselines.fit_gradient_boosting(X[~te], d.y[~te]).predict(X[te])
+    rows = block_bootstrap(pr["groups"], d.y_prev, d.y,
+                           {"hybrid": pr["hybrid__series_replaced_by_zeros"], "boosting": gb}, [])
+    return {r["quantity"]: (r["estimate"], r["ci_low"], r["ci_high"]) for r in rows}
+
+
 def fig_inputs():
     t = config.TABLES
-    dyn = pd.read_csv(t / "dynamic_diagnostic.csv").set_index("model")["skill"]
-    boot = pd.read_csv(t / "bootstrap_comparison.csv")
-    sp = boot[boot.scheme == "spatial"].set_index("quantity")["estimate"]
-    clim = pd.read_csv(t / "climate_comparison.csv").set_index("quantity")["estimate"]
+    clim = pd.read_csv(t / "climate_comparison.csv").set_index("quantity")
+    floor = pd.read_csv(t / "breakdown_simple_baselines.csv").set_index("quantity").loc[
+        "linear on previous value and campaign", "estimate"]
+    static = _static_only_intervals()
+
+    def row(q):
+        r = clim.loc[q]
+        return r["estimate"], r["ci_low"], r["ci_high"]
+    series = {
+        "Hybrid": (HYB, "o", [static["hybrid"], row("hybrid, Landsat only"),
+                              row("hybrid, with climate")]),
+        "Gradient boosting": (GBM, "s", [static["boosting"],
+                                         row("gradient boosting with previous value, Landsat only"),
+                                         row("gradient boosting with previous value, with climate")]),
+    }
     steps = ["Static inputs\nonly", "+ Landsat\nseries", "+ ERA5-Land\nclimate"]
-    hyb = [dyn["hybrid, series replaced by zeros"], sp["hybrid, full"], clim["hybrid, with climate"]]
-    gbm = [dyn["gradient boosting, static + previous only"],
-           sp["gradient boosting, with previous value"],
-           clim["gradient boosting with previous value, with climate"]]
 
     fig, ax = plt.subplots(figsize=(3.5, 2.8))
-    x = np.arange(len(steps))
-    w = 0.36
-    for off, vals, c, lab in ((-w / 2 - 0.01, hyb, HYB, "Hybrid architecture"),
-                              (w / 2 + 0.01, gbm, GBM, "Gradient boosting")):
-        ax.bar(x + off, vals, width=w, color=c, label=lab, edgecolor="white", linewidth=1)
-        for xi, v in zip(x + off, vals):
-            ax.text(xi, v + 0.004, f"{v:.3f}", ha="center", va="bottom", fontsize=6.5, color=INK)
+    x = np.arange(len(steps), dtype=float)
+    ax.axhline(floor, color=INK2, linestyle=(0, (4, 3)), linewidth=0.8, zorder=1)
+    ax.text(x[-1] + 0.32, floor - 0.004, "Mean-reversion\nfloor", ha="right", va="top",
+            fontsize=6.5, color=INK2)
+    for k, (name, (c, m, pts)) in enumerate(series.items()):
+        off = -0.07 if k == 0 else 0.07
+        est = np.array([p[0] for p in pts])
+        lo = est - np.array([p[1] for p in pts])
+        hi = np.array([p[2] for p in pts]) - est
+        ax.plot(x + off, est, color=c, linewidth=1.2, zorder=2)
+        ax.errorbar(x + off, est, yerr=[lo, hi], fmt=m, color=c, markersize=4.5,
+                    markeredgecolor="white", markeredgewidth=0.6, elinewidth=0.9, capsize=0,
+                    zorder=3, label=name)
+        for xi, v in zip(x + off, est):
+            ax.text(xi + (-0.09 if k == 0 else 0.09), v, f"{v:.3f}", fontsize=6.5, color=c,
+                    ha="right" if k == 0 else "left", va="center")
     ax.set_xticks(x, steps)
-    ax.set_ylim(0, 0.37)
+    ax.set_xlim(-0.5, len(steps) - 0.5)
+    ax.set_ylim(0.14, 0.31)
     ax.set_ylabel("Skill against persistence")
     _grid(ax, "y")
-    ax.legend(frameon=False, fontsize=7, loc="upper left")
+    ax.legend(frameon=False, fontsize=7, loc="upper left", handlelength=1.6)
     fig.tight_layout()
     return fig
 
@@ -159,7 +199,7 @@ def fig_map():
     fig, axs = plt.subplots(1, 4, figsize=(7.2, 2.4), sharex=True, sharey=True)
     for f, ax in enumerate(axs):
         held = fold == f
-        ax.scatter(xy[~held, 0], xy[~held, 1], s=0.6, color="#c9c8c2", linewidths=0)
+        ax.scatter(xy[~held, 0], xy[~held, 1], s=0.6, color="#f2a582", linewidths=0)
         ax.scatter(xy[held, 0], xy[held, 1], s=0.9, color=HYB, linewidths=0)
         ax.set_title(f"Fold {f + 1} held out ({held.sum():,} points)", fontsize=7, color=INK)
         ax.set_aspect("equal")
