@@ -227,9 +227,14 @@ def fig_inputs():
         ax.errorbar(x + off, est, yerr=[lo, hi], fmt=m, color=c, markersize=4.5,
                     markeredgecolor="white", markeredgewidth=0.6, elinewidth=0.9, capsize=0,
                     zorder=3, label=name)
-        for xi, v in zip(x + off, est):
-            ax.text(xi + (-0.09 if k == 0 else 0.09), v, f"{v:.3f}", fontsize=6.5, color=c,
-                    ha="right" if k == 0 else "left", va="center")
+        # hybrid labels below its intervals, boosting labels above, clear of every line
+        for xi, v, l, h in zip(x + off, est, est - lo, est + hi):
+            if k == 0:
+                ax.text(xi + 0.03, l - 0.003, f"{v:.3f}", fontsize=6.5, color=c, ha="right",
+                        va="top")
+            else:
+                ax.text(xi - 0.03, h + 0.003, f"{v:.3f}", fontsize=6.5, color=c, ha="left",
+                        va="bottom")
     ax.set_xticks(x, steps)
     ax.set_xlim(-0.5, len(steps) - 0.5)
     ax.set_ylim(0.14, 0.31)
