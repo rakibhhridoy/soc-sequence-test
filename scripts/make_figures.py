@@ -49,75 +49,125 @@ def fig_skill():
     lin = pd.read_csv(t / "breakdown_simple_baselines.csv").set_index("quantity").loc[
         "linear on previous value and campaign"]
 
-    rows = [  # label, skill, family, bootstrap key
-        ("Full model, LSTM", abl["full model (LSTM)"], "h", "hybrid, full"),
-        ("No recurrent decoder", abl["1. no recurrent decoder"], "h", "hybrid, no recurrent decoder"),
-        ("No learned encoder", abl["2. no learned encoder"], "h", None),
-        ("GRU in place of LSTM", abl["3. GRU in place of LSTM"], "h", None),
-        ("No static embedding", abl["4. no static embedding"], "h", None),
-        ("No previous observation", abl["5. no previous observation"], "h", None),
-        ("Series replaced by zeros", sp.loc["hybrid, series replaced by zeros", "estimate"], "h",
-         "hybrid, series replaced by zeros"),
-        ("Gradient boosting, with previous value",
-         sp.loc["gradient boosting, with previous value", "estimate"], "g",
-         "gradient boosting, with previous value"),
-        ("Gradient boosting, no previous value",
-         sp.loc["gradient boosting, no previous value", "estimate"], "g",
-         "gradient boosting, no previous value"),
-        ("Mean-reversion floor", lin.loc["estimate"], "l", "linear"),
+    def ci(key):
+        return tuple(sp.loc[key, ["estimate", "ci_low", "ci_high"]])
+    groups = [  # (group, colour, [(label, estimate, low, high) ...]); low None = single run
+        ("Hybrid and its ablations", HYB, [
+            ("Full model (LSTM)", *ci("hybrid, full")),
+            ("GRU in place of LSTM", abl["3. GRU in place of LSTM"], None, None),
+            ("No recurrent decoder", *ci("hybrid, no recurrent decoder")),
+            ("No learned encoder", abl["2. no learned encoder"], None, None),
+            ("No previous observation", abl["5. no previous observation"], None, None),
+            ("Series replaced by zeros", *ci("hybrid, series replaced by zeros")),
+            ("No static embedding", abl["4. no static embedding"], None, None)]),
+        ("Gradient boosting", GBM, [
+            ("With previous value", *ci("gradient boosting, with previous value")),
+            ("No previous value", *ci("gradient boosting, no previous value"))]),
+        ("Reference", INK2, [
+            ("Mean-reversion floor", lin["estimate"], lin["ci_low"], lin["ci_high"])]),
     ]
-    rows.sort(key=lambda r: r[1])
-
-    fig, (a, b) = plt.subplots(2, 1, figsize=(6.2, 6.6), gridspec_kw=dict(height_ratios=[1.35, 1]))
-    for i, (lab, s, fam, key) in enumerate(rows):
-        c = {"h": HYB, "g": GBM, "l": INK2}[fam]
-        if key == "linear":
-            lo, hi = lin.loc["ci_low"], lin.loc["ci_high"]
-            a.plot([lo, hi], [i, i], color=c, linewidth=1.4, solid_capstyle="round", zorder=2)
-        elif key is not None:
-            lo, hi = sp.loc[key, ["ci_low", "ci_high"]]
-            a.plot([lo, hi], [i, i], color=c, linewidth=1.4, solid_capstyle="round", zorder=2)
-        a.scatter([s], [i], s=30, color=c, edgecolor="white", linewidth=0.8, zorder=3)
-    a.set_yticks(range(len(rows)), [r[0] for r in rows])
-    a.set_xlim(0.1, 0.3)
-    a.set_xticks([0.10, 0.15, 0.20, 0.25, 0.30])
-    a.set_xlabel("Skill against persistence")
-    _grid(a)
-    a.scatter([], [], color=HYB, s=30, label="Hybrid architecture")
-    a.scatter([], [], color=GBM, s=30, label="Gradient boosting")
-    a.scatter([], [], color=INK2, s=30, label="Mean reversion")
-    a.legend(loc="lower left", bbox_to_anchor=(0, 1.02), ncol=3, frameon=False, fontsize=7,
-             handletextpad=0.2, columnspacing=1.0, borderaxespad=0)
-    a.set_title("a", loc="left", fontweight="bold", color=INK, pad=16)
 
     rob = pd.read_csv(t / "robustness.csv").set_index("quantity")
     clim = pd.read_csv(t / "climate_comparison.csv").set_index("quantity")
-    items = [  # label, (estimate, low, high)
-        ("Hybrid − boosting", rob.loc["hybrid minus boosting", ["estimate", "ci95_low", "ci95_high"]]),
-        ("Hybrid − mean-reversion floor", rob.loc["hybrid minus linear", ["estimate", "ci95_low", "ci95_high"]]),
-        ("No decoder − hybrid", rob.loc["no decoder minus hybrid", ["estimate", "ci95_low", "ci95_high"]]),
-        ("Hybrid − zero series", sp.loc["hybrid, full minus hybrid, series replaced by zeros",
-                                        ["estimate", "ci_low", "ci_high"]]),
-        ("Hybrid − boosting, both with climate",
-         clim.loc["hybrid, with climate minus gradient boosting with previous value, with climate",
-                  ["estimate", "ci_low", "ci_high"]]),
-        ("Later date, new places: hybrid − boosting",
-         rob.loc["spatiotemporal hybrid minus boosting", ["estimate", "ci95_low", "ci95_high"]]),
-        ("Later date, new places: hybrid − floor",
-         rob.loc["spatiotemporal hybrid minus linear", ["estimate", "ci95_low", "ci95_high"]]),
+    bf = pd.read_csv(t / "boosting_features.csv").set_index(["design", "quantity"])
+
+    def r(q):
+        return tuple(rob.loc[q, ["estimate", "ci95_low", "ci95_high"]])
+
+    def f(design, q):
+        return tuple(bf.loc[(design, q), ["estimate", "ci95_low", "ci95_high"]])
+    diffs = [
+        ("Across space", [
+            ("Hybrid \u2212 boosting (protocol)", *r("hybrid minus boosting")),
+            ("Hybrid \u2212 boosting (timing features)",
+             *f("spatial blocking", "hybrid minus timing, fixed")),
+            ("Hybrid \u2212 boosting, both with climate", *tuple(clim.loc[
+                "hybrid, with climate minus gradient boosting with previous value, with climate",
+                ["estimate", "ci_low", "ci_high"]])),
+            ("Hybrid \u2212 mean-reversion floor", *r("hybrid minus linear")),
+            ("No decoder \u2212 full hybrid", *r("no decoder minus hybrid")),
+            ("Hybrid \u2212 hybrid with zero series",
+             *ci("hybrid, full minus hybrid, series replaced by zeros"))]),
+        ("Later survey, new places", [
+            ("Hybrid \u2212 boosting (protocol)", *r("spatiotemporal hybrid minus boosting")),
+            ("Hybrid \u2212 boosting (tuned)",
+             *f("new places, later survey", "hybrid minus summary, tuned")),
+            ("Hybrid \u2212 mean-reversion floor", *r("spatiotemporal hybrid minus linear"))]),
     ]
-    ys = list(range(len(items)))[::-1]
-    for y, (lab, v) in zip(ys, items):
-        est, lo, hi = [float(x) for x in v]
-        b.plot([lo, hi], [y, y], color=INK, linewidth=1.4, solid_capstyle="round")
-        b.scatter([est], [y], s=30, color=INK, edgecolor="white", linewidth=0.8, zorder=3)
-    b.set_yticks(ys, [it[0] for it in items])
-    b.axvline(0, color=INK2, linewidth=0.8)
-    b.set_xlabel("Skill difference")
-    b.axvspan(-0.02, 0.02, color=GRID, alpha=0.5, zorder=0, linewidth=0)
-    b.set_xticks([-0.02, 0, 0.02, 0.04, 0.06, 0.08])
+
+    def layout(blocks):
+        """y positions top-down, with a gap and a header row before each block."""
+        ys, labels, heads, y = [], [], [], 0.0
+        for name, items in blocks:
+            heads.append((y, name)); y -= 1.0
+            for it in items:
+                ys.append(y); labels.append(it); y -= 1.0
+            y -= 0.4
+        return ys, labels, heads
+
+    fig, (a, b) = plt.subplots(2, 1, figsize=(6.2, 7.6),
+                               gridspec_kw=dict(height_ratios=[1.25, 1]))
+
+    # (a) skill of every model
+    flat = [(g, c, it) for g, c, items in groups for it in items]
+    ys, _, heads = layout([(g, items) for g, c, items in groups])
+    for y, (g, c, (lab, est, lo, hi)) in zip(ys, flat):
+        if lo is not None:
+            a.plot([lo, hi], [y, y], color=c, linewidth=1.4, solid_capstyle="round", zorder=2)
+            a.scatter([est], [y], s=34, color=c, edgecolor="white", linewidth=0.8, zorder=3)
+        else:
+            a.scatter([est], [y], s=30, facecolor="white", edgecolor=c, linewidth=1.2, zorder=3)
+        a.text((hi if hi is not None else est) + 0.004, y, f"{est:.3f}", va="center",
+               fontsize=6.5, color=c)
+    a.set_yticks(ys, [it[0] for _, _, it in flat])
+    for y, name in heads:
+        a.text(-0.01, y, name, transform=a.get_yaxis_transform(), ha="right", va="center",
+               fontsize=7.5, fontweight="bold", color=INK)
+    a.axvline(lin["estimate"], color=INK2, linestyle=(0, (4, 3)), linewidth=0.7, zorder=1)
+    a.set_xlim(0.10, 0.31)
+    a.set_xticks([0.10, 0.15, 0.20, 0.25, 0.30])
+    a.set_ylim(min(ys) - 0.8, 0.6)
+    a.set_xlabel("Skill against persistence")
+    a.tick_params(axis="y", length=0)
+    _grid(a)
+    a.scatter([], [], s=30, color=INK2, label="95 % block-bootstrap interval")
+    a.scatter([], [], s=30, facecolor="white", edgecolor=INK2, linewidth=1.2,
+              label="Single run, no interval")
+    a.legend(loc="lower right", bbox_to_anchor=(1, 1.0), ncol=2, frameon=False, fontsize=6.5,
+             handletextpad=0.2, columnspacing=1.0, borderaxespad=0.2)
+    a.set_title("a", loc="left", fontweight="bold", color=INK, pad=6)
+
+    # (b) paired differences
+    flat = [(blk, it) for blk, items in diffs for it in items]
+    ys, _, heads = layout(diffs)
+    b.axvspan(-0.02, 0.02, color=GRID, alpha=0.55, zorder=0, linewidth=0)
+    b.axvline(0, color=INK2, linewidth=0.8, zorder=1)
+    for y, (blk, (lab, est, lo, hi)) in zip(ys, flat):
+        c = GBM if "boosting" in lab else (INK2 if "floor" in lab else HYB)
+        clear = lo > 0 or hi < 0
+        b.plot([lo, hi], [y, y], color=c, linewidth=1.4, solid_capstyle="round", zorder=2)
+        b.scatter([est], [y], s=34, facecolor=c if clear else "white", edgecolor=c,
+                  linewidth=1.2, zorder=3)
+        b.text(hi + 0.003, y, f"{est:+.3f}".replace("-", "\u2212"), va="center", fontsize=6.5,
+               color=c)
+    b.set_yticks(ys, [it[0] for _, it in flat])
+    for y, name in heads:
+        b.text(-0.01, y, name, transform=b.get_yaxis_transform(), ha="right", va="center",
+               fontsize=7.5, fontweight="bold", color=INK)
+    b.text(0.0, max(ys) + 1.15, "equivalence margin", ha="center", va="center", fontsize=6,
+           color=INK2)
+    b.set_xlim(-0.045, 0.105)
+    b.set_xticks([-0.04, -0.02, 0, 0.02, 0.04, 0.06, 0.08, 0.10])
+    b.set_ylim(min(ys) - 0.8, max(ys) + 1.6)
+    b.set_xlabel("Difference in skill")
+    b.tick_params(axis="y", length=0)
     _grid(b)
-    b.set_title("b", loc="left", fontweight="bold", color=INK, pad=16)
+    b.scatter([], [], s=30, color=INK2, label="Interval excludes zero")
+    b.scatter([], [], s=30, facecolor="white", edgecolor=INK2, linewidth=1.2,
+              label="Interval includes zero")
+    b.legend(loc="lower right", bbox_to_anchor=(1, 1.0), ncol=2, frameon=False, fontsize=6.5,
+             handletextpad=0.2, columnspacing=1.0, borderaxespad=0.2)
+    b.set_title("b", loc="left", fontweight="bold", color=INK, pad=6)
     fig.tight_layout()
     return fig
 
