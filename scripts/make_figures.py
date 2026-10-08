@@ -245,12 +245,13 @@ def fig_map():
     xy = z["coords"] / 1000.0
     first = z["times"] == z["times"].min()          # one dot per point, not per observation
     xy, fold = xy[first], fold[first]
-    fig, axs = plt.subplots(1, 4, figsize=(7.2, 2.4), sharex=True, sharey=True)
-    for f, ax in enumerate(axs):
+    fig, axs = plt.subplots(2, 2, figsize=(6.2, 5.6), sharex=True, sharey=True)
+    for f, ax in enumerate(axs.flat):
         held = fold == f
-        ax.scatter(xy[~held, 0], xy[~held, 1], s=0.6, color="#f2a582", linewidths=0)
-        ax.scatter(xy[held, 0], xy[held, 1], s=0.9, color=HYB, linewidths=0)
-        ax.set_title(f"Fold {f + 1} held out ({held.sum():,} points)", fontsize=7, color=INK)
+        ax.scatter(xy[~held, 0], xy[~held, 1], s=1.2, color="#f2a582", linewidths=0)
+        ax.scatter(xy[held, 0], xy[held, 1], s=1.6, color=HYB, linewidths=0)
+        ax.set_title(f"({'abcd'[f]}) Fold {f + 1} held out ({held.sum():,} points)",
+                     fontsize=8, color=INK, loc="left")
         ax.set_aspect("equal")
         ax.set_xticks([]); ax.set_yticks([])
         for s in ax.spines.values():
