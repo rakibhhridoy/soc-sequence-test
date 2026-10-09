@@ -19,6 +19,7 @@ named below and are rebuilt by rerunning them.
 | `boosting_features_tuning.json` | `boosting_features.py` | the configuration selected in every training fold |
 | `boosting_features_deep.csv`, `boosting_features_deep_tuning.json` | `boosting_features.py --deep` | the same with the tuning grid extended to depths 10 and 12 |
 | `breakdown_climate.csv` | `climate_breakdown.py` | skill of the hybrid, boosting and the mean-reversion floor by Köppen climate zone |
+| `noise_ceiling.csv` | `noise_ceiling.py` | error variance of one measurement from successive changes, the ceiling it sets on skill, and each model's share of the attainable reduction in error |
 | `organic_boosting_with_previous.csv` | computed on the organic folds | boosting with the previous value, organic soils |
 | `nested_tuning.json`, `nested_tuning_summary.csv` | `src/tuning.py`, `tune_model.py` | hyperparameters selected inside each training fold |
 | `lucas_repeat_counts.csv` | `lucas_repeat_count.py` | points measured in each campaign |

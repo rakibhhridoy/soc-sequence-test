@@ -58,6 +58,7 @@ python scripts/graph_bootstrap.py           # paired intervals for the graph ext
 python scripts/campaign_proxy.py            # do the Landsat series act as a proxy for the campaign?
 python scripts/boosting_features.py         # stronger boosting: timing features and nested selection (after robustness.py)
 python scripts/climate_breakdown.py         # skill by Köppen climate zone (needs the climate panel)
+python scripts/noise_ceiling.py             # ceiling on skill set by measurement noise
 python scripts/tune_model.py                # summary of the nested hyperparameter selection
 python scripts/make_figures.py
 ```

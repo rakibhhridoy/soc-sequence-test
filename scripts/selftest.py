@@ -136,6 +136,21 @@ for step in range(60):
 check(f"loss decreases on a learnable signal (device={dev.type})", loss.item() < first,
       f"{first:.3f} -> {loss.item():.3f}")
 
+print("\n[8] noise ceiling")
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from noise_ceiling import ceiling  # noqa: E402
+m = 50_000
+s_true = np.cumsum(np.c_[rng.normal(3, 0.5, m), rng.normal(0, 0.1, (m, 2))], axis=1)
+x = s_true + rng.normal(0, 0.3, (m, 3))
+d1, d2 = x[:, 1] - x[:, 0], x[:, 2] - x[:, 1]
+c = ceiling(d1, d2, np.r_[d1, d2])
+check("error variance recovered from successive changes", abs(c["var_e"] - 0.09) < 0.005,
+      f"{c['var_e']:.4f} vs 0.09")
+oracle = 1 - np.sqrt(np.mean(np.r_[x[:, 1] - s_true[:, 1], x[:, 2] - s_true[:, 2]] ** 2)
+                     / np.mean(np.r_[d1, d2] ** 2))
+check("ceiling matches the skill of a forecast that knows the true value",
+      abs(c["ceiling"] - oracle) < 0.01, f"{c['ceiling']:.3f} vs {oracle:.3f}")
+
 print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
 if FAIL:
     print("failed:", ", ".join(FAIL))

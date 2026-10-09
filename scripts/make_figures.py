@@ -48,6 +48,8 @@ def fig_skill():
     sp = boot[boot.scheme == "spatial"].set_index("quantity")
     lin = pd.read_csv(t / "breakdown_simple_baselines.csv").set_index("quantity").loc[
         "linear on previous value and campaign"]
+    nc = pd.read_csv(t / "noise_ceiling.csv").set_index(["design", "quantity"]).loc[
+        ("all targets", "ceiling")]
 
     def ci(key):
         return tuple(sp.loc[key, ["estimate", "ci_low", "ci_high"]])
@@ -64,7 +66,8 @@ def fig_skill():
             ("With previous value", *ci("gradient boosting, with previous value")),
             ("No previous value", *ci("gradient boosting, no previous value"))]),
         ("Reference", INK2, [
-            ("Mean-reversion floor", lin["estimate"], lin["ci_low"], lin["ci_high"])]),
+            ("Mean-reversion floor", lin["estimate"], lin["ci_low"], lin["ci_high"]),
+            ("Noise ceiling", nc["estimate"], nc["ci95_low"], nc["ci95_high"])]),
     ]
 
     rob = pd.read_csv(t / "robustness.csv").set_index("quantity")
@@ -124,8 +127,9 @@ def fig_skill():
         a.text(-0.01, y, name, transform=a.get_yaxis_transform(), ha="right", va="center",
                fontsize=7.5, fontweight="bold", color=INK)
     a.axvline(lin["estimate"], color=INK2, linestyle=(0, (4, 3)), linewidth=0.7, zorder=1)
-    a.set_xlim(0.10, 0.31)
-    a.set_xticks([0.10, 0.15, 0.20, 0.25, 0.30])
+    a.axvline(nc["estimate"], color=INK2, linestyle=(0, (1, 2)), linewidth=0.8, zorder=1)
+    a.set_xlim(0.10, 0.50)
+    a.set_xticks([0.10, 0.20, 0.30, 0.40, 0.50])
     a.set_ylim(min(ys) - 0.8, 0.6)
     a.set_xlabel("Skill against persistence")
     a.tick_params(axis="y", length=0)
