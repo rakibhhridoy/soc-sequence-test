@@ -1,0 +1,5 @@
+/Users/rakibhhridoy/soc_work/article/scripts/make_figures.py:175: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+wrote /Users/rakibhhridoy/soc_work/article/results/figures/fig_skill.pdf
+wrote /Users/rakibhhridoy/soc_work/article/results/figures/fig_inputs.pdf
+wrote /Users/rakibhhridoy/soc_work/article/results/figures/fig_map.pdf

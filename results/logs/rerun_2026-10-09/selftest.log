@@ -1,0 +1,49 @@
+
+[1] variogram and spatial blocking
+  PASS  variogram range is positive and within the domain  -- range=2964 m
+  PASS  blocks partition every point
+  PASS  five spatial folds, all points tested once
+  PASS  no block appears in both train and test
+
+[2] forward temporal splits
+  PASS  training period always precedes the test period
+  PASS  buffer separates train from test
+  PASS  random k-fold exists but is labelled optimism-only
+
+[3] metrics
+  PASS  perfect prediction gives rmse 0 and ccc 1
+  PASS  bias detects a systematic offset
+  PASS  persistence scores well on level but has zero skill on change  -- level rmse=0.54, change rmse=0.54
+  PASS  a calibrated 90% interval covers ~90%  -- coverage=0.899
+
+[4] architecture
+  PASS  receptive field matches 1+(k-1)(2^L-1)  -- RF=15 steps
+  PASS  encoder output length matches the formula  -- T=60 -> T'=46
+  PASS  twelve months of context fits in the receptive field
+  PASS  model returns a mean and a log sigma per sample
+  PASS  GRU holds ~25% fewer recurrent parameters than LSTM  -- ratio=0.750
+  PASS  everything upstream of the cell is identical in size  -- 8546 params either way
+  PASS  ablation removes the recurrent block only
+
+[5] losses
+  PASS  likelihood prefers the better fit  -- -1.00 < 4.60
+  PASS  penalty is silent inside the plausible envelope
+  PASS  penalty activates outside it
+
+[6] baselines
+  PASS  summary features give five statistics per channel
+  PASS  slope feature recovers a known trend
+  PASS  timing features give 27 per channel
+  PASS  timing features find the seasonal peak and amplitude
+
+[7] training reduces the loss (Apple GPU if available)
+  PASS  loss decreases on a learnable signal (device=mps)  -- 0.404 -> -1.326
+
+[8] noise ceiling
+  PASS  error variance recovered from successive changes  -- 0.0899 vs 0.09
+  PASS  ceiling matches the skill of a forecast that knows the true value  -- 0.313 vs 0.312
+
+[9] LUCAS loader reads organic carbon, not electrical conductivity
+  PASS  carbon taken from OC when EC precedes it  -- [24.6, 18.4]
+
+29 passed, 0 failed

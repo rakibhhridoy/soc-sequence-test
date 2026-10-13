@@ -1,0 +1,14 @@
+                                            comparison  difference   lo95  hi95  share_positive
+                              skill: static + previous       0.064    NaN   NaN             NaN
+                   skill: static + previous + campaign       0.067    NaN   NaN             NaN
+                     skill: static + previous + series       0.100    NaN   NaN             NaN
+          skill: static + previous + series + campaign       0.104    NaN   NaN             NaN
+                                   campaign alone adds       0.003 -0.004 0.008           0.759
+                        series add, campaign not given       0.036  0.026 0.044           1.000
+                        series add beyond the campaign       0.037  0.029 0.048           1.000
+                       campaign adds beyond the series       0.004  0.001 0.006           0.985
+                new places skill: mean-reversion floor       0.055    NaN   NaN             NaN
+         new places skill: boosting, static + previous       0.077    NaN   NaN             NaN
+new places skill: boosting, static + previous + series       0.036    NaN   NaN             NaN
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/campaign_proxy.csv

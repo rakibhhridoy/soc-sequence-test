@@ -1,0 +1,8 @@
+train on 2015 targets: 8,247 | test on 2018 targets: 8,249
+
+                            model  rmse   ccc  skill_vs_persistence    n
+                      persistence 0.399 0.822                 0.000 8249
+gradient boosting (summary stats) 0.367 0.826                 0.078 8249
+         full model (LSTM, tuned) 0.342 0.846                 0.143 8249
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/temporal_validation.csv

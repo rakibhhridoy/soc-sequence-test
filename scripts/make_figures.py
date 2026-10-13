@@ -25,7 +25,6 @@ import config  # noqa: E402
 
 HYB, GBM = "#2a78d6", "#eb6834"
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
-CEILING = 0.48
 OUT = config.TABLES.parent / "figures"
 
 plt.rcParams.update({
@@ -114,7 +113,14 @@ def fig_skill():
     # (a) skill of every model
     flat = [(g, c, it) for g, c, items in groups for it in items]
     ys, _, heads = layout([(g, items) for g, c, items in groups])
+    XMIN = 0.0
     for y, (g, c, (lab, est, lo, hi)) in zip(ys, flat):
+        if est < XMIN:
+            # off the scale (no static embedding falls far below persistence): mark the edge
+            a.scatter([XMIN + 0.004], [y], s=30, marker="<", color=c, zorder=3, clip_on=False)
+            a.text(XMIN + 0.012, y, f"{est:.3f}, off scale".replace("-", "\u2212"),
+                   va="center", fontsize=6.5, color=c)
+            continue
         if lo is not None:
             a.plot([lo, hi], [y, y], color=c, linewidth=1.4, solid_capstyle="round", zorder=2)
             a.scatter([est], [y], s=34, color=c, edgecolor="white", linewidth=0.8, zorder=3)
@@ -128,8 +134,8 @@ def fig_skill():
                fontsize=7.5, fontweight="bold", color=INK)
     a.axvline(lin["estimate"], color=INK2, linestyle=(0, (4, 3)), linewidth=0.7, zorder=1)
     a.axvline(nc["estimate"], color=INK2, linestyle=(0, (1, 2)), linewidth=0.8, zorder=1)
-    a.set_xlim(0.10, 0.50)
-    a.set_xticks([0.10, 0.20, 0.30, 0.40, 0.50])
+    a.set_xlim(XMIN, 0.40)
+    a.set_xticks([0.0, 0.10, 0.20, 0.30, 0.40])
     a.set_ylim(min(ys) - 0.8, 0.6)
     a.set_xlabel("Skill against persistence")
     a.tick_params(axis="y", length=0)
@@ -160,8 +166,8 @@ def fig_skill():
                fontsize=7.5, fontweight="bold", color=INK)
     b.text(0.0, max(ys) + 1.15, "equivalence margin", ha="center", va="center", fontsize=6,
            color=INK2)
-    b.set_xlim(-0.045, 0.105)
-    b.set_xticks([-0.04, -0.02, 0, 0.02, 0.04, 0.06, 0.08, 0.10])
+    b.set_xlim(-0.045, 0.235)
+    b.set_xticks([-0.04, 0, 0.04, 0.08, 0.12, 0.16, 0.20])
     b.set_ylim(min(ys) - 0.8, max(ys) + 1.6)
     b.set_xlabel("Difference in skill")
     b.tick_params(axis="y", length=0)
@@ -241,7 +247,8 @@ def fig_inputs():
                         va="bottom")
     ax.set_xticks(x, steps)
     ax.set_xlim(-0.5, len(steps) - 0.5)
-    ax.set_ylim(0.14, 0.31)
+    allv = [p[i] for _, (_, _, pts) in series.items() for p in pts for i in (1, 2)] + [floor]
+    ax.set_ylim(min(0.0, min(allv) - 0.02), max(allv) + 0.03)
     ax.set_ylabel("Skill against persistence")
     ax.legend(frameon=False, fontsize=7, loc="upper left", handlelength=1.6)
     fig.tight_layout()

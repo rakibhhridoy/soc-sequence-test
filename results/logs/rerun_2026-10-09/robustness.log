@@ -1,0 +1,38 @@
+16,496 observations, 18 blocks
+replicate 0: hybrid 0.111, boosting 0.100, linear 0.046, no decoder 0.115, st hybrid 0.143, st boosting 0.036, st linear 0.055  (701s)
+    search mineral replicate 1 fold 0: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.05289928652428877} (232s)
+    search mineral replicate 1 fold 1: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.058462919777990896} (200s)
+    search mineral replicate 1 fold 2: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.04047102218393106} (101s)
+    search mineral replicate 1 fold 3: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.0611106316094191} (994s)
+replicate 1: hybrid 0.114, boosting 0.112, linear 0.050, no decoder 0.121, st hybrid 0.142, st boosting 0.042, st linear 0.062  (2884s)
+    search mineral replicate 2 fold 0: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.04170528693793851} (1601s)
+    search mineral replicate 2 fold 1: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.09812071210931916} (394s)
+    search mineral replicate 2 fold 2: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.14030917840585377} (951s)
+    search mineral replicate 2 fold 3: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.09819234923640519} (632s)
+replicate 2: hybrid 0.108, boosting 0.112, linear 0.045, no decoder 0.119, st hybrid 0.141, st boosting -0.013, st linear 0.051  (5470s)
+    search mineral replicate 3 fold 0: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.0752989394669562} (1482s)
+    search mineral replicate 3 fold 1: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.03391203280113286} (646s)
+    search mineral replicate 3 fold 2: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.08764343990699497} (220s)
+    search mineral replicate 3 fold 3: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.018234533179731227} (158s)
+replicate 3: hybrid 0.114, boosting 0.114, linear 0.048  (2775s)
+    search mineral replicate 4 fold 0: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.0429172624100016} (144s)
+    search mineral replicate 4 fold 1: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.06683777602525931} (202s)
+    search mineral replicate 4 fold 2: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.15095500496299175} (316s)
+    search mineral replicate 4 fold 3: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.05060571009239989} (202s)
+replicate 4: hybrid 0.116, boosting 0.111, linear 0.045  (1211s)
+
+                            quantity  estimate  ci95_low  ci95_high  ci90_low  ci90_high  replicates equivalent_at_0.02  share_above_zero
+                              hybrid     0.113     0.070      0.142     0.076      0.137           5                NaN               NaN
+                            boosting     0.110     0.071      0.139     0.076      0.135           5                NaN               NaN
+                              linear     0.047     0.027      0.058     0.032      0.056           5                NaN               NaN
+               hybrid minus boosting     0.003    -0.011      0.019    -0.009      0.015           5               True             0.633
+                 hybrid minus linear     0.066     0.039      0.089     0.042      0.085           5              False             1.000
+               boosting minus linear     0.063     0.037      0.084     0.040      0.082           5              False             1.000
+             no decoder minus hybrid     0.007    -0.002      0.016    -0.000      0.015           3               True             0.946
+               spatiotemporal hybrid     0.142     0.066      0.196     0.075      0.187           3                NaN               NaN
+             spatiotemporal boosting     0.022    -0.035      0.079    -0.030      0.070           3                NaN               NaN
+               spatiotemporal linear     0.056     0.005      0.091     0.011      0.086           3                NaN               NaN
+spatiotemporal hybrid minus boosting     0.121     0.031      0.202     0.036      0.191           3              False             1.000
+  spatiotemporal hybrid minus linear     0.086     0.049      0.109     0.055      0.106           3              False             1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/robustness.csv

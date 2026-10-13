@@ -1,0 +1,32 @@
+loaded data/processed/panel_mineral.npz: 16496 observations
+device=mps | spatial block size=779,811 m | folds=4
+
+    search mineral spatial fold 0: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.07183190771692338} (248s)
+    search mineral spatial fold 1: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.039649078656536996} (306s)
+    search mineral spatial fold 2: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.1424409182480494} (653s)
+    search mineral spatial fold 3: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.03320496908035098} (160s)
+  full model (LSTM)                rmse=0.379  skill_vs_persistence=+0.111  (272s)
+  5. no previous observation       rmse=0.401  skill_vs_persistence=+0.060  (264s)
+  1. no recurrent decoder          rmse=0.377  skill_vs_persistence=+0.115  (259s)
+  2. no learned encoder            rmse=0.377  skill_vs_persistence=+0.117  (266s)
+  3. GRU in place of LSTM          rmse=0.378  skill_vs_persistence=+0.115  (1301s)
+  4. no static embedding           rmse=0.552  skill_vs_persistence=-0.293  (232s)
+    search mineral random fold 0: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.13090331606673444} (359s)
+    search mineral random fold 1: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.11652570408057261} (254s)
+    search mineral random fold 2: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.15512776557161934} (280s)
+    search mineral random fold 3: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.1, 'skill': 0.1388645053638793} (256s)
+
+                                         model  rmse_level  ccc_level  skill_vs_persistence  rmse_change_persistence  coverage_90     n  rmse_change  ccc_change
+                                   persistence       0.427      0.796                 0.000                    0.427          NaN 16496        0.427       0.000
+             gradient boosting (summary stats)       0.401      0.789                 0.060                    0.427          NaN 16496        0.401       0.422
+                             full model (LSTM)       0.379      0.809                 0.111                    0.427        0.911 16496        0.379       0.382
+                    5. no previous observation       0.401      0.783                 0.060                    0.427        0.924 16496        0.401       0.420
+                       1. no recurrent decoder       0.377      0.809                 0.115                    0.427        0.909 16496        0.377       0.379
+                         2. no learned encoder       0.377      0.809                 0.117                    0.427        0.917 16496        0.377       0.384
+                       3. GRU in place of LSTM       0.378      0.808                 0.115                    0.427        0.924 16496        0.378       0.390
+                        4. no static embedding       0.552      0.499                -0.293                    0.427        0.896 16496        0.552       0.370
+full model, RANDOM k-fold (optimism reference)       0.370      0.821                 0.134                    0.427        0.921 16496        0.370       0.393
+
+optimism from random splitting: rmse 0.370 vs 0.379 blocked (+3 %)
+note: RMSE on change equals RMSE on level by construction; skill_vs_persistence is the column that decides whether a model beats assuming no change.
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/ablations_mineral.csv

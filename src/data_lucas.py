@@ -14,7 +14,7 @@ ALIASES = {
     "point_id":  ["pointid", "point_id", "pointidgps", "id"],
     "lat":       ["lat", "latitude", "gpslat", "th_lat", "y"],
     "lon":       ["lon", "long", "longitude", "gpslong", "th_long", "x"],
-    "soc":       ["oc", "ocgkg", "organiccarbon", "soc", "oc_20", "ec"],
+    "soc":       ["oc", "ocgkg", "organiccarbon", "soc", "oc_20"],
     "ph_h2o":    ["phh2o", "ph_h2o", "phinh2o"],
     "ph_cacl2":  ["phcacl2", "ph_cacl2", "phincacl2"],
     "n_total":   ["n", "ngkg", "totaln", "nitrogen"],
@@ -66,13 +66,21 @@ def load_round(path: Path, year: int) -> pd.DataFrame:
         df = pd.read_excel(path)
     else:
         df = pd.read_csv(path, low_memory=False)
-    mapping, unknown = {}, []
+    # Each canonical name takes the column whose spelling comes first in its alias list,
+    # not the first matching column in the file. Column order differs between releases,
+    # and taking the first match once read electrical conductivity ("EC", which precedes
+    # "OC" in the 2015 and 2018 tables) as organic carbon.
+    rank = {_norm_key(a): i for alist in ALIASES.values() for i, a in enumerate(alist)}
+    mapping, unknown, best = {}, [], {}
     for col in df.columns:
         canon = _LOOKUP.get(_norm(col))
-        if canon and canon not in mapping.values():
-            mapping[col] = canon
-        elif not canon:
+        if not canon:
             unknown.append(col)
+        elif canon not in best or rank[_norm(col)] < rank[_norm(best[canon])]:
+            best[canon] = col
+    mapping = {col: canon for canon, col in best.items()}
+    if "soc" in best and _norm(best["soc"]) not in ("oc", "ocgkg", "organiccarbon", "soc", "oc20"):
+        raise ValueError(f"{path.name}: carbon read from unexpected column {best['soc']!r}")
     out = df.rename(columns=mapping)[list(mapping.values())].copy()
     out["year"] = year
     if "point_id" in out.columns:

@@ -1,0 +1,21 @@
+16,496 observations, 13 dynamic channels
+  hybrid, Landsat only                                    skill +0.111
+  gradient boosting with previous value, Landsat only     skill +0.100
+  gradient boosting no previous value, Landsat only       skill +0.060
+  gradient boosting with previous value, with climate     skill +0.081
+  gradient boosting no previous value, with climate       skill +0.033
+  hybrid, with climate                                    skill +0.118
+
+                                                                                                     quantity  estimate  ci_low  ci_high  share_above_zero
+                                                                                         hybrid, Landsat only     0.111   0.067    0.143               NaN
+                                                          gradient boosting with previous value, Landsat only     0.100   0.066    0.120               NaN
+                                                            gradient boosting no previous value, Landsat only     0.060   0.002    0.090               NaN
+                                                          gradient boosting with previous value, with climate     0.081   0.051    0.099               NaN
+                                                            gradient boosting no previous value, with climate     0.033  -0.019    0.066               NaN
+                                                                                         hybrid, with climate     0.118   0.082    0.143               NaN
+                                                              hybrid, with climate minus hybrid, Landsat only     0.007  -0.001    0.018             0.964
+gradient boosting with previous value, with climate minus gradient boosting with previous value, Landsat only    -0.019  -0.042    0.008             0.121
+                               hybrid, with climate minus gradient boosting with previous value, with climate     0.037   0.001    0.064             0.981
+                                 hybrid, with climate minus gradient boosting no previous value, with climate     0.085   0.037    0.127             1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/climate_comparison.csv

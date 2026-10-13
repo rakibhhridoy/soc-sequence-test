@@ -29,6 +29,7 @@ manuscript/*.fdb_latexmk
 manuscript/
 results/predictions/
 results/tables/superseded_*/
+results/superseded_*/
 
 # internal notes, kept locally
 results/STATUS.md

@@ -151,6 +151,21 @@ oracle = 1 - np.sqrt(np.mean(np.r_[x[:, 1] - s_true[:, 1], x[:, 2] - s_true[:, 2
 check("ceiling matches the skill of a forecast that knows the true value",
       abs(c["ceiling"] - oracle) < 0.01, f"{c['ceiling']:.3f} vs {oracle:.3f}")
 
+print("\n[9] LUCAS loader reads organic carbon, not electrical conductivity")
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
+import tempfile, warnings, pandas as pd  # noqa: E402
+import data_lucas  # noqa: E402
+with tempfile.TemporaryDirectory() as tmp:
+    f = pathlib.Path(tmp) / "round.csv"
+    # column order of the 2015 and 2018 releases, EC before OC
+    pd.DataFrame({"POINTID": [1, 2], "pH_H2O": [7.4, 6.1], "EC": [18.14, 28.1],
+                  "OC": [24.6, 18.4], "TH_LAT": [37.1, 38.8],
+                  "TH_LONG": [-8.8, -9.2]}).to_csv(f, index=False)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        r = data_lucas.load_round(f, 2018)
+check("carbon taken from OC when EC precedes it", list(r.soc) == [24.6, 18.4], str(list(r.soc)))
+
 print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
 if FAIL:
     print("failed:", ", ".join(FAIL))

@@ -1,0 +1,29 @@
+Polar (E): 0 observations, too few to score
+                             zone    n  points  persistence_rmse  blocks                            quantity  estimate  ci_low  ci_high  share_above_zero
+               Mediterranean (Cs) 4298    2150             0.532   8.000                              hybrid     0.149   0.121    0.157               NaN
+               Mediterranean (Cs) 4298    2150             0.532   8.000                            boosting     0.128   0.103    0.150               NaN
+               Mediterranean (Cs) 4298    2150             0.532   8.000                mean-reversion floor     0.058   0.052    0.080               NaN
+               Mediterranean (Cs) 4298    2150             0.532   8.000               hybrid minus boosting     0.021  -0.010    0.028             0.899
+               Mediterranean (Cs) 4298    2150             0.532   8.000   hybrid minus mean-reversion floor     0.091   0.053    0.104             1.000
+               Mediterranean (Cs) 4298    2150             0.532   8.000 boosting minus mean-reversion floor     0.070   0.035    0.079             1.000
+Temperate, no dry season (Cf, Cw) 6801    3408             0.379  13.000                              hybrid     0.091   0.065    0.127               NaN
+Temperate, no dry season (Cf, Cw) 6801    3408             0.379  13.000                            boosting     0.100   0.068    0.135               NaN
+Temperate, no dry season (Cf, Cw) 6801    3408             0.379  13.000                mean-reversion floor     0.040   0.019    0.056               NaN
+Temperate, no dry season (Cf, Cw) 6801    3408             0.379  13.000               hybrid minus boosting    -0.008  -0.017    0.006             0.087
+Temperate, no dry season (Cf, Cw) 6801    3408             0.379  13.000   hybrid minus mean-reversion floor     0.051   0.036    0.076             1.000
+Temperate, no dry season (Cf, Cw) 6801    3408             0.379  13.000 boosting minus mean-reversion floor     0.059   0.044    0.083             1.000
+       Continental and boreal (D) 4773    2405             0.343  11.000                              hybrid     0.046   0.032    0.081               NaN
+       Continental and boreal (D) 4773    2405             0.343  11.000                            boosting     0.042   0.026    0.082               NaN
+       Continental and boreal (D) 4773    2405             0.343  11.000                mean-reversion floor     0.012  -0.010    0.028               NaN
+       Continental and boreal (D) 4773    2405             0.343  11.000               hybrid minus boosting     0.004  -0.006    0.016             0.788
+       Continental and boreal (D) 4773    2405             0.343  11.000   hybrid minus mean-reversion floor     0.035   0.015    0.069             1.000
+       Continental and boreal (D) 4773    2405             0.343  11.000 boosting minus mean-reversion floor     0.031   0.011    0.068             1.000
+           Arid and semi-arid (B)  624     312             0.628   5.000                              hybrid     0.160  -0.104    0.192               NaN
+           Arid and semi-arid (B)  624     312             0.628   5.000                            boosting     0.103  -0.185    0.160               NaN
+           Arid and semi-arid (B)  624     312             0.628   5.000                mean-reversion floor     0.093   0.056    0.113               NaN
+           Arid and semi-arid (B)  624     312             0.628   5.000               hybrid minus boosting     0.056  -0.168    0.085             0.932
+           Arid and semi-arid (B)  624     312             0.628   5.000   hybrid minus mean-reversion floor     0.067  -0.163    0.095             0.704
+           Arid and semi-arid (B)  624     312             0.628   5.000 boosting minus mean-reversion floor     0.011  -0.241    0.047             0.654
+                        Polar (E)    0       0               NaN     NaN                                 NaN       NaN     NaN      NaN               NaN
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/breakdown_climate.csv

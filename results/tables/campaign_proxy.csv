@@ -1,12 +1,12 @@
 comparison,difference,lo95,hi95,share_positive
-skill: static + previous,0.22030055453078012,,,
-skill: static + previous + campaign,0.23449636241138927,,,
-skill: static + previous + series,0.2586439998494584,,,
-skill: static + previous + series + campaign,0.2644657666712259,,,
-campaign alone adds,0.014195807880609146,0.004854704557418946,0.023439112915787468,0.997
-"series add, campaign not given",0.03834344531867828,0.02563251756516492,0.05124715022093099,1.0
-series add beyond the campaign,0.02996940425983663,0.02038421315040715,0.040433233981456936,1.0
-campaign adds beyond the series,0.005821766821767493,0.002258065429321643,0.009557970928535182,0.998
-new places skill: mean-reversion floor,0.1401913591575329,,,
-"new places skill: boosting, static + previous",0.08894325939118564,,,
-"new places skill: boosting, static + previous + series",0.11663772738011702,,,
+skill: static + previous,0.0635648402114638,,,
+skill: static + previous + campaign,0.06679500380291847,,,
+skill: static + previous + series,0.1000409075702332,,,
+skill: static + previous + series + campaign,0.10368428460856949,,,
+campaign alone adds,0.003230163591454671,-0.004386470620819816,0.0075366655188809795,0.7595
+"series add, campaign not given",0.036476067358769404,0.025582259924854987,0.044008173465482345,1.0
+series add beyond the campaign,0.036889280805651015,0.029089477330056394,0.047967081114546506,1.0
+campaign adds beyond the series,0.003643377038336282,0.0005329285888723668,0.005881537250460062,0.985
+new places skill: mean-reversion floor,0.05464551453919486,,,
+"new places skill: boosting, static + previous",0.07675701113136202,,,
+"new places skill: boosting, static + previous + series",0.036117763901494015,,,

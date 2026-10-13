@@ -1,0 +1,11 @@
+                                                  comparison  difference   lo95  hi95  share_positive
+                                               skill: hybrid       0.111    NaN   NaN             NaN
+                                    skill: gradient boosting       0.100    NaN   NaN             NaN
+                            skill: graph, no edges (control)       0.101    NaN   NaN             NaN
+                         skill: graph, geographic neighbours       0.122    NaN   NaN             NaN
+graph, geographic neighbours minus graph, no edges (control)       0.021  0.016 0.024           1.000
+                   graph, geographic neighbours minus hybrid       0.011  0.001 0.023           0.984
+                      graph, no edges (control) minus hybrid      -0.010 -0.022 0.005           0.209
+        graph, geographic neighbours minus gradient boosting       0.022  0.015 0.027           1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/graph_mineral_bootstrap.csv

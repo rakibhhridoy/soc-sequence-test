@@ -1,0 +1,34 @@
+                       tag  n_train  n_inner_val  hidden  rnn_hidden    lr  dropout  best_skill  grid_min  grid_max
+     mineral random fold 0    12372         3093      64          64 0.003    0.200       0.131     0.115     0.131
+     mineral random fold 1    12372         3093      64         128 0.003    0.200       0.117     0.098     0.117
+     mineral random fold 2    12372         3093      32          32 0.001    0.200       0.155     0.142     0.155
+     mineral random fold 3    12372         3093      64         128 0.001    0.100       0.139     0.121     0.139
+mineral replicate 1 fold 0    14266         4559      64         128 0.001    0.200       0.053     0.016     0.053
+mineral replicate 1 fold 1    10682         2806      64          64 0.003    0.200       0.058     0.015     0.058
+mineral replicate 1 fold 2     8716         2613      64         128 0.001    0.100       0.040     0.019     0.040
+mineral replicate 1 fold 3    15824         4079      64          64 0.001    0.100       0.061     0.045     0.061
+mineral replicate 2 fold 0    15417         4351      32          32 0.003    0.100       0.042     0.007     0.042
+mineral replicate 2 fold 1    11411         3028      32          32 0.003    0.200       0.098     0.084     0.098
+mineral replicate 2 fold 2    12893         4627      32          32 0.001    0.200       0.140     0.074     0.140
+mineral replicate 2 fold 3     9767         2736      64         128 0.001    0.200       0.098     0.070     0.098
+mineral replicate 3 fold 0    13054         3546      64          64 0.001    0.100       0.075     0.059     0.075
+mineral replicate 3 fold 1    13488         3694      64          64 0.003    0.100       0.034    -0.022     0.034
+mineral replicate 3 fold 2    13017         3538      64          64 0.001    0.100       0.088     0.060     0.088
+mineral replicate 3 fold 3     9929         2897      64          64 0.003    0.100       0.018    -0.026     0.018
+mineral replicate 4 fold 0    10129         2686      64         128 0.001    0.200       0.043     0.003     0.043
+mineral replicate 4 fold 1    13225         5020      64          64 0.003    0.200       0.067     0.028     0.067
+mineral replicate 4 fold 2    15491         3888      64          64 0.001    0.100       0.151     0.121     0.151
+mineral replicate 4 fold 3    10643         2936      64          64 0.001    0.100       0.051    -0.008     0.051
+    mineral spatial fold 0    11653         4011      32          32 0.001    0.200       0.072     0.050     0.072
+    mineral spatial fold 1    11133         3619      32          32 0.003    0.100       0.040     0.010     0.040
+    mineral spatial fold 2    13429         3814      32          32 0.001    0.100       0.142     0.125     0.142
+    mineral spatial fold 3    13273         4937      32          32 0.003    0.200       0.033    -0.066     0.033
+   mineral temporal fold 0     8247         2905      64          64 0.001    0.200       0.080     0.055     0.080
+     organic random fold 0      134           33      64         128 0.003    0.200       0.077    -0.018     0.077
+     organic random fold 1      135           33      64         128 0.001    0.200      -0.162    -0.399    -0.162
+     organic random fold 2      135           33      32          32 0.003    0.200       0.141    -0.118     0.141
+    organic spatial fold 0      140           46      64          64 0.003    0.200       0.029    -0.109     0.029
+    organic spatial fold 1      164           58      64          64 0.003    0.100       0.061    -0.061     0.061
+    organic spatial fold 2      100           61      32          32 0.001    0.200       0.040    -0.592     0.040
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/nested_tuning_summary.csv

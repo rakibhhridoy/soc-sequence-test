@@ -1,0 +1,93 @@
+8,221 points with three campaigns; land cover 2015 {'B': 5719, 'E': 2167, 'F': 321, 'C': 8, 'D': 5, 'H': 1}
+          analysis                               subset           quantity  estimate  ci95_low  ci95_high  share_below_zero
+  signal and noise                           all points                  r    -0.539    -0.602     -0.433               NaN
+  signal and noise                           all points              var_e     0.093     0.054      0.145               NaN
+  signal and noise                           all points    noise_share_6yr     0.944     0.755      1.051               NaN
+  signal and noise                           all points    noise_share_3yr     1.196     0.958      1.343               NaN
+  signal and noise                           all points true_change_sd_6yr     0.105     0.000      0.192               NaN
+  signal and noise                           all points true_change_sd_3yr     0.000     0.000      0.070               NaN
+  level dependence                           all points              naive    -0.218    -0.285     -0.153             1.000
+  level dependence                           all points        mean_of_two    -0.061    -0.103     -0.006             0.986
+  level dependence                           all points       instrumented    -0.021    -0.054      0.011             0.906
+  level dependence                 land cover: cropland              naive    -0.292    -0.361     -0.192             1.000
+  level dependence                 land cover: cropland        mean_of_two    -0.098    -0.151     -0.019             0.990
+  level dependence                 land cover: cropland       instrumented    -0.004    -0.060      0.030             0.493
+  level dependence                land cover: grassland              naive    -0.159    -0.215     -0.127             1.000
+  level dependence                land cover: grassland        mean_of_two    -0.004    -0.048      0.028             0.557
+  level dependence                land cover: grassland       instrumented    -0.036    -0.088      0.007             0.952
+ceiling by stratum                           all points             points  8221.000       NaN        NaN               NaN
+ceiling by stratum                           all points                  r    -0.539    -0.602     -0.433               NaN
+ceiling by stratum                           all points              var_e     0.093     0.054      0.145               NaN
+ceiling by stratum                           all points    noise_share_6yr     0.944     0.755      1.051               NaN
+ceiling by stratum                           all points            ceiling     0.274     0.233      0.349               NaN
+ceiling by stratum                 land cover: cropland             points  5719.000       NaN        NaN               NaN
+ceiling by stratum                 land cover: cropland                  r    -0.590    -0.651     -0.473               NaN
+ceiling by stratum                 land cover: cropland              var_e     0.105     0.055      0.168               NaN
+ceiling by stratum                 land cover: cropland    noise_share_6yr     1.014     0.784      1.132               NaN
+ceiling by stratum                 land cover: cropland            ceiling     0.243     0.204      0.326               NaN
+ceiling by stratum                land cover: grassland             points  2167.000       NaN        NaN               NaN
+ceiling by stratum                land cover: grassland                  r    -0.389    -0.448     -0.338               NaN
+ceiling by stratum                land cover: grassland              var_e     0.062     0.045      0.085               NaN
+ceiling by stratum                land cover: grassland    noise_share_6yr     0.716     0.599      0.835               NaN
+ceiling by stratum                land cover: grassland            ceiling     0.380     0.337      0.425               NaN
+ceiling by stratum                    land cover: other             points   335.000       NaN        NaN               NaN
+ceiling by stratum                    land cover: other                  r    -0.528    -0.593     -0.311               NaN
+ceiling by stratum                    land cover: other              var_e     0.088     0.028      0.111               NaN
+ceiling by stratum                    land cover: other    noise_share_6yr     0.893     0.490      0.972               NaN
+ceiling by stratum                    land cover: other            ceiling     0.282     0.255      0.462               NaN
+ceiling by stratum land-cover class unchanged 2015-2018             points  6848.000       NaN        NaN               NaN
+ceiling by stratum land-cover class unchanged 2015-2018                  r    -0.537    -0.614     -0.427               NaN
+ceiling by stratum land-cover class unchanged 2015-2018              var_e     0.093     0.054      0.152               NaN
+ceiling by stratum land-cover class unchanged 2015-2018    noise_share_6yr     0.927     0.734      1.052               NaN
+ceiling by stratum land-cover class unchanged 2015-2018            ceiling     0.276     0.228      0.354               NaN
+ceiling by stratum   land-cover class changed 2015-2018             points  1373.000       NaN        NaN               NaN
+ceiling by stratum   land-cover class changed 2015-2018                  r    -0.551    -0.586     -0.473               NaN
+ceiling by stratum   land-cover class changed 2015-2018              var_e     0.094     0.052      0.119               NaN
+ceiling by stratum   land-cover class changed 2015-2018    noise_share_6yr     1.041     0.886      1.131               NaN
+ceiling by stratum   land-cover class changed 2015-2018            ceiling     0.261     0.239      0.316               NaN
+ceiling by stratum                    clay tercile: low             points  2735.000       NaN        NaN               NaN
+ceiling by stratum                    clay tercile: low                  r    -0.409    -0.466     -0.325               NaN
+ceiling by stratum                    clay tercile: low              var_e     0.058     0.036      0.089               NaN
+ceiling by stratum                    clay tercile: low    noise_share_6yr     0.696     0.557      0.775               NaN
+ceiling by stratum                    clay tercile: low            ceiling     0.368     0.329      0.437               NaN
+ceiling by stratum             carbon tercile 2009: low             points  2733.000       NaN        NaN               NaN
+ceiling by stratum             carbon tercile 2009: low                  r    -0.545    -0.593     -0.431               NaN
+ceiling by stratum             carbon tercile 2009: low              var_e     0.115     0.061      0.155               NaN
+ceiling by stratum             carbon tercile 2009: low    noise_share_6yr     0.953     0.743      1.066               NaN
+ceiling by stratum             carbon tercile 2009: low            ceiling     0.275     0.246      0.359               NaN
+ceiling by stratum                 clay tercile: middle             points  2711.000       NaN        NaN               NaN
+ceiling by stratum                 clay tercile: middle                  r    -0.529    -0.598     -0.416               NaN
+ceiling by stratum                 clay tercile: middle              var_e     0.088     0.044      0.148               NaN
+ceiling by stratum                 clay tercile: middle    noise_share_6yr     0.940     0.745      1.054               NaN
+ceiling by stratum                 clay tercile: middle            ceiling     0.279     0.235      0.361               NaN
+ceiling by stratum          carbon tercile 2009: middle             points  2723.000       NaN        NaN               NaN
+ceiling by stratum          carbon tercile 2009: middle                  r    -0.636    -0.748     -0.441               NaN
+ceiling by stratum          carbon tercile 2009: middle              var_e     0.098     0.039      0.184               NaN
+ceiling by stratum          carbon tercile 2009: middle    noise_share_6yr     1.211     0.853      1.405               NaN
+ceiling by stratum          carbon tercile 2009: middle            ceiling     0.211     0.151      0.342               NaN
+ceiling by stratum                   clay tercile: high             points  2775.000       NaN        NaN               NaN
+ceiling by stratum                   clay tercile: high                  r    -0.632    -0.703     -0.508               NaN
+ceiling by stratum                   clay tercile: high              var_e     0.133     0.077      0.198               NaN
+ceiling by stratum                   clay tercile: high    noise_share_6yr     1.116     0.854      1.248               NaN
+ceiling by stratum                   clay tercile: high            ceiling     0.214     0.171      0.297               NaN
+ceiling by stratum            carbon tercile 2009: high             points  2765.000       NaN        NaN               NaN
+ceiling by stratum            carbon tercile 2009: high                  r    -0.477    -0.540     -0.419               NaN
+ceiling by stratum            carbon tercile 2009: high              var_e     0.069     0.051      0.097               NaN
+ceiling by stratum            carbon tercile 2009: high    noise_share_6yr     0.723     0.614      0.841               NaN
+ceiling by stratum            carbon tercile 2009: high            ceiling     0.335     0.293      0.378               NaN
+  control property                           pH (CaCl2)                  r    -0.436    -0.458     -0.417               NaN
+  control property                           pH (CaCl2)              var_e     0.121     0.100      0.142               NaN
+  control property                           pH (CaCl2)    noise_share_6yr     0.729     0.697      0.756               NaN
+  control property                           pH (CaCl2)    noise_share_3yr     1.041     0.974      1.109               NaN
+  control property                           pH (CaCl2) true_change_sd_6yr     0.300     0.272      0.328               NaN
+  control property                           pH (CaCl2) true_change_sd_3yr     0.000     0.000      0.082               NaN
+  control property                           pH (CaCl2)            ceiling     0.345     0.332      0.361               NaN
+  control property                   log total nitrogen                  r    -0.412    -0.465     -0.366               NaN
+  control property                   log total nitrogen              var_e     0.034     0.028      0.044               NaN
+  control property                   log total nitrogen    noise_share_6yr     0.643     0.555      0.745               NaN
+  control property                   log total nitrogen    noise_share_3yr     0.945     0.811      1.073               NaN
+  control property                   log total nitrogen true_change_sd_6yr     0.195     0.171      0.215               NaN
+  control property                   log total nitrogen true_change_sd_3yr     0.063     0.000      0.116               NaN
+  control property                   log total nitrogen            ceiling     0.381     0.341      0.423               NaN
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/point_change.csv

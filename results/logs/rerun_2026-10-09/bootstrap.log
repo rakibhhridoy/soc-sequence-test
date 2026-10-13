@@ -1,0 +1,31 @@
+spatial: 16,496 observations, 18 blocks
+  hybrid, full                   276s
+  hybrid, no recurrent decoder   262s
+  gradient boosting, no previous value     skill +0.060
+  gradient boosting, with previous value   skill +0.100
+  hybrid, full                             skill +0.111
+  hybrid, no recurrent decoder             skill +0.115
+  hybrid, series replaced by zeros         skill +0.078
+temporal: train 8,247, test 8,249
+    search mineral temporal fold 0: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.08009892784668349} (164s)
+  gradient boosting, no previous value     skill +0.055
+  gradient boosting, with previous value   skill +0.078
+  hybrid, full                             skill +0.143
+
+  scheme                                                  quantity  estimate  ci_low  ci_high  share_above_zero
+ spatial                      gradient boosting, no previous value     0.060   0.002    0.090               NaN
+ spatial                    gradient boosting, with previous value     0.100   0.066    0.120               NaN
+ spatial                                              hybrid, full     0.111   0.067    0.143               NaN
+ spatial                              hybrid, no recurrent decoder     0.115   0.079    0.140               NaN
+ spatial                          hybrid, series replaced by zeros     0.078   0.051    0.095               NaN
+ spatial   hybrid, full minus gradient boosting, no previous value     0.051   0.028    0.075             1.000
+ spatial hybrid, full minus gradient boosting, with previous value     0.011  -0.006    0.025             0.808
+ spatial           hybrid, no recurrent decoder minus hybrid, full     0.004  -0.004    0.015             0.832
+ spatial       hybrid, full minus hybrid, series replaced by zeros     0.033   0.008    0.052             0.998
+temporal                      gradient boosting, no previous value     0.055  -0.025    0.097               NaN
+temporal                    gradient boosting, with previous value     0.078   0.025    0.104               NaN
+temporal                                              hybrid, full     0.143   0.081    0.182               NaN
+temporal   hybrid, full minus gradient boosting, no previous value     0.088   0.062    0.130             1.000
+temporal hybrid, full minus gradient boosting, with previous value     0.064   0.036    0.089             1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/bootstrap_comparison.csv

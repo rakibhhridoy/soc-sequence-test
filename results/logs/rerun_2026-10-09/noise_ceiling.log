@@ -1,0 +1,19 @@
+8,221 points with three campaigns, 16,496 observations
+      design                      quantity  estimate  ci95_low  ci95_high
+ all targets                             r    -0.539    -0.602     -0.433
+ all targets                         var_e     0.093     0.054      0.145
+ all targets               mse_persistence     0.182     0.133      0.250
+ all targets                       ceiling     0.284     0.238      0.366
+2015 targets                             r    -0.539    -0.602     -0.433
+2015 targets                         var_e     0.093     0.054      0.145
+2015 targets               mse_persistence     0.205     0.148      0.283
+2015 targets                       ceiling     0.325     0.280      0.406
+2018 targets                             r    -0.539    -0.602     -0.433
+2018 targets                         var_e     0.093     0.054      0.145
+2018 targets               mse_persistence     0.159     0.116      0.218
+2018 targets                       ceiling     0.233     0.184      0.321
+ all targets   share of attainable, hybrid     0.436       NaN        NaN
+ all targets share of attainable, boosting     0.426       NaN        NaN
+ all targets   share of attainable, linear     0.187       NaN        NaN
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/noise_ceiling.csv
