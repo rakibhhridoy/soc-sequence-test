@@ -20,15 +20,12 @@ named below and are rebuilt by rerunning them.
 | `boosting_features_deep.csv`, `boosting_features_deep_tuning.json` | `boosting_features.py --deep` | the same with the tuning grid extended to depths 10 and 12 |
 | `breakdown_climate.csv` | `climate_breakdown.py` | skill of the hybrid, boosting and the mean-reversion floor by Köppen climate zone |
 | `noise_ceiling.csv` | `noise_ceiling.py` | error variance of one measurement from successive changes, the ceiling it sets on skill, and each model's share of the attainable reduction in error |
-| `organic_boosting_with_previous.csv` | computed on the organic folds | boosting with the previous value, organic soils |
+| `point_change.csv` | `point_change.py` | share of measured change that is noise, slope of change on the starting level (naive, mean of two, instrumented by 2009), ceiling by stratum, pH and nitrogen controls |
 | `nested_tuning.json`, `nested_tuning_summary.csv` | `src/tuning.py`, `tune_model.py` | hyperparameters selected inside each training fold |
 | `lucas_repeat_counts.csv` | `lucas_repeat_count.py` | points measured in each campaign |
-| `ablations_synthetic.csv` | `run_ablations.py --synthetic` | machinery check on synthetic data only |
 
-Superseded tables are kept for the record and are not cited in the article:
-`*_lr001_do02*` (a configuration used before hyperparameter selection),
-`ablations_organic_untracked_settings.csv`, `graph_*_LEAKY.csv` (a graph run in which each
-point's later observation could reach its earlier one), and `tuning.json` /
-`tuning_prefix.json` (a single search superseded by the nested selection).
+Every table was regenerated in version 3.0.0 after the loader was found to read
+electrical conductivity as organic carbon for 2015 and 2018. The invalid outputs, and the
+earlier superseded tables, are kept locally and are not tracked.
 
 `predictions/` is not tracked, because it is keyed to LUCAS point identifiers.

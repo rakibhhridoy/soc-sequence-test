@@ -9,22 +9,29 @@ Authors: Md Rakib Hasan, Mst Anika Khatun Rupa, A. S. M. Mohiuddin
 
 ## What the study finds
 
-Mineral soils, 16,462 observations from 8,339 points, spatially blocked validation with
+Mineral soils, 16,496 observations from 8,275 points, spatially blocked validation with
 hyperparameters selected inside each training fold, pooled over five replicates:
 
 | | Skill against persistence |
 |---|---|
-| Gradient boosting on summary statistics | 0.254 |
-| Convolutional-recurrent hybrid | 0.241 |
-| Linear fit on the previous value (mean-reversion floor) | 0.169 |
+| Convolutional-recurrent hybrid | 0.113 |
+| Gradient boosting on summary statistics | 0.110 |
+| Linear fit on the previous value (mean-reversion floor) | 0.047 |
+| Ceiling set by measurement noise | 0.28 (0.24 to 0.37) |
 
-- The hybrid does not outperform boosting: the 95 % interval on the difference is
-  -0.031 to 0.003.
-- Removing its recurrent decoder or learned encoder raises skill slightly.
-- About two thirds of either method's skill is regression towards the mean.
-- Forward in time, at points withheld in space, the hybrid leads boosting by 0.049
-  (0.017 to 0.082), but its margin over the mean-reversion floor (0.030) has an interval
-  reaching below zero.
+- Hybrid and boosting are equivalent across space: the difference is 0.003 (95 % interval
+  -0.011 to 0.019), inside a margin of 0.02.
+- Removing the recurrent decoder or the learned encoder does not lower skill, and the
+  Landsat series, about a third of the skill, are read as well by boosting.
+- Successive changes at a point correlate at -0.54, so measurement noise is at least 94 % of
+  the mean squared six-year change; pH and total nitrogen show the same signature, and the
+  apparent dependence of change on the starting level vanishes when instrumented.
+- At a later survey and at points withheld in space, the hybrid beats mean reversion by
+  0.086 (0.049 to 0.109) and tuned boosting by 0.023 (-0.001 to 0.045).
+
+**Versions 2.0.0 to 2.2.2 are invalid.** Their loader read electrical conductivity as
+organic carbon for the 2015 and 2018 campaigns. Version 3.0.0 fixes the loader and reruns
+every result.
 
 `results/tables/` holds every number reported in the article.
 
@@ -46,7 +53,7 @@ python scripts/extract_era5land.py          # ERA5-Land monthly climate
 python scripts/build_panels.py              # mineral and organic panels
 python scripts/build_climate_panel.py       # panels with climate channels
 python scripts/run_ablations.py --data data/processed/panel_mineral.npz --epochs 200 --folds 4 --ensemble 3
-python scripts/run_ablations.py --data data/processed/panel_organic.npz --epochs 200 --folds 3 --ensemble 3 --block-size 276477.3517754666
+python scripts/run_ablations.py --data data/processed/panel_organic.npz --epochs 200 --folds 3 --ensemble 3 --block-size 779810.8924983748
 python scripts/bootstrap_comparison.py      # paired block bootstrap, spatial and temporal
 python scripts/diagnose_dynamic.py          # covariate series replaced by zeros or noise
 python scripts/climate_comparison.py        # adds ERA5-Land climate
@@ -54,11 +61,13 @@ python scripts/temporal_validation.py       # forward in time, same points
 python scripts/robustness.py                # five replicates, mean-reversion floor, new-places design
 python scripts/soil_breakdown.py            # land use, SOC tertiles, change map
 python scripts/run_graph.py --data data/processed/panel_mineral.npz --epochs 300 --folds 4 --graphs geographic,covariate-space,none
+python scripts/run_graph.py --data data/processed/panel_organic.npz --epochs 300 --folds 3 --block-size 779810.8924983748
 python scripts/graph_bootstrap.py           # paired intervals for the graph extension (needs the none and geographic runs)
 python scripts/campaign_proxy.py            # do the Landsat series act as a proxy for the campaign?
 python scripts/boosting_features.py         # stronger boosting: timing features and nested selection (after robustness.py)
 python scripts/climate_breakdown.py         # skill by Köppen climate zone (needs the climate panel)
 python scripts/noise_ceiling.py             # ceiling on skill set by measurement noise
+python scripts/point_change.py              # noise share of change, instrumented level dependence, strata, controls
 python scripts/tune_model.py                # summary of the nested hyperparameter selection
 python scripts/make_figures.py
 ```
