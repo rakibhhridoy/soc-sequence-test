@@ -26,12 +26,19 @@ hyperparameters selected inside each training fold, pooled over five replicates:
 - Successive changes at a point correlate at -0.54, so measurement noise is at least 94 % of
   the mean squared six-year change; pH and total nitrogen show the same signature, and the
   apparent dependence of change on the starting level vanishes when instrumented.
-- At a later survey and at points withheld in space, the hybrid beats mean reversion by
-  0.086 (0.049 to 0.109) and tuned boosting by 0.023 (-0.001 to 0.045).
+- At a later survey and at points withheld in space, pooled over five replicates, the hybrid
+  beats mean reversion by 0.083 (0.041 to 0.108) and tuned boosting by 0.020 (-0.003 to 0.042).
+- With ERA5-Land climate added, pooled over five replicates, the hybrid and tuned boosting
+  differ by 0.007 (-0.017 to 0.029), and with 56 blocks of 390 km instead of 18 of 780 km the
+  hybrid and boosting differ by 0.001 (-0.013 to 0.022).
+- Giving boosting the mean previous carbon of each point's graph neighbours recovers about
+  half of the geographic graph's gain.
 
 **Versions 2.0.0 to 2.2.2 are invalid.** Their loader read electrical conductivity as
 organic carbon for the 2015 and 2018 campaigns. Version 3.0.0 fixes the loader and reruns
-every result.
+every result. Version 3.1.0 adds the climate comparison and the forward-in-time
+design at new places over five replicates, a check on the block size, and neighbour features
+for the tabular models.
 
 `results/tables/` holds every number reported in the article.
 
@@ -69,6 +76,13 @@ python scripts/climate_breakdown.py         # skill by Köppen climate zone (nee
 python scripts/noise_ceiling.py             # ceiling on skill set by measurement noise
 python scripts/point_change.py              # noise share of change, instrumented level dependence, strata, controls
 python scripts/tune_model.py                # summary of the nested hyperparameter selection
+python scripts/climate_tuned.py             # tuned boosting with climate, single assignment
+python scripts/climate_replicates.py        # climate comparison over the five replicates
+python scripts/temporal_extend.py           # new-places design for replicates 3 and 4
+python scripts/robustness.py --pool-only    # rebuild pooled tables from saved predictions
+python scripts/boosting_features.py --pool-only
+python scripts/neighbour_features.py        # graph neighbours' previous carbon as tabular features
+python scripts/block_sensitivity.py --block-km 390 --replicates 3
 python scripts/make_figures.py
 ```
 
