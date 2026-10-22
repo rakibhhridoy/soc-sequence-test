@@ -1,0 +1,3 @@
+Natural Earth 1:50m admin-0 countries (public domain), v5.1.2,
+from https://github.com/nvkelso/natural-earth-vector. Used only as a basemap by
+scripts/make_figures.py.

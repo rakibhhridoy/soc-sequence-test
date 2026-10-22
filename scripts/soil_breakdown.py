@@ -18,18 +18,13 @@ import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "scripts"))
 import config  # noqa: E402
 from bootstrap_comparison import PRED_DIR, block_bootstrap, skill  # noqa: E402
-from make_figures import INK, INK2, GRID  # noqa: E402  (also applies the rcParams)
 
 MODELS = {"hybrid": "hybrid__full", "boosting": "gradient_boosting__with_previous_value"}
-DIVERGING = LinearSegmentedColormap.from_list("loss_gain", ["#c93a39", "#f0efec", "#1c5cab"])
-CELL_KM = 100
 
 
 def load():
@@ -103,45 +98,9 @@ def simple_baselines(d):
 
 
 def fig_change(d):
-    d = d.assign(obs=d.y - d.y_prev, pred=d.hybrid - d.y_prev)
-    d["cx"] = (d.x // CELL_KM).astype(int)
-    d["cy"] = (d.yk // CELL_KM).astype(int)
-    cells = d.groupby(["cx", "cy"]).agg(obs=("obs", "mean"), pred=("pred", "mean"),
-                                        n=("obs", "size")).reset_index()
-    cells = cells[cells.n >= 10]
-    lim = float(np.nanpercentile(np.abs(cells[["obs", "pred"]].to_numpy()), 98))
-    norm = TwoSlopeNorm(vmin=-lim, vcenter=0.0, vmax=lim)
-
-    fig, axs = plt.subplots(1, 3, figsize=(7.6, 2.9), gridspec_kw=dict(width_ratios=[1, 1, 0.95]))
-    fig.subplots_adjust(wspace=0.32)
-    for ax, col, title in ((axs[0], "obs", "a  Observed change"),
-                           (axs[1], "pred", "b  Predicted change, hybrid")):
-        ax.scatter(d.x, d.yk, s=0.3, color="#dcdbd6", linewidths=0, zorder=1)
-        im = ax.scatter((cells.cx + 0.5) * CELL_KM, (cells.cy + 0.5) * CELL_KM, c=cells[col],
-                        cmap=DIVERGING, norm=norm, s=9, marker="s", linewidths=0, zorder=2)
-        ax.set_aspect("equal")
-        ax.set_xticks([]); ax.set_yticks([])
-        for s in ax.spines.values():
-            s.set_visible(False)
-        ax.set_title(title, loc="left", fontsize=8, color=INK, fontweight="bold")
-    cb = fig.colorbar(im, ax=axs[:2], orientation="horizontal", fraction=0.05, pad=0.04,
-                      shrink=0.6)
-    cb.set_label("Mean change in log SOC per 100 km cell (loss < 0 < gain)", color=INK2)
-    cb.outline.set_visible(False)
-
-    ax = axs[2]
-    hb = ax.hexbin(d.obs, d.pred, gridsize=45, extent=(-1.5, 1.5, -1.5, 1.5), mincnt=1,
-                   cmap=LinearSegmentedColormap.from_list("seq", ["#cde2fb", "#0d366b"]),
-                   bins="log", linewidths=0)
-    ax.plot([-1.5, 1.5], [-1.5, 1.5], color=INK2, linewidth=0.8)
-    slope = np.polyfit(d.obs, d.pred, 1)[0]
-    ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5); ax.set_aspect("equal")
-    ax.set_xlabel("Observed change in log SOC")
-    ax.set_ylabel("Predicted change")
-    ax.grid(color=GRID, linewidth=0.6); ax.set_axisbelow(True)
-    ax.set_title(f"c  Point by point, slope {slope:.2f}", loc="left", fontsize=8, color=INK,
-                 fontweight="bold")
-    return fig, slope, len(cells)
+    """The change map is drawn by make_figures.py so every figure shares one style."""
+    from make_figures import fig_change_map
+    return fig_change_map(d)
 
 
 def main() -> int:
@@ -161,7 +120,7 @@ def main() -> int:
     fig, slope, n_cells = fig_change(d)
     out = t.parent / "figures" / "fig_change_map"
     for ext in ("pdf", "png"):
-        fig.savefig(f"{out}.{ext}", bbox_inches="tight", facecolor="white")
+        fig.savefig(f"{out}.{ext}", facecolor="white", dpi=600)
     fmt = lambda v: f"{v:.3f}"
     print("\n", lu.to_string(index=False, float_format=fmt))
     print("\nSOC tertile edges (g/kg):\n", edges.round(1).to_string())
