@@ -1,0 +1,22 @@
+16,496 observations, 13 dynamic channels
+replicate 0: hybrid 0.111, boosting 0.100, boosting tuned 0.100, hybrid climate 0.118, boosting tuned climate 0.103, boosting climate 0.081  (2s)
+replicate 1: hybrid 0.114, boosting 0.112, boosting tuned 0.101, hybrid climate 0.113, boosting tuned climate 0.110, boosting climate 0.121  (412s)
+replicate 2: hybrid 0.108, boosting 0.112, boosting tuned 0.103, hybrid climate 0.108, boosting tuned climate 0.114, boosting climate 0.117  (395s)
+replicate 3: hybrid 0.114, boosting 0.114, boosting tuned 0.099, hybrid climate 0.111, boosting tuned climate 0.107, boosting climate 0.116  (324s)
+replicate 4: hybrid 0.116, boosting 0.111, boosting tuned 0.093, hybrid climate 0.119, boosting tuned climate 0.098, boosting climate 0.119  (379s)
+
+                                   quantity  estimate  ci95_low  ci95_high  ci90_low  ci90_high  replicates equivalent_at_0.02  share_above_zero
+                                     hybrid     0.113     0.071      0.141     0.076      0.138           5                NaN               NaN
+                                   boosting     0.110     0.069      0.139     0.075      0.136           5                NaN               NaN
+                             boosting tuned     0.099     0.058      0.125     0.063      0.123           5                NaN               NaN
+                             hybrid climate     0.114     0.076      0.141     0.081      0.138           5                NaN               NaN
+                     boosting tuned climate     0.107     0.062      0.136     0.069      0.133           5                NaN               NaN
+                           boosting climate     0.111     0.066      0.143     0.073      0.140           5                NaN               NaN
+hybrid climate minus boosting tuned climate     0.007    -0.017      0.029    -0.013      0.026           5              False             0.755
+      hybrid climate minus boosting climate     0.003    -0.021      0.054    -0.017      0.048           5              False             0.376
+                hybrid climate minus hybrid     0.001    -0.007      0.015    -0.005      0.013           5               True             0.583
+boosting tuned climate minus boosting tuned     0.008    -0.002      0.016    -0.000      0.015           5               True             0.941
+            boosting climate minus boosting     0.001    -0.032      0.015    -0.027      0.013           5              False             0.758
+                hybrid minus boosting tuned     0.014    -0.000      0.031     0.001      0.028           5              False             0.974
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/climate_replicates.csv

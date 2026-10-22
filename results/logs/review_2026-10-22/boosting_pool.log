@@ -1,0 +1,45 @@
+16,496 observations | features: summary 56, timing 276
+
+                   design                           quantity  estimate  ci95_low  ci95_high  replicates  share_above_zero
+         spatial blocking                     summary, fixed     0.110     0.071      0.139           5               NaN
+         spatial blocking                     summary, tuned     0.099     0.058      0.126           5               NaN
+         spatial blocking                      timing, fixed     0.115     0.078      0.147           5               NaN
+         spatial blocking                      timing, tuned     0.102     0.064      0.130           5               NaN
+ new places, later survey                     summary, fixed     0.034    -0.031      0.089           5               NaN
+ new places, later survey                     summary, tuned     0.119     0.032      0.182           5               NaN
+ new places, later survey                      timing, fixed     0.049    -0.000      0.102           5               NaN
+ new places, later survey                      timing, tuned     0.114     0.034      0.179           5               NaN
+         spatial blocking                             hybrid     0.113     0.072      0.141           5               NaN
+         spatial blocking                             linear     0.047     0.029      0.058           5               NaN
+ new places, later survey                             hybrid     0.139     0.058      0.193           5               NaN
+ new places, later survey                             linear     0.056     0.007      0.088           5               NaN
+         spatial blocking        hybrid minus summary, fixed     0.003    -0.011      0.020           5             0.624
+         spatial blocking        summary, fixed minus linear     0.063     0.037      0.084           5             1.000
+         spatial blocking        hybrid minus summary, tuned     0.014    -0.000      0.030           5             0.970
+         spatial blocking        summary, tuned minus linear     0.052     0.026      0.072           5             1.000
+         spatial blocking         hybrid minus timing, fixed    -0.003    -0.021      0.026           5             0.294
+         spatial blocking         timing, fixed minus linear     0.069     0.041      0.092           5             1.000
+         spatial blocking         hybrid minus timing, tuned     0.010    -0.009      0.029           5             0.800
+         spatial blocking         timing, tuned minus linear     0.056     0.030      0.077           5             1.000
+         spatial blocking timing, tuned minus summary, fixed    -0.007    -0.023      0.007           5             0.164
+ new places, later survey        hybrid minus summary, fixed     0.105     0.020      0.196           5             0.999
+ new places, later survey        summary, fixed minus linear    -0.022    -0.093      0.045           5             0.399
+ new places, later survey        hybrid minus summary, tuned     0.020    -0.003      0.042           5             0.956
+ new places, later survey        summary, tuned minus linear     0.063     0.017      0.098           5             0.997
+ new places, later survey         hybrid minus timing, fixed     0.090     0.007      0.168           5             0.991
+ new places, later survey         timing, fixed minus linear    -0.007    -0.071      0.058           5             0.535
+ new places, later survey         hybrid minus timing, tuned     0.025    -0.004      0.066           5             0.932
+ new places, later survey         timing, tuned minus linear     0.058     0.010      0.098           5             0.990
+ new places, later survey timing, tuned minus summary, fixed     0.080    -0.004      0.174           5             0.962
+same points, later survey                             hybrid     0.143     0.081      0.182           1               NaN
+same points, later survey                     summary, fixed     0.078     0.025      0.104           1               NaN
+same points, later survey                     summary, tuned     0.139     0.071      0.180           1               NaN
+same points, later survey                      timing, fixed     0.118     0.062      0.153           1               NaN
+same points, later survey                      timing, tuned     0.142     0.062      0.191           1               NaN
+same points, later survey        hybrid minus summary, fixed     0.064     0.036      0.089           1             1.000
+same points, later survey        hybrid minus summary, tuned     0.004    -0.004      0.017           1             0.809
+same points, later survey         hybrid minus timing, fixed     0.025     0.013      0.036           1             1.000
+same points, later survey         hybrid minus timing, tuned     0.001    -0.011      0.022           1             0.547
+same points, later survey timing, tuned minus summary, fixed     0.064     0.022      0.095           1             1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/boosting_features.csv

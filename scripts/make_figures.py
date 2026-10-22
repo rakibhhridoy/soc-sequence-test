@@ -70,7 +70,7 @@ def fig_skill():
     ]
 
     rob = pd.read_csv(t / "robustness.csv").set_index("quantity")
-    clim = pd.read_csv(t / "climate_comparison.csv").set_index("quantity")
+    clim = pd.read_csv(t / "climate_replicates.csv").set_index("quantity")
     bf = pd.read_csv(t / "boosting_features.csv").set_index(["design", "quantity"])
 
     def r(q):
@@ -83,9 +83,9 @@ def fig_skill():
             ("Hybrid \u2212 boosting (protocol)", *r("hybrid minus boosting")),
             ("Hybrid \u2212 boosting (timing features)",
              *f("spatial blocking", "hybrid minus timing, fixed")),
-            ("Hybrid \u2212 boosting, both with climate", *tuple(clim.loc[
-                "hybrid, with climate minus gradient boosting with previous value, with climate",
-                ["estimate", "ci_low", "ci_high"]])),
+            ("Hybrid \u2212 boosting (tuned), both with climate", *tuple(clim.loc[
+                "hybrid climate minus boosting tuned climate",
+                ["estimate", "ci95_low", "ci95_high"]])),
             ("Hybrid \u2212 mean-reversion floor", *r("hybrid minus linear")),
             ("No decoder \u2212 full hybrid", *r("no decoder minus hybrid")),
             ("Hybrid \u2212 hybrid with zero series",
@@ -206,20 +206,19 @@ def _static_only_intervals():
 
 def fig_inputs():
     t = config.TABLES
-    clim = pd.read_csv(t / "climate_comparison.csv").set_index("quantity")
-    floor = pd.read_csv(t / "breakdown_simple_baselines.csv").set_index("quantity").loc[
-        "linear on previous value and campaign", "estimate"]
+    # Landsat and climate steps pooled over the five replicates of climate_replicates.py;
+    # the static-only step is the single assignment, the only design it was run on
+    clim = pd.read_csv(t / "climate_replicates.csv").set_index("quantity")
+    floor = pd.read_csv(t / "robustness.csv").set_index("quantity").loc["linear", "estimate"]
     static = _static_only_intervals()
 
     def row(q):
         r = clim.loc[q]
-        return r["estimate"], r["ci_low"], r["ci_high"]
+        return r["estimate"], r["ci95_low"], r["ci95_high"]
     series = {
-        "Hybrid": (HYB, "o", [static["hybrid"], row("hybrid, Landsat only"),
-                              row("hybrid, with climate")]),
-        "Gradient boosting": (GBM, "s", [static["boosting"],
-                                         row("gradient boosting with previous value, Landsat only"),
-                                         row("gradient boosting with previous value, with climate")]),
+        "Hybrid": (HYB, "o", [static["hybrid"], row("hybrid"), row("hybrid climate")]),
+        "Gradient boosting": (GBM, "s", [static["boosting"], row("boosting"),
+                                         row("boosting climate")]),
     }
     steps = ["Static inputs\nonly", "+ Landsat\nseries", "+ ERA5-Land\nclimate"]
 

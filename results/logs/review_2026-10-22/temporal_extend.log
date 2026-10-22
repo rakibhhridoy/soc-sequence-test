@@ -1,0 +1,2 @@
+replicate 3: st hybrid 0.132, st linear 0.056, st summary, fixed 0.038, st summary, tuned 0.124, st timing, fixed 0.040, st timing, tuned 0.125  (493s)
+replicate 4: st hybrid 0.135, st linear 0.056, st summary, fixed 0.067, st summary, tuned 0.111, st timing, fixed 0.078, st timing, tuned 0.089  (428s)

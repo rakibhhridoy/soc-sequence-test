@@ -3036,5 +3036,1181 @@
    "dropout": 0.1,
    "skill": 0.05060571009239989
   }
+ },
+ "2c78b9f47b6d862c3d0fd3b087810d53": {
+  "tag": "mineral blocks390km replicate 0 fold 0",
+  "n_train": 12703,
+  "n_inner_val": 3755,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1677374153647322
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.16889457691975163
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.14545411896321014
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.14954856701734665
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.151032432790544
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.1659513626265371
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.141808308663121
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.14386840118513666
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1661584092366284
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.16131961464376343
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.1382167346506773
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.16200313325867965
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.16889457691975163
+  }
+ },
+ "af49e71e756ca31f60d2a8fc0426027a": {
+  "tag": "mineral blocks390km replicate 0 fold 1",
+  "n_train": 11169,
+  "n_inner_val": 2825,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.06030865724813028
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.04305779955880695
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.0608391483338675
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.057761429708582
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.05106285138993971
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.0405092898015037
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.04195011593656417
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.04208808019645205
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.0493000548322462
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.05569010541224284
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.009142750835615443
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.044478731943830674
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.0608391483338675
+  }
+ },
+ "b299fd5bd5450bb64b7cdecf3fb7e127": {
+  "tag": "mineral blocks390km replicate 0 fold 2",
+  "n_train": 14247,
+  "n_inner_val": 3886,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.11359194815543527
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.11707829155099103
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.0824513781906584
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.11254005232905018
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.10809273624214122
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.1134799995187179
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.10979696121150562
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.10579684965819702
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1027124808638813
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.09158472949145369
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.08299262759340897
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.08540728877047565
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.11707829155099103
+  }
+ },
+ "5a49ea039402d3e88547d78fb5c9543f": {
+  "tag": "mineral blocks390km replicate 0 fold 3",
+  "n_train": 11369,
+  "n_inner_val": 3234,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.0775455854191992
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.07796398838003993
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.06522644431728375
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.06103252259858394
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.06310116007385347
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.06839756960079924
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.05400699279279997
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.06484089502547241
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.06014095928866192
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.07058942371592025
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.06400875545176854
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.057507035768803894
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.07796398838003993
+  }
+ },
+ "2d706686985e337eb90e042883986a70": {
+  "tag": "mineral blocks390km replicate 1 fold 0",
+  "n_train": 11058,
+  "n_inner_val": 2939,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.10729865841154762
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.11092555227337386
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.10810010232798595
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.11412535215017394
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1120969430922929
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.12060153286168107
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.1216787423388428
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.11467628438909727
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.11797156005102705
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.11728606752457926
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.12700753430350553
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.10837018135381327
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.12700753430350553
+  }
+ },
+ "1a0f2e49ea2df0742154c778893ea8b7": {
+  "tag": "mineral blocks390km replicate 1 fold 1",
+  "n_train": 13975,
+  "n_inner_val": 3624,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.07983132460168463
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.06732310255988716
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.07976375441426387
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.08196385330055245
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.08622766949787919
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.0890093162487463
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.08208492458244898
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.0710055761033559
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.08469371466317566
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.0803013445638443
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.07664350022564925
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.0698318054775442
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.0890093162487463
+  }
+ },
+ "9d2cfb1afb182932c3777dde3c9b6291": {
+  "tag": "mineral blocks390km replicate 1 fold 2",
+  "n_train": 12044,
+  "n_inner_val": 3308,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.15755812675160896
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.154042495506716
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.16431484491686188
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.17207745591229084
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.15745184980007965
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.15510769777473066
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.14566814689990026
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.14052805666765422
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.14404852228767007
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.14175515273408512
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.15511741147520963
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.14075272466624178
+   }
+  ],
+  "best": {
+   "hidden": 32,
+   "rnn_hidden": 32,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.17207745591229084
+  }
+ },
+ "592a381cd4540ff0b2cc682f7961f4c9": {
+  "tag": "mineral blocks390km replicate 1 fold 3",
+  "n_train": 12411,
+  "n_inner_val": 3664,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.13848148511653613
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.1340116543925205
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.14791745588637684
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.14710975546046834
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.1487391227045718
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.1374943451035382
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.14974189698520513
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.1483855912701384
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.13870017328525486
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.1472875745552913
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.1406299036247719
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.1382598558749989
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.003,
+   "dropout": 0.1,
+   "skill": 0.14974189698520513
+  }
+ },
+ "c35265c477e8e0065ac678d744201b79": {
+  "tag": "mineral blocks390km replicate 2 fold 0",
+  "n_train": 11390,
+  "n_inner_val": 3931,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.07710651106160404
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.08450912597628979
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.09149785017941059
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.09229337845667862
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.10116761261087615
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.10148475120458722
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.09184682165902835
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.04477511380630117
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.07903141728274299
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.08469090037427685
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.08073468021568442
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.07362781905814686
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.10148475120458722
+  }
+ },
+ "81d4a0ffef5e00b1d09ac4642b99a5ee": {
+  "tag": "mineral blocks390km replicate 2 fold 1",
+  "n_train": 13066,
+  "n_inner_val": 4145,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.07908323197655875
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.07048753891475701
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.06254790503260776
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.05449132994535377
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.07318217006164085
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.07807651459888287
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.0419566704885207
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.05823818363094657
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.06993771661003256
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.08278414085293617
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.06484234944560052
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.05947656924337308
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.08278414085293617
+  }
+ },
+ "06f3ffa19d34f5f16016c52a6d19ccf2": {
+  "tag": "mineral blocks390km replicate 2 fold 2",
+  "n_train": 12759,
+  "n_inner_val": 3445,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.09327777968673012
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.0936279613155181
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.09568962499295908
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.09869570244234172
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.08715663518323102
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.08953151642500745
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.10011268511735616
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.09469402852936737
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.09398178200890983
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.0971829238947588
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.09429722575643285
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.10430004701944873
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 128,
+   "lr": 0.003,
+   "dropout": 0.2,
+   "skill": 0.10430004701944873
+  }
+ },
+ "668a943fc695a654184a68bcd3eb3874": {
+  "tag": "mineral blocks390km replicate 2 fold 3",
+  "n_train": 12273,
+  "n_inner_val": 3278,
+  "grid": [
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.08363408766916636
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.08104507624929902
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.0714941971838241
+   },
+   {
+    "hidden": 32,
+    "rnn_hidden": 32,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.0767262630444212
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.090582748706316
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.09071896746834052
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.07009026333698876
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 64,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.07083877564070007
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.1,
+    "skill": 0.08847103302198234
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.001,
+    "dropout": 0.2,
+    "skill": 0.08786366040521487
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.1,
+    "skill": 0.06694970647599607
+   },
+   {
+    "hidden": 64,
+    "rnn_hidden": 128,
+    "lr": 0.003,
+    "dropout": 0.2,
+    "skill": 0.08257283704871088
+   }
+  ],
+  "best": {
+   "hidden": 64,
+   "rnn_hidden": 64,
+   "lr": 0.001,
+   "dropout": 0.2,
+   "skill": 0.09071896746834052
+  }
  }
 }

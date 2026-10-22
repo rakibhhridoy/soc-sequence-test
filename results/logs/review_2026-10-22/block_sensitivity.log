@@ -1,0 +1,28 @@
+16,496 observations, 56 blocks of 390 km
+    search mineral blocks390km replicate 0 fold 0: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.16889457691975163} (372s)
+    search mineral blocks390km replicate 0 fold 1: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.0608391483338675} (391s)
+    search mineral blocks390km replicate 0 fold 2: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.11707829155099103} (488s)
+    search mineral blocks390km replicate 0 fold 3: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.07796398838003993} (363s)
+replicate 0: hybrid 0.113, boosting 0.115, boosting tuned 0.108, linear 0.049  (2025s)
+    search mineral blocks390km replicate 1 fold 0: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.12700753430350553} (307s)
+    search mineral blocks390km replicate 1 fold 1: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.0890093162487463} (1244s)
+    search mineral blocks390km replicate 1 fold 2: best {'hidden': 32, 'rnn_hidden': 32, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.17207745591229084} (472s)
+    search mineral blocks390km replicate 1 fold 3: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.003, 'dropout': 0.1, 'skill': 0.14974189698520513} (318s)
+replicate 1: hybrid 0.122, boosting 0.113, boosting tuned 0.106, linear 0.050  (3493s)
+    search mineral blocks390km replicate 2 fold 0: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.10148475120458722} (360s)
+    search mineral blocks390km replicate 2 fold 1: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.08278414085293617} (456s)
+    search mineral blocks390km replicate 2 fold 2: best {'hidden': 64, 'rnn_hidden': 128, 'lr': 0.003, 'dropout': 0.2, 'skill': 0.10430004701944873} (350s)
+    search mineral blocks390km replicate 2 fold 3: best {'hidden': 64, 'rnn_hidden': 64, 'lr': 0.001, 'dropout': 0.2, 'skill': 0.09071896746834052} (271s)
+replicate 2: hybrid 0.118, boosting 0.123, boosting tuned 0.119, linear 0.049  (1897s)
+
+ block_km  blocks                    quantity  estimate  ci95_low  ci95_high  ci90_low  ci90_high  replicates equivalent_at_0.02  share_above_zero
+  390.000      56                      hybrid     0.118     0.083      0.145     0.089      0.141           3                NaN               NaN
+  390.000      56                    boosting     0.117     0.080      0.147     0.084      0.142           3                NaN               NaN
+  390.000      56              boosting tuned     0.111     0.073      0.142     0.077      0.137           3                NaN               NaN
+  390.000      56                      linear     0.049     0.032      0.061     0.035      0.059           3                NaN               NaN
+  390.000      56       hybrid minus boosting     0.001    -0.013      0.022    -0.011      0.018           3               True             0.512
+  390.000      56 hybrid minus boosting tuned     0.007    -0.006      0.027    -0.004      0.023           3              False             0.752
+  390.000      56         hybrid minus linear     0.069     0.049      0.088     0.051      0.085           3              False             1.000
+  390.000      56       boosting minus linear     0.067     0.038      0.091     0.043      0.088           3              False             1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/block_sensitivity_blocks390km.csv

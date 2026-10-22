@@ -1,0 +1,17 @@
+16,496 observations, 18 blocks
+
+                            quantity  estimate  ci95_low  ci95_high  ci90_low  ci90_high  replicates equivalent_at_0.02  share_above_zero
+                              hybrid     0.113     0.070      0.142     0.076      0.137           5                NaN               NaN
+                            boosting     0.110     0.071      0.139     0.076      0.135           5                NaN               NaN
+                              linear     0.047     0.027      0.058     0.032      0.056           5                NaN               NaN
+               hybrid minus boosting     0.003    -0.011      0.019    -0.009      0.015           5               True             0.633
+                 hybrid minus linear     0.066     0.039      0.089     0.042      0.085           5              False             1.000
+               boosting minus linear     0.063     0.037      0.084     0.040      0.082           5              False             1.000
+             no decoder minus hybrid     0.007    -0.002      0.016    -0.000      0.015           3               True             0.946
+               spatiotemporal hybrid     0.139     0.059      0.194     0.068      0.185           5                NaN               NaN
+             spatiotemporal boosting     0.034    -0.032      0.091    -0.026      0.084           5                NaN               NaN
+               spatiotemporal linear     0.056     0.007      0.089     0.013      0.085           5                NaN               NaN
+spatiotemporal hybrid minus boosting     0.105     0.021      0.190     0.028      0.174           5              False             1.000
+  spatiotemporal hybrid minus linear     0.083     0.041      0.108     0.050      0.105           5              False             1.000
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/robustness.csv

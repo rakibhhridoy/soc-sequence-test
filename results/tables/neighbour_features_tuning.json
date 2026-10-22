@@ -1,0 +1,762 @@
+{
+ "boosting rep0": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.05996054194535261
+   },
+   "n_trees": 168
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.05601571612617595
+   },
+   "n_trees": 197
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.0981584343405949
+   },
+   "n_trees": 119
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.10557520320983693
+   },
+   "n_trees": 545
+  }
+ ],
+ "boosting + neighbours rep0": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.06907690174022008
+   },
+   "n_trees": 196
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.06372232647172471
+   },
+   "n_trees": 195
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.10872607031513648
+   },
+   "n_trees": 158
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.1044004195373246
+   },
+   "n_trees": 490
+  }
+ ],
+ "st boosting rep0": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.06071044234730283
+   },
+   "n_trees": 175
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.027041259009612517
+   },
+   "n_trees": 256
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.06581892609993345
+   },
+   "n_trees": 87
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.07981960667627674
+   },
+   "n_trees": 155
+  }
+ ],
+ "st boosting + neighbours rep0": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.06825413988675821
+   },
+   "n_trees": 222
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.020116842446589067
+   },
+   "n_trees": 233
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.0733800632075815
+   },
+   "n_trees": 79
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.07905020020036935
+   },
+   "n_trees": 198
+  }
+ ],
+ "boosting rep1": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.020320773473390674
+   },
+   "n_trees": 422
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.04285240771757437
+   },
+   "n_trees": 652
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.054092451466331126
+   },
+   "n_trees": 107
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.06032479128326418
+   },
+   "n_trees": 382
+  }
+ ],
+ "boosting + neighbours rep1": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.02826339998101135
+   },
+   "n_trees": 448
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.058286296096895285
+   },
+   "n_trees": 652
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.05390337582159155
+   },
+   "n_trees": 119
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.07069016016290997
+   },
+   "n_trees": 216
+  }
+ ],
+ "st boosting rep1": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": -0.0021445016485923674
+   },
+   "n_trees": 382
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": -0.01869029289011248
+   },
+   "n_trees": 215
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.04291390668102257
+   },
+   "n_trees": 145
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.05639957980294874
+   },
+   "n_trees": 302
+  }
+ ],
+ "st boosting + neighbours rep1": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": -0.011423531476021154
+   },
+   "n_trees": 325
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.000755066815715133
+   },
+   "n_trees": 162
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.03770257614039885
+   },
+   "n_trees": 146
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.05976627688736014
+   },
+   "n_trees": 156
+  }
+ ],
+ "boosting rep2": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.13829085333611768
+   },
+   "n_trees": 147
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.048958932474699735
+   },
+   "n_trees": 81
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.12248024779992661
+   },
+   "n_trees": 656
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.13685002810602676
+   },
+   "n_trees": 458
+  }
+ ],
+ "boosting + neighbours rep2": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.14709338533382965
+   },
+   "n_trees": 107
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.06402178661611724
+   },
+   "n_trees": 160
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.11997378009412918
+   },
+   "n_trees": 370
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.13984344723050834
+   },
+   "n_trees": 405
+  }
+ ],
+ "st boosting rep2": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.067861457205172
+   },
+   "n_trees": 105
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.05600828474235031
+   },
+   "n_trees": 92
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.05372559316938463
+   },
+   "n_trees": 187
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.07270431466677685
+   },
+   "n_trees": 140
+  }
+ ],
+ "st boosting + neighbours rep2": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.07315920676687027
+   },
+   "n_trees": 85
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.06242167447469049
+   },
+   "n_trees": 93
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.05288323649712634
+   },
+   "n_trees": 300
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.07155858764969925
+   },
+   "n_trees": 125
+  }
+ ],
+ "boosting rep3": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.05327964113130479
+   },
+   "n_trees": 250
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.03815579008220327
+   },
+   "n_trees": 386
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.09904118987398003
+   },
+   "n_trees": 326
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": -0.003541346821515745
+   },
+   "n_trees": 359
+  }
+ ],
+ "boosting + neighbours rep3": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.0597577122730758
+   },
+   "n_trees": 182
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.0522306127629687
+   },
+   "n_trees": 167
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.11034156477513357
+   },
+   "n_trees": 287
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.01277605738574239
+   },
+   "n_trees": 329
+  }
+ ],
+ "st boosting rep3": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.044473020508525085
+   },
+   "n_trees": 174
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": -0.0013145286406635037
+   },
+   "n_trees": 113
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.06762412232518511
+   },
+   "n_trees": 133
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": -0.030483714526126526
+   },
+   "n_trees": 203
+  }
+ ],
+ "st boosting + neighbours rep3": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.050156004165085255
+   },
+   "n_trees": 146
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.007088237983262635
+   },
+   "n_trees": 110
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.07640241425448191
+   },
+   "n_trees": 170
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": -0.03615935714774654
+   },
+   "n_trees": 165
+  }
+ ],
+ "boosting rep4": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.08361406532119087
+   },
+   "n_trees": 155
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.10595250821008417
+   },
+   "n_trees": 403
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.09301544615544344
+   },
+   "n_trees": 269
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.051570404639518785
+   },
+   "n_trees": 177
+  }
+ ],
+ "boosting + neighbours rep4": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.10280515110511412
+   },
+   "n_trees": 161
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.11416248941266283
+   },
+   "n_trees": 290
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.10217453330830972
+   },
+   "n_trees": 673
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.06395725896797011
+   },
+   "n_trees": 90
+  }
+ ],
+ "st boosting rep4": [
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.05091363066750387
+   },
+   "n_trees": 85
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.06383940423187384
+   },
+   "n_trees": 179
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.06327530203520859
+   },
+   "n_trees": 264
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.9,
+    "skill": 0.03917261555997942
+   },
+   "n_trees": 88
+  }
+ ],
+ "st boosting + neighbours rep4": [
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.05858383071161488
+   },
+   "n_trees": 117
+  },
+  {
+   "best": {
+    "max_depth": 3,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.5,
+    "skill": 0.07077564596899977
+   },
+   "n_trees": 198
+  },
+  {
+   "best": {
+    "max_depth": 5,
+    "min_child_weight": 1,
+    "colsample_bytree": 0.5,
+    "skill": 0.07457946944514016
+   },
+   "n_trees": 281
+  },
+  {
+   "best": {
+    "max_depth": 8,
+    "min_child_weight": 20,
+    "colsample_bytree": 0.9,
+    "skill": 0.046557886957029115
+   },
+   "n_trees": 67
+  }
+ ]
+}

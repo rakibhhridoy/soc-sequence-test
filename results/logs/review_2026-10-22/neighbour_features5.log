@@ -1,0 +1,43 @@
+16,496 observations | neighbours per observation: median 7, none for 0
+replicate 0: hybrid 0.111, st hybrid 0.143, linear 0.046, linear + neighbour level 0.071, linear + neighbours 0.070, boosting, fixed 0.100, boosting, tuned 0.100, boosting + neighbours, fixed 0.110, boosting + neighbours, tuned 0.111, st linear 0.055, st linear + neighbour level 0.085, st linear + neighbours 0.075, st boosting, fixed 0.036, st boosting, tuned 0.116, st boosting + neighbours, fixed 0.044, st boosting + neighbours, tuned 0.118  (159s)
+replicate 1: hybrid 0.114, st hybrid 0.142, linear 0.050, linear + neighbour level 0.080, linear + neighbours 0.078, boosting, fixed 0.112, boosting, tuned 0.101, boosting + neighbours, fixed 0.119, boosting + neighbours, tuned 0.113, st linear 0.062, st linear + neighbour level 0.095, st linear + neighbours 0.084, st boosting, fixed 0.042, st boosting, tuned 0.131, st boosting + neighbours, fixed 0.066, st boosting + neighbours, tuned 0.151  (143s)
+replicate 2: hybrid 0.108, st hybrid 0.141, linear 0.045, linear + neighbour level 0.077, linear + neighbours 0.077, boosting, fixed 0.112, boosting, tuned 0.103, boosting + neighbours, fixed 0.123, boosting + neighbours, tuned 0.113, st linear 0.051, st linear + neighbour level 0.088, st linear + neighbours 0.082, st boosting, fixed -0.013, st boosting, tuned 0.111, st boosting + neighbours, fixed 0.024, st boosting + neighbours, tuned 0.124  (215s)
+replicate 3: hybrid 0.114, st hybrid 0.132, linear 0.048, linear + neighbour level 0.074, linear + neighbours 0.073, boosting, fixed 0.114, boosting, tuned 0.099, boosting + neighbours, fixed 0.124, boosting + neighbours, tuned 0.113, st linear 0.056, st linear + neighbour level 0.088, st linear + neighbours 0.075, st boosting, fixed 0.038, st boosting, tuned 0.124, st boosting + neighbours, fixed 0.045, st boosting + neighbours, tuned 0.130  (308s)
+replicate 4: hybrid 0.116, st hybrid 0.135, linear 0.045, linear + neighbour level 0.077, linear + neighbours 0.076, boosting, fixed 0.111, boosting, tuned 0.093, boosting + neighbours, fixed 0.122, boosting + neighbours, tuned 0.107, st linear 0.056, st linear + neighbour level 0.092, st linear + neighbours 0.082, st boosting, fixed 0.067, st boosting, tuned 0.111, st boosting + neighbours, fixed 0.077, st boosting + neighbours, tuned 0.075  (190s)
+
+                       design                                             quantity  estimate  ci95_low  ci95_high  replicates  share_above_zero
+             spatial blocking                                               hybrid     0.113     0.073      0.141           5               NaN
+             spatial blocking                                               linear     0.047     0.029      0.058           5               NaN
+             spatial blocking                             linear + neighbour level     0.076     0.043      0.096           5               NaN
+             spatial blocking                                  linear + neighbours     0.075     0.043      0.095           5               NaN
+             spatial blocking                                      boosting, fixed     0.110     0.070      0.139           5               NaN
+             spatial blocking                                      boosting, tuned     0.099     0.059      0.126           5               NaN
+             spatial blocking                         boosting + neighbours, fixed     0.119     0.079      0.148           5               NaN
+             spatial blocking                         boosting + neighbours, tuned     0.111     0.073      0.136           5               NaN
+             spatial blocking                linear + neighbour level minus linear     0.029     0.011      0.041           5             0.997
+             spatial blocking                     linear + neighbours minus linear     0.028     0.010      0.041           5             0.999
+             spatial blocking   boosting + neighbours, fixed minus boosting, fixed     0.010     0.004      0.014           5             0.999
+             spatial blocking   boosting + neighbours, tuned minus boosting, tuned     0.012     0.007      0.020           5             1.000
+             spatial blocking            boosting + neighbours, fixed minus hybrid     0.007    -0.010      0.021           5             0.831
+             spatial blocking            boosting + neighbours, tuned minus hybrid    -0.001    -0.017      0.012           5             0.461
+             spatial blocking                     linear + neighbours minus hybrid    -0.038    -0.052     -0.021           5             0.000
+     new places, later survey                                               hybrid     0.139     0.059      0.193           5               NaN
+     new places, later survey                                               linear     0.056     0.007      0.088           5               NaN
+     new places, later survey                             linear + neighbour level     0.090     0.034      0.128           5               NaN
+     new places, later survey                                  linear + neighbours     0.079     0.011      0.120           5               NaN
+     new places, later survey                                      boosting, fixed     0.034    -0.033      0.089           5               NaN
+     new places, later survey                                      boosting, tuned     0.119     0.032      0.181           5               NaN
+     new places, later survey                         boosting + neighbours, fixed     0.051     0.006      0.104           5               NaN
+     new places, later survey                         boosting + neighbours, tuned     0.120     0.042      0.194           5               NaN
+     new places, later survey                linear + neighbour level minus linear     0.034     0.016      0.049           5             0.998
+     new places, later survey                     linear + neighbours minus linear     0.023    -0.005      0.042           5             0.957
+     new places, later survey   boosting + neighbours, fixed minus boosting, fixed     0.017    -0.001      0.044           5             0.955
+     new places, later survey   boosting + neighbours, tuned minus boosting, tuned     0.001    -0.077      0.029           5             0.790
+     new places, later survey            boosting + neighbours, fixed minus hybrid    -0.087    -0.167     -0.005           5             0.011
+     new places, later survey            boosting + neighbours, tuned minus hybrid    -0.019    -0.095      0.019           5             0.268
+     new places, later survey                     linear + neighbours minus hybrid    -0.059    -0.086     -0.033           5             0.000
+spatial blocking, replicate 0 graph, geographic minus boosting + neighbours, fixed     0.012       NaN        NaN           1               NaN
+spatial blocking, replicate 0 graph, geographic minus boosting + neighbours, tuned     0.011       NaN        NaN           1               NaN
+spatial blocking, replicate 0          graph, geographic minus linear + neighbours     0.052       NaN        NaN           1               NaN
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/neighbour_features.csv

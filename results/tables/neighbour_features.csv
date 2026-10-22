@@ -1,0 +1,34 @@
+design,quantity,estimate,ci95_low,ci95_high,replicates,share_above_zero
+spatial blocking,hybrid,0.11255371845051773,0.07298364074271144,0.1408047693315219,5,
+spatial blocking,linear,0.04670449532207086,0.029030306991322787,0.05835478510372348,5,
+spatial blocking,linear + neighbour level,0.075800480447258,0.04329264269625446,0.09566927018738687,5,
+spatial blocking,linear + neighbours,0.07482120908785343,0.04322188943919609,0.09505453098841814,5,
+spatial blocking,"boosting, fixed",0.10985881351595825,0.07027578772745711,0.1392009779379437,5,
+spatial blocking,"boosting, tuned",0.09893032790483794,0.059103521837261794,0.12621022343909497,5,
+spatial blocking,"boosting + neighbours, fixed",0.11940169049617141,0.07928100006516012,0.14793293490653928,5,
+spatial blocking,"boosting + neighbours, tuned",0.11126153759028976,0.07297742988807843,0.13577756393024634,5,
+spatial blocking,linear + neighbour level minus linear,0.02909598512518714,0.011279701776746346,0.04143535646335958,5,0.997
+spatial blocking,linear + neighbours minus linear,0.028116713765782574,0.010036670355176691,0.04064021113872482,5,0.9985
+spatial blocking,"boosting + neighbours, fixed minus boosting, fixed",0.009542876980213166,0.004476540892894995,0.013980491317258424,5,0.9985
+spatial blocking,"boosting + neighbours, tuned minus boosting, tuned",0.012331209685451826,0.006717562656034517,0.01969347605426248,5,1.0
+spatial blocking,"boosting + neighbours, fixed minus hybrid",0.006847972045653683,-0.010090963147863865,0.021175912080222754,5,0.8305
+spatial blocking,"boosting + neighbours, tuned minus hybrid",-0.001292180860227976,-0.017111215773764073,0.011757694852959879,5,0.4605
+spatial blocking,linear + neighbours minus hybrid,-0.0377325093626643,-0.0523533072112694,-0.02143853414799582,5,0.0
+"new places, later survey",hybrid,0.13859685280039524,0.05879223825402632,0.19349642168911704,5,
+"new places, later survey",linear,0.05588596338310834,0.0071248424946442485,0.08843180756595011,5,
+"new places, later survey",linear + neighbour level,0.0897235448267812,0.034232362970946145,0.12761679346345034,5,
+"new places, later survey",linear + neighbours,0.07936249087205935,0.011020988835903342,0.11975516150389179,5,
+"new places, later survey","boosting, fixed",0.03385454800891301,-0.03291332094848106,0.08943858844750446,5,
+"new places, later survey","boosting, tuned",0.1186871209843859,0.032056194868608605,0.18103857644631793,5,
+"new places, later survey","boosting + neighbours, fixed",0.05124098382982829,0.006187794763983076,0.10356569110488287,5,
+"new places, later survey","boosting + neighbours, tuned",0.11965291125293905,0.042410378628221466,0.19403914574923037,5,
+"new places, later survey",linear + neighbour level minus linear,0.03383758144367286,0.01592515344471138,0.04904427336462647,5,0.998
+"new places, later survey",linear + neighbours minus linear,0.023476527488951016,-0.004767897281264907,0.04180484210459462,5,0.9565
+"new places, later survey","boosting + neighbours, fixed minus boosting, fixed",0.01738643582091528,-0.0014887061509443382,0.043941473643845916,5,0.9545
+"new places, later survey","boosting + neighbours, tuned minus boosting, tuned",0.0009657902685531461,-0.07724669208498722,0.028694908467226346,5,0.79
+"new places, later survey","boosting + neighbours, fixed minus hybrid",-0.08735586897056695,-0.16696609535332543,-0.004924643320003257,5,0.0105
+"new places, later survey","boosting + neighbours, tuned minus hybrid",-0.0189439415474562,-0.09544389456586344,0.01859129881855188,5,0.268
+"new places, later survey",linear + neighbours minus hybrid,-0.05923436192833589,-0.08590586900654949,-0.03311867097762297,5,0.0
+"spatial blocking, replicate 0","graph, geographic minus boosting + neighbours, fixed",0.012209291540148937,,,1,
+"spatial blocking, replicate 0","graph, geographic minus boosting + neighbours, tuned",0.011340971547133871,,,1,
+"spatial blocking, replicate 0","graph, geographic minus linear + neighbours",0.051898511518638224,,,1,

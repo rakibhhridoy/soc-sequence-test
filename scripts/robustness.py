@@ -15,9 +15,13 @@ and labelled as such in the manuscript:
    testing uses 2018 targets inside it, so no test point contributes to training.
 
     python scripts/robustness.py
+    python scripts/robustness.py --pool-only   # rebuild the tables from saved predictions
+
+The design forward in time at new places ran for replicates 0 to 2 here and was extended to
+replicates 3 and 4 by temporal_extend.py, which writes into the same prediction files.
 """
 from __future__ import annotations
-import sys, pathlib, time
+import argparse, sys, pathlib, time
 import numpy as np
 import pandas as pd
 
@@ -27,7 +31,8 @@ import config, tuning, baselines, blocking, train  # noqa: E402
 from run_ablations import load_npz  # noqa: E402
 from bootstrap_comparison import PRED_DIR, cfg, skill  # noqa: E402
 
-R_SPATIAL, R_EXTRA = 5, 3
+R_SPATIAL, R_EXTRA = 5, 5
+R_DECODER = 3                  # the no-decoder ablation ran on the first three
 MARGIN = 0.02
 N_BOOT = 2000
 
@@ -49,6 +54,10 @@ def gbm(X, y, pairs):
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pool-only", action="store_true",
+                    help="load saved predictions instead of refitting")
+    args = ap.parse_args()
     device = config.device()
     data = load_npz(config.DATA_PROCESSED / "panel_mineral.npz")
     d_prev = train.with_previous(data)
@@ -59,6 +68,10 @@ def main() -> int:
 
     reps = []
     for r in range(R_SPATIAL):
+        if args.pool_only:
+            z = np.load(PRED_DIR / f"robustness_rep{r}.npz")
+            reps.append({k.replace("_", " "): z[k] for k in z.files})
+            continue
         seed = 100 * r                       # ensemble members use seed, seed+1, seed+2
         config.seed_everything(seed)
         folds = list(blocking.spatial_block_folds(groups, n_folds=4, seed=r))
@@ -68,9 +81,10 @@ def main() -> int:
         p = {"hybrid": train.cross_validate(d_prev, cfg(seed=seed), folds, device, **cv)["mu"],
              "boosting": gbm(Xg, data.y, folds),
              "linear": linear_prev(data.y_prev, data.y, year, folds)}
-        if r < R_EXTRA:
+        if r < R_DECODER:
             p["no decoder"] = train.cross_validate(
                 d_prev, cfg(seed=seed, use_recurrent=False), folds, device, **cv)["mu"]
+        if r < R_EXTRA:
             # forward in time and held out in space
             st = [(np.where((groups_in(folds, f, len(data)) == 0) & (year == 2015))[0],
                    np.where((groups_in(folds, f, len(data)) == 1) & (year == 2018))[0])

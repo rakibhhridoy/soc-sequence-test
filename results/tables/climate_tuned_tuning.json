@@ -1,0 +1,38 @@
+[
+ {
+  "best": {
+   "max_depth": 3,
+   "min_child_weight": 20,
+   "colsample_bytree": 0.9,
+   "skill": 0.05968793036798614
+  },
+  "n_trees": 237
+ },
+ {
+  "best": {
+   "max_depth": 3,
+   "min_child_weight": 1,
+   "colsample_bytree": 0.5,
+   "skill": 0.06114259079287676
+  },
+  "n_trees": 362
+ },
+ {
+  "best": {
+   "max_depth": 5,
+   "min_child_weight": 1,
+   "colsample_bytree": 0.5,
+   "skill": 0.10012297744860243
+  },
+  "n_trees": 137
+ },
+ {
+  "best": {
+   "max_depth": 3,
+   "min_child_weight": 20,
+   "colsample_bytree": 0.5,
+   "skill": 0.10211387131582828
+  },
+  "n_trees": 421
+ }
+]

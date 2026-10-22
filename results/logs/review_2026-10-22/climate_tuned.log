@@ -1,0 +1,15 @@
+  hybrid, with climate             skill +0.118
+  hybrid, Landsat only             skill +0.111
+  boosting tuned, with climate     skill +0.103
+  boosting tuned, Landsat only     skill +0.100
+
+                                                       quantity  estimate  ci_low  ci_high  share_above_zero
+                                           hybrid, with climate     0.118   0.082    0.143               NaN
+                                           hybrid, Landsat only     0.111   0.067    0.143               NaN
+                                   boosting tuned, with climate     0.103   0.060    0.131               NaN
+                                   boosting tuned, Landsat only     0.100   0.057    0.127               NaN
+        hybrid, with climate minus boosting tuned, with climate     0.015   0.003    0.028             0.993
+boosting tuned, with climate minus boosting tuned, Landsat only     0.003  -0.003    0.011             0.876
+                hybrid, with climate minus hybrid, Landsat only     0.007  -0.001    0.018             0.964
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/climate_tuned.csv

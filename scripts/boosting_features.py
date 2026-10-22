@@ -11,6 +11,11 @@ variant with the saved hybrid predictions for block-bootstrap intervals.
 
     python scripts/boosting_features.py
     python scripts/boosting_features.py --deep    # grid extended to depths 10 and 12
+    python scripts/boosting_features.py --pool-only   # rebuild tables from saved predictions
+
+Replicates 3 and 4 of the design at new places were added by temporal_extend.py. In
+--pool-only mode the single-split rows at the same points are kept from the existing table,
+since that design does not depend on the replicates.
 """
 from __future__ import annotations
 import argparse, sys, pathlib, time, json
@@ -46,6 +51,8 @@ def main() -> int:
     global GRID
     ap = argparse.ArgumentParser()
     ap.add_argument("--deep", action="store_true", help="tune over BOOSTING_GRID_DEEP")
+    ap.add_argument("--pool-only", action="store_true",
+                    help="load saved predictions instead of refitting")
     args = ap.parse_args()
     suffix = "_deep" if args.deep else ""
     if args.deep:
@@ -63,6 +70,10 @@ def main() -> int:
     # spatial blocking and forward in time at new places, robustness.py's folds
     reps = []
     for r in range(R_SPATIAL):
+        if args.pool_only:
+            z = np.load(PRED_DIR / f"boosting_features{suffix}_rep{r}.npz")
+            reps.append({k.replace("__", ", ").replace("_", " "): z[k] for k in z.files})
+            continue
         t0 = time.time()
         saved = np.load(PRED_DIR / f"robustness_rep{r}.npz")
         folds = list(blocking.spatial_block_folds(groups, n_folds=4, seed=r))
@@ -134,6 +145,16 @@ def main() -> int:
                          ci95_high=hi, replicates=len(est),
                          share_above_zero=float((v > 0).mean()) if b else np.nan))
 
+    out = config.TABLES / f"boosting_features{suffix}.csv"
+    if args.pool_only:
+        same = pd.read_csv(out)
+        df = pd.concat([pd.DataFrame(rows), same[same.design == "same points, later survey"]],
+                       ignore_index=True)
+        print("\n" + df.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
+        df.to_csv(out, index=False)
+        print(f"\nwrote {out}")
+        return 0
+
     # forward in time at the same points, the single split of temporal_validation.py
     tr, te = np.where(year == 2015)[0], np.where(year == 2018)[0]
     saved = np.load(PRED_DIR / "temporal_mineral.npz")
@@ -153,7 +174,6 @@ def main() -> int:
 
     df = pd.DataFrame(rows)
     print("\n" + df.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
-    out = config.TABLES / f"boosting_features{suffix}.csv"
     df.to_csv(out, index=False)
     (config.TABLES / f"boosting_features{suffix}_tuning.json").write_text(json.dumps(log, indent=1))
     print(f"\nwrote {out}")
