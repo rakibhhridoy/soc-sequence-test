@@ -33,6 +33,11 @@ hyperparameters selected inside each training fold, pooled over five replicates:
   hybrid and boosting differ by 0.001 (-0.013 to 0.022).
 - Giving boosting the mean previous carbon of each point's graph neighbours recovers about
   half of the geographic graph's gain.
+- In carbon-crediting terms (EU carbon farming methodology under Regulation (EU) 2024/3012),
+  the noise in one remeasured sample is about 15 times the six-year gain of the 4 per 1000
+  target, detecting that gain needs about 2,100 resampled locations, a 70 % one-sided
+  confidence rule credits three in ten projects with no true change, and enrolment on a low
+  baseline credits a reversion gain six times the target (`scripts/carbon_credit_noise.py`).
 
 **Versions 2.0.0 to 2.2.2 are invalid.** Their loader read electrical conductivity as
 organic carbon for the 2015 and 2018 campaigns. Version 3.0.0 fixes the loader and reruns
@@ -83,6 +88,7 @@ python scripts/robustness.py --pool-only    # rebuild pooled tables from saved p
 python scripts/boosting_features.py --pool-only
 python scripts/neighbour_features.py        # graph neighbours' previous carbon as tabular features
 python scripts/block_sensitivity.py --block-km 390 --replicates 3
+python scripts/carbon_credit_noise.py      # measurement noise in carbon-crediting terms
 python scripts/make_figures.py
 ```
 

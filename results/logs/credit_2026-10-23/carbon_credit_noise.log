@@ -1,0 +1,87 @@
+8,221 points; land cover 2015 {'B': 5719, 'E': 2167, 'other': 335}
+                                bulk_density                                                                                           quantity   estimate   ci95_low  ci95_high
+ fine earth by land cover (Chen et al. 2024)                                                                                              var_e      0.093      0.054      0.145
+ fine earth by land cover (Chen et al. 2024)                                                                               median stock, t C/ha     34.568     28.304     40.832
+ fine earth by land cover (Chen et al. 2024)                                                                                 mean stock, t C/ha     42.649     35.693     49.630
+ fine earth by land cover (Chen et al. 2024)                                                                   noise SD of six-year change, log      0.432      0.329      0.538
+ fine earth by land cover (Chen et al. 2024)                                               mean absolute apparent change from noise, % of stock     36.887     27.366     47.538
+ fine earth by land cover (Chen et al. 2024)                                                 mean absolute apparent change from noise, t CO2/ha     46.754     37.652     52.575
+ fine earth by land cover (Chen et al. 2024)                                                           4 per 1000 gain over six years, t CO2/ha      3.073      2.516      3.629
+ fine earth by land cover (Chen et al. 2024)                                                                            noise / 4 per 1000 gain     15.217     11.289     19.610
+ fine earth by land cover (Chen et al. 2024)                                                                SD of measured six-year change, log      0.444      0.373      0.526
+ fine earth by land cover (Chen et al. 2024)                                         locations to detect 4 per 1000, CRCF eq. 8, E = 0.7 x gain    193.118    136.415    270.664
+ fine earth by land cover (Chen et al. 2024)                                               locations to detect 4 per 1000, CRCF eq. 8, E = gain     94.628     66.843    132.625
+ fine earth by land cover (Chen et al. 2024)                                               locations to detect 4 per 1000, 5 % test, 80 % power  2,127.455  1,502.797  2,981.731
+ fine earth by land cover (Chen et al. 2024)                                   locations to detect 4 per 1000, noise only, 5 % test, 80 % power  2,012.523  1,167.396  3,119.057
+ fine earth by land cover (Chen et al. 2024)                                                 minimum detectable six-year change, 1 locations, %    201.855    153.078    269.844
+ fine earth by land cover (Chen et al. 2024)                                          minimum detectable six-year change, 1 locations, t CO2/ha    255.850    209.102    293.681
+ fine earth by land cover (Chen et al. 2024)                                                minimum detectable six-year change, 10 locations, %     41.816     34.128     51.225
+ fine earth by land cover (Chen et al. 2024)                                         minimum detectable six-year change, 10 locations, t CO2/ha     53.002     46.160     58.279
+ fine earth by land cover (Chen et al. 2024)                                               minimum detectable six-year change, 100 locations, %     11.681      9.730     13.973
+ fine earth by land cover (Chen et al. 2024)                                        minimum detectable six-year change, 100 locations, t CO2/ha     14.806     13.092     16.228
+ fine earth by land cover (Chen et al. 2024)                                                        probability a no-change project is credited      0.300      0.300      0.300
+ fine earth by land cover (Chen et al. 2024)                                           expected credit without change, share of 4 per 1000 gain      0.254      0.254      0.254
+ fine earth by land cover (Chen et al. 2024)                                                           expected credit without change, t CO2/ha      0.771      0.632      0.911
+ fine earth by land cover (Chen et al. 2024)                                                      reversion gain, lowest third by baseline, log      0.134      0.077      0.190
+ fine earth by land cover (Chen et al. 2024)                                                        reversion gain, lowest third by baseline, %     14.366      8.027     20.965
+ fine earth by land cover (Chen et al. 2024)                                                 reversion gain, lowest third by baseline, t CO2/ha     10.387      6.648     12.240
+ fine earth by land cover (Chen et al. 2024)                                                                   reversion gain / 4 per 1000 gain      5.926      3.311      8.649
+ fine earth by land cover (Chen et al. 2024)          mean absolute apparent change from noise, value per ha at voluntary agriculture, US$ 7.66    358.135    288.414    402.721
+ fine earth by land cover (Chen et al. 2024)                mean absolute apparent change from noise, value per ha at EU allowance 2025, EUR 74  3,459.792  2,786.250  3,890.518
+ fine earth by land cover (Chen et al. 2024)                    4 per 1000 gain over six years, value per ha at voluntary agriculture, US$ 7.66     23.536     19.271     27.801
+ fine earth by land cover (Chen et al. 2024)                          4 per 1000 gain over six years, value per ha at EU allowance 2025, EUR 74    227.370    186.169    268.571
+ fine earth by land cover (Chen et al. 2024)   minimum detectable six-year change, 1 locations, value per ha at voluntary agriculture, US$ 7.66  1,959.809  1,601.725  2,249.594
+ fine earth by land cover (Chen et al. 2024)         minimum detectable six-year change, 1 locations, value per ha at EU allowance 2025, EUR 74 18,932.881 15,473.582 21,732.375
+ fine earth by land cover (Chen et al. 2024)  minimum detectable six-year change, 10 locations, value per ha at voluntary agriculture, US$ 7.66    405.992    353.589    446.415
+ fine earth by land cover (Chen et al. 2024)        minimum detectable six-year change, 10 locations, value per ha at EU allowance 2025, EUR 74  3,922.120  3,415.869  4,312.625
+ fine earth by land cover (Chen et al. 2024) minimum detectable six-year change, 100 locations, value per ha at voluntary agriculture, US$ 7.66    113.412    100.282    124.303
+ fine earth by land cover (Chen et al. 2024)       minimum detectable six-year change, 100 locations, value per ha at EU allowance 2025, EUR 74  1,095.626    968.780  1,200.842
+ fine earth by land cover (Chen et al. 2024)                    expected credit without change, value per ha at voluntary agriculture, US$ 7.66      5.910      4.839      6.980
+ fine earth by land cover (Chen et al. 2024)                          expected credit without change, value per ha at EU allowance 2025, EUR 74     57.090     46.745     67.435
+ fine earth by land cover (Chen et al. 2024)          reversion gain, lowest third by baseline, value per ha at voluntary agriculture, US$ 7.66     79.568     50.921     93.759
+ fine earth by land cover (Chen et al. 2024)                reversion gain, lowest third by baseline, value per ha at EU allowance 2025, EUR 74    768.669    491.927    905.770
+measured cropland mean (Panagos et al. 2024)                                                                                              var_e      0.093      0.053      0.142
+measured cropland mean (Panagos et al. 2024)                                                                               median stock, t C/ha     38.556     32.250     46.116
+measured cropland mean (Panagos et al. 2024)                                                                                 mean stock, t C/ha     49.182     40.816     58.032
+measured cropland mean (Panagos et al. 2024)                                                                   noise SD of six-year change, log      0.432      0.326      0.532
+measured cropland mean (Panagos et al. 2024)                                               mean absolute apparent change from noise, % of stock     36.887     27.090     46.942
+measured cropland mean (Panagos et al. 2024)                                                 mean absolute apparent change from noise, t CO2/ha     52.148     42.002     59.238
+measured cropland mean (Panagos et al. 2024)                                                           4 per 1000 gain over six years, t CO2/ha      3.427      2.867      4.099
+measured cropland mean (Panagos et al. 2024)                                                                            noise / 4 per 1000 gain     15.217     11.175     19.365
+measured cropland mean (Panagos et al. 2024)                                                                SD of measured six-year change, log      0.444      0.373      0.522
+measured cropland mean (Panagos et al. 2024)                                         locations to detect 4 per 1000, CRCF eq. 8, E = 0.7 x gain    193.118    136.170    266.875
+measured cropland mean (Panagos et al. 2024)                                               locations to detect 4 per 1000, CRCF eq. 8, E = gain     94.628     66.723    130.769
+measured cropland mean (Panagos et al. 2024)                                               locations to detect 4 per 1000, 5 % test, 80 % power  2,127.455  1,500.098  2,939.995
+measured cropland mean (Panagos et al. 2024)                                   locations to detect 4 per 1000, noise only, 5 % test, 80 % power  2,012.523  1,145.541  3,053.844
+measured cropland mean (Panagos et al. 2024)                                                 minimum detectable six-year change, 1 locations, %    201.855    152.867    266.462
+measured cropland mean (Panagos et al. 2024)                                          minimum detectable six-year change, 1 locations, t CO2/ha    285.366    232.344    329.230
+measured cropland mean (Panagos et al. 2024)                                                minimum detectable six-year change, 10 locations, %     41.816     34.093     50.786
+measured cropland mean (Panagos et al. 2024)                                         minimum detectable six-year change, 10 locations, t CO2/ha     59.116     51.506     65.761
+measured cropland mean (Panagos et al. 2024)                                               minimum detectable six-year change, 100 locations, %     11.681      9.721     13.868
+measured cropland mean (Panagos et al. 2024)                                        minimum detectable six-year change, 100 locations, t CO2/ha     16.514     14.614     18.367
+measured cropland mean (Panagos et al. 2024)                                                        probability a no-change project is credited      0.300      0.300      0.300
+measured cropland mean (Panagos et al. 2024)                                           expected credit without change, share of 4 per 1000 gain      0.254      0.254      0.254
+measured cropland mean (Panagos et al. 2024)                                                           expected credit without change, t CO2/ha      0.860      0.720      1.029
+measured cropland mean (Panagos et al. 2024)                                                      reversion gain, lowest third by baseline, log      0.134      0.077      0.188
+measured cropland mean (Panagos et al. 2024)                                                        reversion gain, lowest third by baseline, %     14.366      7.982     20.635
+measured cropland mean (Panagos et al. 2024)                                                 reversion gain, lowest third by baseline, t CO2/ha     11.548      7.421     13.789
+measured cropland mean (Panagos et al. 2024)                                                                   reversion gain / 4 per 1000 gain      5.926      3.293      8.512
+measured cropland mean (Panagos et al. 2024)          mean absolute apparent change from noise, value per ha at voluntary agriculture, US$ 7.66    399.452    321.732    453.765
+measured cropland mean (Panagos et al. 2024)                mean absolute apparent change from noise, value per ha at EU allowance 2025, EUR 74  3,858.938  3,108.120  4,383.626
+measured cropland mean (Panagos et al. 2024)                    4 per 1000 gain over six years, value per ha at voluntary agriculture, US$ 7.66     26.251     21.957     31.398
+measured cropland mean (Panagos et al. 2024)                          4 per 1000 gain over six years, value per ha at EU allowance 2025, EUR 74    253.601    212.121    303.327
+measured cropland mean (Panagos et al. 2024)   minimum detectable six-year change, 1 locations, value per ha at voluntary agriculture, US$ 7.66  2,185.906  1,779.752  2,521.905
+measured cropland mean (Panagos et al. 2024)         minimum detectable six-year change, 1 locations, value per ha at EU allowance 2025, EUR 74 21,117.108 17,193.424 24,363.050
+measured cropland mean (Panagos et al. 2024)  minimum detectable six-year change, 10 locations, value per ha at voluntary agriculture, US$ 7.66    452.830    394.532    503.732
+measured cropland mean (Panagos et al. 2024)        minimum detectable six-year change, 10 locations, value per ha at EU allowance 2025, EUR 74  4,374.603  3,811.409  4,866.336
+measured cropland mean (Panagos et al. 2024) minimum detectable six-year change, 100 locations, value per ha at voluntary agriculture, US$ 7.66    126.496    111.944    140.691
+measured cropland mean (Panagos et al. 2024)       minimum detectable six-year change, 100 locations, value per ha at EU allowance 2025, EUR 74  1,222.025  1,081.445  1,359.159
+measured cropland mean (Panagos et al. 2024)                    expected credit without change, value per ha at voluntary agriculture, US$ 7.66      6.591      5.513      7.884
+measured cropland mean (Panagos et al. 2024)                          expected credit without change, value per ha at EU allowance 2025, EUR 74     63.676     53.261     76.162
+measured cropland mean (Panagos et al. 2024)          reversion gain, lowest third by baseline, value per ha at voluntary agriculture, US$ 7.66     88.460     56.845    105.621
+measured cropland mean (Panagos et al. 2024)                reversion gain, lowest third by baseline, value per ha at EU allowance 2025, EUR 74    854.579    549.155  1,020.361
+                                    not used                                                      CRCF eq. 7 R2 on change, mean-reversion floor      0.088      0.085      0.094
+                                    not used                                                                  CRCF eq. 7 R2 on change, boosting      0.205      0.188      0.214
+                                    not used                                                                    CRCF eq. 7 R2 on change, hybrid      0.210      0.202      0.216
+
+wrote /Users/rakibhhridoy/soc_work/article/results/tables/carbon_credit_noise.csv  (the R2 rows give the range over replicates, not an interval)
