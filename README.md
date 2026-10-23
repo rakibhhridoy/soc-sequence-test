@@ -1,4 +1,4 @@
-# Deep sequence learning and gradient boosting for forecasting soil organic carbon change in Europe
+# Measurement noise limits soil carbon forecasting and crediting across European monitoring points
 
 Code and result tables for a test of a convolutional-recurrent hybrid against gradient
 boosting for forecasting change in soil organic carbon (SOC), on LUCAS topsoil points
@@ -43,7 +43,8 @@ hyperparameters selected inside each training fold, pooled over five replicates:
 organic carbon for the 2015 and 2018 campaigns. Version 3.0.0 fixes the loader and reruns
 every result. Version 3.1.0 adds the climate comparison and the forward-in-time
 design at new places over five replicates, a check on the block size, and neighbour features
-for the tabular models.
+for the tabular models. Version 3.2.0 adds the carbon-crediting analysis
+and redraws the figures to print widths.
 
 `results/tables/` holds every number reported in the article.
 

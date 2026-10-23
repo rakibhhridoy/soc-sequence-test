@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-title: "Code and results: Deep sequence learning and gradient boosting for forecasting soil organic carbon change in Europe"
-version: 3.1.0
+title: "Code and results: Measurement noise limits soil carbon forecasting and crediting across European monitoring points"
+version: 3.2.0
 message: If you use this software, please cite it and the accompanying article.
 type: software
 authors:
