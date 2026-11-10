@@ -443,19 +443,40 @@ def fig_change_map(d=None):
 def fig_map():
     z = np.load(config.DATA_PROCESSED / "panel_mineral.npz", allow_pickle=True)
     fold = np.load(config.TABLES.parent / "predictions" / "spatial_mineral.npz")["fold"]
+    from matplotlib.collections import PatchCollection
+    from matplotlib.patches import Rectangle
+    import json
     xy = z["coords"] / 1000.0
-    first = z["times"] == z["times"].min()          # one dot per point, not per observation
+    origin = xy.min(axis=0)                          # the block grid starts here (blocking.py)
+    # one entry per point, not per observation; points first sampled after 2009 count too
+    _, first = np.unique(z["coords"], axis=0, return_index=True)
     xy, fold = xy[first], fold[first]
+    assert len(xy) == 8275
+    # The ESDAC licence allows maps of individual points only where sample locations cannot be
+    # detected, so points are shown as cells of one eighth of a block side. Cells nest inside
+    # blocks, so each cell belongs to exactly one fold.
+    cache = json.loads((config.TABLES / "block_size_cache.json").read_text())
+    assert len(cache) == 1, "expected the mineral block size only"
+    block_km = float(next(iter(cache.values()))) / 1000.0
+    cell = block_km / 8
+    ij = np.floor((xy - origin) / cell).astype(int)
+    cells, inv = np.unique(ij, axis=0, return_inverse=True)
+    cell_fold = np.full(len(cells), -1)
+    for k in range(len(cells)):
+        fk = np.unique(fold[inv.ravel() == k])
+        assert len(fk) == 1, "a cell spans two folds"
+        cell_fold[k] = fk[0]
     ext = _extent(xy, pad=80)
     fig, axs = plt.subplots(1, 4, figsize=(DOUBLE, 2.05))
     fig.subplots_adjust(left=0.005, right=0.995, top=0.9, bottom=0.12, wspace=0.03)
+    gap = cell * 0.08
     for f, ax in enumerate(axs):
         held = fold == f
         _basemap(ax, ext)
-        ax.scatter(xy[~held, 0], xy[~held, 1], s=0.35, color=TRAIN, linewidths=0, zorder=2,
-                   rasterized=True)
-        ax.scatter(xy[held, 0], xy[held, 1], s=0.45, color=HYB, linewidths=0, zorder=3,
-                   rasterized=True)
+        for mask, colour, zo in ((cell_fold != f, TRAIN, 2), (cell_fold == f, HYB, 3)):
+            rects = [Rectangle((origin[0] + i * cell + gap / 2, origin[1] + j * cell + gap / 2),
+                               cell - gap, cell - gap) for i, j in cells[mask]]
+            ax.add_collection(PatchCollection(rects, facecolor=colour, linewidths=0, zorder=zo))
         _panel(ax, "abcd"[f], f"Fold {f + 1}, {held.sum():,} points held out", x=0.0, y=1.0)
     _scalebar(axs[0])
     fig.legend(handles=[Patch(color=TRAIN, label="Training"), Patch(color=HYB, label="Held out")],

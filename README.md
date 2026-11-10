@@ -45,6 +45,10 @@ every result. Version 3.1.0 adds the climate comparison and the forward-in-time
 design at new places over five replicates, a check on the block size, and neighbour features
 for the tabular models. Version 3.2.0 adds the carbon-crediting analysis
 and redraws the figures to print widths.
+Version 3.2.1 redraws the map of validation folds as cells of one eighth of the block side,
+since the LUCAS licence permits maps of individual points only where sample locations cannot
+be detected, and adds 28 points first sampled after 2009 that the earlier map omitted. No
+result changes.
 
 `results/tables/` holds every number reported in the article.
 
